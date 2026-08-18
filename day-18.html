@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 18 — The Dissolution of Forms</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-18.html" class="active">Day 18</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-17.html">← Day 17</a>
+      <a href="day-19.html">Day 19 →</a>
+    </div>
+
+    <h2>Day 18 — The Dissolution of Forms</h2>
+
+    <div class="quote">
+      "Being and stability are regarded by our contemporaries as akin to death; they cannot live unless they act, fret, or distract themselves with this or that. Their spirit (provided we can still talk about a spirit in their case) feeds only on sensations and on dynamism, thus becoming the vehicle for the incarnation of darker forces."
+      <cite>— Julius Evola, Revolt Against the Modern World</cite>
+    </div>
+
+    <p>Form is the principle that gives shape, limit, and lasting structure to life. In the Traditional world, form was understood as the expression of a higher order. Institutions, castes, rites, and styles of life were not arbitrary arrangements. They were attempts to make the invisible hierarchy visible and durable.</p>
+
+    <p>The modern process is one of continuous dissolution. Stable forms are treated as obstacles to freedom, movement, and growth. What remains is a field of fluid possibilities, temporary roles, and identities that can be revised at will. Dynamism itself becomes the highest value. Stillness, permanence, and clear outline are experienced as death-like.</p>
+
+    <p>A young man formed inside this process often feels a chronic restlessness that he mistakes for vitality. He moves from stimulation to stimulation because nothing holds. The capacity to remain inside a form long enough for it to shape him is weakened. The result is a life that is active on the surface and formless at the core.</p>
+
+    <p>The diagnosis does not require nostalgia for every past institution. It requires seeing that the systematic destruction of form is not neutral. It produces a particular type of human being: one who is easily moved, easily reconfigured, and increasingly incapable of the interior stability that higher life demands. Against that current, the recovery of form begins with small, deliberate acts of limitation and fidelity.</p>
+
+    <div class="day-nav">
+      <a href="day-17.html">← Day 17</a>
+      <a href="day-19.html">Day 19 →</a>
+    </div>
+
+    <div class="footer">
+      Day 18 of 35 · Diagnosis of the Modern World
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>

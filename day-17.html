@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 17 — Quantity Over Quality</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-17.html" class="active">Day 17</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-16.html">← Day 16</a>
+      <a href="day-18.html">Day 18 →</a>
+    </div>
+
+    <h2>Day 17 — Quantity Over Quality</h2>
+
+    <div class="quote">
+      "Modern society presents precisely a type of organism that has passed from the human to the subhuman, in which every activity and every reaction is determined by the needs and inclinations of a purely corporeal life. Its dominant principles are exactly those that are proper to the animal and organic-vital part of traditional hierarchies: gold and labor."
+      <cite>— Julius Evola, Revolt Against the Modern World</cite>
+    </div>
+
+    <p>One of the clearest marks of the modern world is the triumph of quantity. What can be counted, measured, produced in volume, and distributed widely is treated as more real and more important than what is rare, high, and difficult to form. Numbers replace rank. Mass replaces type. Efficiency replaces excellence of being.</p>
+
+    <p>In traditional orders the qualitative distinction between types of men and types of activity was primary. Certain functions were higher because they expressed a higher principle. The modern inversion places the economic and the vital at the center. Labor and gold become the measure of value. Everything else is subordinated to them or dismissed as impractical.</p>
+
+    <p>This shift is not merely economic. It reshapes the inner life of men. A young man raised inside a quantitative regime learns to evaluate himself and others by output, visibility, and accumulation. The quieter strengths that cannot be easily quantified - inward order, fidelity to a standard under pressure, the capacity for distance - are left undeveloped or treated as irrelevant. The result is a type that is energetic on the surface and hollow at the center.</p>
+
+    <p>Recognizing the dominance of quantity does not require contempt for material competence. It requires refusing to let material competence become the highest measure. The diagnosis is simple: an age that can no longer distinguish higher from lower will inevitably organize itself around what can be counted. That organization is the modern world.</p>
+
+    <div class="day-nav">
+      <a href="day-16.html">← Day 16</a>
+      <a href="day-18.html">Day 18 →</a>
+    </div>
+
+    <div class="footer">
+      Day 17 of 35 · Diagnosis of the Modern World
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>
