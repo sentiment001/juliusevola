@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 13 — Solar and Telluric</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-13.html" class="active">Day 13</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-12.html">← Day 12</a>
+      <a href="day-14.html">Day 14 →</a>
+    </div>
+
+    <h2>Day 13 — Solar and Telluric</h2>
+
+    <div class="quote">
+      "The blood of the heroes is closer to God than the ink of the philosophers and the prayers of the faithful."
+      <cite>— Julius Evola, Revolt Against the Modern World</cite>
+    </div>
+
+    <p>Traditional doctrines distinguish between solar and telluric forces. Solar forces rise, order, illuminate, and give form from above. Telluric forces pull downward into the earth, into the organic, the maternal, the collective, and the formless. Both exist in every age. The question is which one is given primacy in a civilization and in a man.</p>
+
+    <p>The modern world is overwhelmingly telluric in character. It favors the horizontal spread of life, the satisfaction of needs, the equalization of differences, and the continuous dissolution of higher forms into lower ones. Solar qualities such as distance, command, ascetic clarity, and the capacity to stand alone against the current are treated as suspect or outdated. The result is a culture that multiplies energy while steadily losing form.</p>
+
+    <p>This distinction will feel foreign to most young men. The surrounding culture has spent decades making any ranking of forces sound either mystical or dangerous. The discomfort is information. It shows how thoroughly the telluric view has been installed as the only respectable one. Clear thinking begins by noticing that reaction and then testing the distinction against the actual character of the age.</p>
+
+    <p>The solar orientation does not reject the earth. It masters it and places it under a higher law. A man who cannot tell the difference will mistake intensity for height and comfort for order. He will invest his strength in movements that dissolve rather than crystallize. Recognizing the pattern is part of recovering the vertical measure.</p>
+
+    <div class="day-nav">
+      <a href="day-12.html">← Day 12</a>
+      <a href="day-14.html">Day 14 →</a>
+    </div>
+
+    <div class="footer">
+      Day 13 of 15 · Orientation
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>
