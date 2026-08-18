@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 19 — Individualism and the Mass</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-19.html" class="active">Day 19</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-18.html">← Day 18</a>
+      <a href="day-20.html">Day 20 →</a>
+    </div>
+
+    <h2>Day 19 — Individualism and the Mass</h2>
+
+    <div class="quote">
+      "True freedom exists only in hierarchy, in difference, in the irreducibility of human qualities; it exists only in societies where a small group is favored in the most complete development of human possibilities."
+      <cite>— Julius Evola, Revolt Against the Modern World</cite>
+    </div>
+
+    <p>Modern culture praises the individual while simultaneously producing the mass man. The apparent contradiction is only surface. What is celebrated as individualism is usually the right of each person to pursue private desires without higher restraint. That freedom, once granted as the highest good, levels the field. Differences of rank and type become suspect. The result is a crowd of atomized units who share the same basic appetites and the same horizontal horizon.</p>
+
+    <p>Traditional freedom was of another order. It was the freedom of the higher type to develop according to his nature within a structure that recognized qualitative difference. Hierarchy made real individuality possible because it protected the space in which the superior could become what he was. Without that protection, the word individual loses its force and becomes a slogan for the interchangeable.</p>
+
+    <p>You will be told that hierarchy is the enemy of the individual. Test the claim against the evidence of the age. The societies that most loudly proclaim the absolute value of the individual have produced the most thorough standardization of tastes, speech, and inner life. The man who wishes to become something more than a statistical unit must first see that the current version of individualism is a solvent, not a support.</p>
+
+    <p>The differentiated man does not seek to dissolve into the mass, nor does he seek theatrical separation from it. He maintains an interior distance while acting where action is required. That distance is the beginning of a freedom the age no longer understands.</p>
+
+    <div class="day-nav">
+      <a href="day-18.html">← Day 18</a>
+      <a href="day-20.html">Day 20 →</a>
+    </div>
+
+    <div class="footer">
+      Day 19 of 35 · Diagnosis of the Modern World
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>
