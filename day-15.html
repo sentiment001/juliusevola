@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 15 — The Threshold</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-15.html" class="active">Day 15</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-14.html">← Day 14</a>
+      <a href="day-16.html">Day 16 →</a>
+    </div>
+
+    <h2>Day 15 — The Threshold</h2>
+
+    <div class="quote">
+      "It is necessary to have “watchers” at hand who will bear witness to the values of Tradition in ever more uncompromising and firm ways, as the anti-traditional forces grow in strength. Even though these values cannot be achieved, it does not mean that they amount to mere “ideas.” These are MEASURES…. Let us leave modern men to their “truths” and let us only be concerned about one thing: to keep standing amid a world of ruins."
+      <cite>— Julius Evola, Revolt Against the Modern World</cite>
+    </div>
+
+    <p>The first fifteen days have been concerned with orientation. The goal was to establish a few clear coordinates: the vertical against the horizontal, quality against quantity, the presence of a center, the reality of higher and lower types of man, and the character of the age as a late and degraded phase. These are not decorative ideas. They are the minimum equipment required to see clearly.</p>
+
+    <p>From this point the work shifts. The next sequence examines the modern world in greater detail: its ruling myths, its characteristic forces, and the specific ways it dissolves form. The diagnosis is severe. It will conflict with almost everything you have been taught to regard as progress, freedom, or common sense. The friction is expected. The task is to hold the diagnosis without turning it into either theatrical rage or quiet resignation.</p>
+
+    <p>A man who has begun to orient himself vertically does not need the surrounding culture to confirm his judgment. He also does not need to waste himself in continuous reaction against it. The stance required is cooler and more durable than either of those responses. It is the stance of someone who has taken the measure of the terrain and intends to remain standing on it.</p>
+
+    <p>Orientation is never finished once and for all. It must be renewed under pressure. The readings that follow will supply the pressure and the material for that renewal. Keep the standard clear. Measure yourself against it without self-flattery and without self-pity. That is the threshold.</p>
+
+    <div class="day-nav">
+      <a href="day-14.html">← Day 14</a>
+      <a href="day-16.html">Day 16 →</a>
+    </div>
+
+    <div class="footer">
+      Day 15 of 15 · Orientation complete
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>
