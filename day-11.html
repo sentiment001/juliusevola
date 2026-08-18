@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 11 — The Need for a Center</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-11.html" class="active">Day 11</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-10.html">← Day 10</a>
+      <a href="day-12.html">Day 12 →</a>
+    </div>
+
+    <h2>Day 11 — The Need for a Center</h2>
+
+    <div class="quote">
+      "According to Tradition, every authority is fraudulent, every law is unjust and barbarous, every institution is vain and ephemeral unless they are ordered to the superior principle of Being."
+      <cite>— Julius Evola, Revolt Against the Modern World</cite>
+    </div>
+
+    <p>A man without an inner center is carried by whatever current is strongest around him. The modern environment multiplies currents. Opinions, desires, fears, and group pressures arrive without pause. Most people learn to navigate by reading the surface of these forces and adjusting. That is adaptation. It is also the loss of any stable point from which judgment can be made.</p>
+
+    <p>Tradition speaks of a center that is not produced by the individual will and is not subject to the fluctuations of the age. This center is the presence of a higher principle that orders the rest of life. Without it, authority becomes mere power, law becomes convenience, and institutions become temporary arrangements for material comfort. The modern world largely operates on this basis. It treats the absence of a true center as normal and even progressive.</p>
+
+    <p>You will feel the friction of this idea immediately. The surrounding culture treats any claim of a superior principle as arrogance or superstition. The reaction is predictable. Clear the space anyway. The work of orientation requires that you test whether your own life is ordered from something higher than preference and circumstance. If it is not, the rest of these readings will remain abstract.</p>
+
+    <p>A center does not announce itself with noise. It shows itself in the consistency of a man's decisions under pressure, in the things he refuses to trade, and in the quiet refusal to be fully absorbed by the horizontal plane. The next days will sharpen the diagnosis of the age. That diagnosis only becomes useful once a man has begun to sense the need for a point that does not move with the age.</p>
+
+    <div class="day-nav">
+      <a href="day-10.html">← Day 10</a>
+      <a href="day-12.html">Day 12 →</a>
+    </div>
+
+    <div class="footer">
+      Day 11 of 15 · Orientation
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>
