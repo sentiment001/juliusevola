@@ -32,6 +32,18 @@
     .concept-card a {
       font-weight: 500;
     }
+    .winner {
+      border-color: var(--accent);
+    }
+    .winner-tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin-bottom: 0.4rem;
+      font-weight: 600;
+    }
   </style>
 </head>
 <body>
@@ -48,30 +60,37 @@
     </header>
 
     <h2>Navigation Concepts</h2>
-    <p style="margin-bottom: 0.5rem; color: var(--muted);">Three different ways to move through 365 days. Click each one to experience it.</p>
+    <p style="margin-bottom: 0.5rem; color: var(--muted);">We tested three directions. The horizontal path is the strongest practical option.</p>
 
     <div class="concept-grid">
-      <div class="concept-card">
-        <h3>1. Vertical Axis</h3>
-        <p>A rising path. Early days sit lower. Later material climbs toward the peak. Feels like ascent.</p>
-        <a href="nav-vertical.html">Open Vertical Axis →</a>
+      <div class="concept-card winner">
+        <div class="winner-tag">Current Direction</div>
+        <h3>Horizontal Path</h3>
+        <p>A left-to-right path. Early days on the left. Later material moves right and rises. Works cleanly on a webpage while keeping the sense of progression and hierarchy.</p>
+        <a href="nav-horizontal.html">Open Horizontal Path →</a>
       </div>
 
       <div class="concept-card">
-        <h3>2. Solar Wheel</h3>
-        <p>A large circular solar symbol. Rotate or click segments to move through the year. Strong Traditional geometry.</p>
-        <a href="nav-solar.html">Open Solar Wheel →</a>
+        <h3>Vertical Axis (original)</h3>
+        <p>Rising mountain path. Conceptually strong but awkward for long lists on a normal webpage.</p>
+        <a href="nav-vertical.html">View original →</a>
       </div>
 
       <div class="concept-card">
-        <h3>3. Concentric Rings</h3>
-        <p>Nested rings that map the movement of the syllabus. Outer ring = beginning. Center = deeper material.</p>
-        <a href="nav-rings.html">Open Concentric Rings →</a>
+        <h3>Solar Wheel</h3>
+        <p>Circular solar symbol. Visually interesting but interaction problems.</p>
+        <a href="nav-solar.html">View →</a>
+      </div>
+
+      <div class="concept-card">
+        <h3>Concentric Rings</h3>
+        <p>Nested rings by phase. Conceptually clear but not intuitive in use.</p>
+        <a href="nav-rings.html">View →</a>
       </div>
     </div>
 
     <div class="footer">
-      Choose the one that feels most natural. We can refine or hybridize afterward.
+      Horizontal path is the working direction going forward.
     </div>
   </div>
 
