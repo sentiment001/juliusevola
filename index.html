@@ -7,9 +7,8 @@
   <link rel="stylesheet" href="style.css">
   <style>
     .month-nav {
-      margin: 2.5rem 0 3rem;
+      margin: 2.5rem 0 2rem;
     }
-
     .month-nav label {
       display: block;
       font-size: 0.85rem;
@@ -18,10 +17,9 @@
       color: var(--muted);
       margin-bottom: 0.6rem;
     }
-
     .month-select {
       width: 100%;
-      max-width: 280px;
+      max-width: 320px;
       padding: 0.7rem 1rem;
       font-size: 1rem;
       border: 1px solid var(--border);
@@ -34,30 +32,29 @@
       background-position: right 1rem center;
       cursor: pointer;
     }
-
     .month-select:focus {
       outline: none;
       border-color: var(--accent);
     }
-
     .day-list {
       list-style: none;
-      margin-top: 1.5rem;
+      margin-top: 1.25rem;
     }
-
     .day-list li {
-      margin-bottom: 0.7rem;
+      margin-bottom: 0.65rem;
     }
-
     .day-list a {
       font-size: 1.05rem;
     }
-
     .month-title {
       font-size: 1.15rem;
       font-weight: 600;
-      margin-bottom: 1rem;
+      margin-bottom: 0.75rem;
       color: var(--accent);
+    }
+    .coming {
+      color: var(--muted);
+      font-size: 0.95rem;
     }
   </style>
 </head>
@@ -76,43 +73,28 @@
 
     <div class="landing-intro">
       <p>A daily reader drawn from the core of Julius Evola's work. Written for young men who feel the narrowness of the age they were born into and want a clearer standard.</p>
-      <p>These pages take their main direction from <em>Revolt Against the Modern World</em> and <em>Ride the Tiger</em>.</p>
+      <p>Main sources: <em>Revolt Against the Modern World</em> and <em>Ride the Tiger</em>.</p>
     </div>
 
     <div class="month-nav">
-      <label for="monthSelect">Select Month</label>
+      <label for="monthSelect">Month</label>
       <select id="monthSelect" class="month-select">
-        <option value="1">January — Days 1–31</option>
-        <option value="2">February — Days 32–59</option>
-        <option value="3">March — Days 60–90</option>
-        <option value="4">April — Days 91–120</option>
-        <option value="5">May — Days 121–151</option>
-        <option value="6">June — Days 152–181</option>
-        <option value="7">July — Days 182–212</option>
-        <option value="8">August — Days 213–243</option>
-        <option value="9">September — Days 244–273</option>
-        <option value="10">October — Days 274–304</option>
-        <option value="11">November — Days 305–334</option>
-        <option value="12">December — Days 335–365</option>
+        <option value="1">January (Day 1 – Day 31)</option>
+        <option value="2">February (Day 32 – Day 59)</option>
+        <option value="3">March (Day 60 – Day 90)</option>
+        <option value="4">April (Day 91 – Day 120)</option>
+        <option value="5">May (Day 121 – Day 151)</option>
+        <option value="6">June (Day 152 – Day 181)</option>
+        <option value="7">July (Day 182 – Day 212)</option>
+        <option value="8">August (Day 213 – Day 243)</option>
+        <option value="9">September (Day 244 – Day 273)</option>
+        <option value="10">October (Day 274 – Day 304)</option>
+        <option value="11">November (Day 305 – Day 334)</option>
+        <option value="12">December (Day 335 – Day 365)</option>
       </select>
     </div>
 
-    <div id="monthContent">
-      <div class="month-title">January — Orientation</div>
-      <ul class="day-list">
-        <li><a href="day-01.html">Day 1 — What Tradition Means</a></li>
-        <li><a href="day-02.html">Day 2 — Vertical and Horizontal</a></li>
-        <li><a href="day-03.html">Day 3 — Quality and Quantity</a></li>
-        <li><a href="day-04.html">Day 4 — The Lost Center</a></li>
-        <li><a href="day-05.html">Day 5 — Tradition and Traditionalism</a></li>
-        <li><a href="day-06.html">Day 6 — Higher and Lower Ways of Being</a></li>
-        <li><a href="day-07.html">Day 7 — The Type of Man Required</a></li>
-        <li><a href="day-08.html">Day 8 — Myth as Higher Knowledge</a></li>
-        <li><a href="day-09.html">Day 9 — The Condition of the Age</a></li>
-        <li><a href="day-10.html">Day 10 — Why This Matters</a></li>
-        <li style="color: var(--muted); font-size: 0.95rem;">Days 11–31 coming soon</li>
-      </ul>
-    </div>
+    <div id="monthContent"></div>
 
     <div class="footer">
       Primary sources: Revolt Against the Modern World · Ride the Tiger · Men Among the Ruins
@@ -120,61 +102,73 @@
   </div>
 
   <script>
-    // Simple month switcher (placeholder content for now)
-    const select = document.getElementById('monthSelect');
-    const content = document.getElementById('monthContent');
-
-    const months = {
-      1: {
-        title: "January — Orientation",
-        html: `
-          <ul class="day-list">
-            <li><a href="day-01.html">Day 1 — What Tradition Means</a></li>
-            <li><a href="day-02.html">Day 2 — Vertical and Horizontal</a></li>
-            <li><a href="day-03.html">Day 3 — Quality and Quantity</a></li>
-            <li><a href="day-04.html">Day 4 — The Lost Center</a></li>
-            <li><a href="day-05.html">Day 5 — Tradition and Traditionalism</a></li>
-            <li><a href="day-06.html">Day 6 — Higher and Lower Ways of Being</a></li>
-            <li><a href="day-07.html">Day 7 — The Type of Man Required</a></li>
-            <li><a href="day-08.html">Day 8 — Myth as Higher Knowledge</a></li>
-            <li><a href="day-09.html">Day 9 — The Condition of the Age</a></li>
-            <li><a href="day-10.html">Day 10 — Why This Matters</a></li>
-            <li style="color: var(--muted); font-size: 0.95rem;">Days 11–31 coming soon</li>
-          </ul>`
-      },
-      2: { title: "February", html: `<p style="color: var(--muted);">Days 32–59 will appear here.</p>` },
-      3: { title: "March", html: `<p style="color: var(--muted);">Days 60–90 will appear here.</p>` },
-      4: { title: "April", html: `<p style="color: var(--muted);">Days 91–120 will appear here.</p>` },
-      5: { title: "May", html: `<p style="color: var(--muted);">Days 121–151 will appear here.</p>` },
-      6: { title: "June", html: `<p style="color: var(--muted);">Days 152–181 will appear here.</p>` },
-      7: { title: "July", html: `<p style="color: var(--muted);">Days 182–212 will appear here.</p>` },
-      8: { title: "August", html: `<p style="color: var(--muted);">Days 213–243 will appear here.</p>` },
-      9: { title: "September", html: `<p style="color: var(--muted);">Days 244–273 will appear here.</p>` },
-      10: { title: "October", html: `<p style="color: var(--muted);">Days 274–304 will appear here.</p>` },
-      11: { title: "November", html: `<p style="color: var(--muted);">Days 305–334 will appear here.</p>` },
-      12: { title: "December", html: `<p style="color: var(--muted);">Days 335–365 will appear here.</p>` }
+    const realDays = {
+      1: { title: "What Tradition Means", link: "day-01.html" },
+      2: { title: "Vertical and Horizontal", link: "day-02.html" },
+      3: { title: "Quality and Quantity", link: "day-03.html" },
+      4: { title: "The Lost Center", link: "day-04.html" },
+      5: { title: "Tradition and Traditionalism", link: "day-05.html" },
+      6: { title: "Higher and Lower Ways of Being", link: "day-06.html" },
+      7: { title: "The Type of Man Required", link: "day-07.html" },
+      8: { title: "Myth as Higher Knowledge", link: "day-08.html" },
+      9: { title: "The Condition of the Age", link: "day-09.html" },
+      10: { title: "Why This Matters", link: "day-10.html" }
     };
 
-    select.addEventListener('change', () => {
-      const m = months[select.value];
-      content.innerHTML = `<div class="month-title">${m.title}</div>${m.html}`;
-    });
+    const monthRanges = {
+      1: [1, 31],
+      2: [32, 59],
+      3: [60, 90],
+      4: [91, 120],
+      5: [121, 151],
+      6: [152, 181],
+      7: [182, 212],
+      8: [213, 243],
+      9: [244, 273],
+      10: [274, 304],
+      11: [305, 334],
+      12: [335, 365]
+    };
+
+    const monthNames = {
+      1: "January", 2: "February", 3: "March", 4: "April",
+      5: "May", 6: "June", 7: "July", 8: "August",
+      9: "September", 10: "October", 11: "November", 12: "December"
+    };
+
+    function renderMonth(m) {
+      const [start, end] = monthRanges[m];
+      let html = `<div class="month-title">${monthNames[m]} (Day ${start} – Day ${end})</div><ul class="day-list">`;
+      for (let d = start; d <= end; d++) {
+        if (realDays[d]) {
+          html += `<li><a href="${realDays[d].link}">Day ${d} — ${realDays[d].title}</a></li>`;
+        } else {
+          html += `<li><a href="day.html?d=${d}" class="coming">Day ${d} — Coming soon</a></li>`;
+        }
+      }
+      html += `</ul>`;
+      document.getElementById('monthContent').innerHTML = html;
+    }
+
+    const select = document.getElementById('monthSelect');
+    select.addEventListener('change', () => renderMonth(select.value));
+    renderMonth(1);
 
     // Theme toggle
     const toggle = document.getElementById('themeToggle');
-    const html = document.documentElement;
+    const htmlEl = document.documentElement;
     const saved = localStorage.getItem('theme');
     if (saved === 'dark') {
-      html.setAttribute('data-theme', 'dark');
+      htmlEl.setAttribute('data-theme', 'dark');
       toggle.textContent = 'Day';
     }
     toggle.addEventListener('click', () => {
-      if (html.getAttribute('data-theme') === 'dark') {
-        html.removeAttribute('data-theme');
+      if (htmlEl.getAttribute('data-theme') === 'dark') {
+        htmlEl.removeAttribute('data-theme');
         toggle.textContent = 'Night';
         localStorage.setItem('theme', 'light');
       } else {
-        html.setAttribute('data-theme', 'dark');
+        htmlEl.setAttribute('data-theme', 'dark');
         toggle.textContent = 'Day';
         localStorage.setItem('theme', 'dark');
       }
