@@ -14,6 +14,7 @@
         <nav>
           <a href="index.html" class="active">Home</a>
           <a href="day-01.html">Start Day 1</a>
+          <a href="nav-concepts.html">Nav Concepts</a>
         </nav>
       </div>
       <button class="theme-toggle" id="themeToggle">Night</button>
@@ -38,6 +39,12 @@
       <li><a href="day-10.html">Day 10 — Why This Matters</a></li>
     </ul>
 
+    <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border);">
+      <p style="margin-bottom: 0.8rem;"><strong>Navigation concepts for 365 days</strong></p>
+      <p style="color: var(--muted); margin-bottom: 1rem;">Three different ways to move through a full year of readings.</p>
+      <a href="nav-concepts.html">Explore the three concepts →</a>
+    </div>
+
     <div class="footer">
       Primary sources: Revolt Against the Modern World · Ride the Tiger · Men Among the Ruins
     </div>
@@ -46,14 +53,11 @@
   <script>
     const toggle = document.getElementById('themeToggle');
     const html = document.documentElement;
-
-    // Load saved theme
     const saved = localStorage.getItem('theme');
     if (saved === 'dark') {
       html.setAttribute('data-theme', 'dark');
       toggle.textContent = 'Day';
     }
-
     toggle.addEventListener('click', () => {
       if (html.getAttribute('data-theme') === 'dark') {
         html.removeAttribute('data-theme');

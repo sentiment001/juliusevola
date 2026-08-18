@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Concentric Rings Navigation</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .rings-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 2rem 0 3rem;
+    }
+
+    .rings {
+      position: relative;
+      width: 360px;
+      height: 360px;
+    }
+
+    .ring {
+      position: absolute;
+      border-radius: 50%;
+      border: 1.5px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .ring:hover,
+    .ring.active {
+      border-color: var(--accent);
+      background: rgba(139, 26, 26, 0.04);
+    }
+
+    .ring-1 { /* outermost - Orientation */
+      width: 360px;
+      height: 360px;
+      top: 0;
+      left: 0;
+    }
+
+    .ring-2 {
+      width: 260px;
+      height: 260px;
+      top: 50px;
+      left: 50px;
+    }
+
+    .ring-3 {
+      width: 160px;
+      height: 160px;
+      top: 100px;
+      left: 100px;
+    }
+
+    .ring-center {
+      width: 70px;
+      height: 70px;
+      top: 145px;
+      left: 145px;
+      border: 2px solid var(--accent);
+      font-size: 0.7rem;
+      text-align: center;
+      color: var(--accent);
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      line-height: 1.3;
+      pointer-events: none;
+    }
+
+    .ring-label {
+      position: absolute;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      pointer-events: none;
+    }
+
+    .days-panel {
+      width: 100%;
+      max-width: 420px;
+      margin-top: 2rem;
+      min-height: 180px;
+    }
+
+    .days-panel h3 {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      color: var(--accent);
+    }
+
+    .days-panel ul {
+      list-style: none;
+    }
+
+    .days-panel li {
+      padding: 0.55rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .days-panel a {
+      font-size: 0.98rem;
+    }
+
+    .hint {
+      color: var(--muted);
+      font-size: 0.9rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="nav-concepts.html">Concepts</a>
+          <a href="nav-rings.html" class="active">Rings</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <h2>Concentric Rings</h2>
+    <p style="color: var(--muted); margin-bottom: 1rem;">Click a ring to reveal the days that belong to that phase.</p>
+
+    <div class="rings-container">
+      <div class="rings">
+        <div class="ring ring-1" data-phase="orientation" title="Orientation"></div>
+        <div class="ring ring-2" data-phase="differentiated" title="Differentiated Man"></div>
+        <div class="ring ring-3" data-phase="tiger" title="Riding the Tiger"></div>
+        <div class="ring ring-center">Center</div>
+      </div>
+
+      <div class="days-panel" id="panel">
+        <p class="hint">Click any ring</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const phases = {
+      orientation: {
+        title: "Orientation",
+        days: [
+          { num: 1, title: "What Tradition Means", link: "day-01.html" },
+          { num: 2, title: "Vertical and Horizontal", link: "day-02.html" },
+          { num: 3, title: "Quality and Quantity", link: "day-03.html" },
+          { num: 4, title: "The Lost Center", link: "day-04.html" },
+          { num: 5, title: "Tradition and Traditionalism", link: "day-05.html" }
+        ]
+      },
+      differentiated: {
+        title: "The Differentiated Man",
+        days: [
+          { num: 6, title: "Higher and Lower Ways of Being", link: "day-06.html" },
+          { num: 7, title: "The Type of Man Required", link: "day-07.html" },
+          { num: 8, title: "Myth as Higher Knowledge", link: "day-08.html" },
+          { num: 9, title: "The Condition of the Age", link: "day-09.html" },
+          { num: 10, title: "Why This Matters", link: "day-10.html" }
+        ]
+      },
+      tiger: {
+        title: "Riding the Tiger",
+        days: [
+          { num: "—", title: "Later material will live here", link: "#" }
+        ]
+      }
+    };
+
+    const panel = document.getElementById('panel');
+    const rings = document.querySelectorAll('.ring[data-phase]');
+
+    rings.forEach(ring => {
+      ring.addEventListener('click', () => {
+        rings.forEach(r => r.classList.remove('active'));
+        ring.classList.add('active');
+
+        const phase = phases[ring.dataset.phase];
+        let html = `<h3>${phase.title}</h3><ul>`;
+        phase.days.forEach(d => {
+          html += `<li><a href="${d.link}">Day ${d.num} — ${d.title}</a></li>`;
+        });
+        html += `</ul>`;
+        panel.innerHTML = html;
+      });
+    });
+
+    // Theme toggle
+    const toggle = document.getElementById('themeToggle');
+    const htmlEl = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      htmlEl.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (htmlEl.getAttribute('data-theme') === 'dark') {
+        htmlEl.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        htmlEl.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>

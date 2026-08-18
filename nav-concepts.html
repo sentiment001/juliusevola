@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navigation Concepts</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .concept-grid {
+      display: grid;
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    .concept-card {
+      border: 1px solid var(--border);
+      padding: 1.75rem;
+      background: var(--quote-bg);
+      transition: border-color 0.2s;
+    }
+    .concept-card:hover {
+      border-color: var(--accent);
+    }
+    .concept-card h3 {
+      margin-bottom: 0.6rem;
+      font-size: 1.25rem;
+    }
+    .concept-card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 1.2rem;
+    }
+    .concept-card a {
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="nav-concepts.html" class="active">Nav Concepts</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <h2>Navigation Concepts</h2>
+    <p style="margin-bottom: 0.5rem; color: var(--muted);">Three different ways to move through 365 days. Click each one to experience it.</p>
+
+    <div class="concept-grid">
+      <div class="concept-card">
+        <h3>1. Vertical Axis</h3>
+        <p>A rising path. Early days sit lower. Later material climbs toward the peak. Feels like ascent.</p>
+        <a href="nav-vertical.html">Open Vertical Axis →</a>
+      </div>
+
+      <div class="concept-card">
+        <h3>2. Solar Wheel</h3>
+        <p>A large circular solar symbol. Rotate or click segments to move through the year. Strong Traditional geometry.</p>
+        <a href="nav-solar.html">Open Solar Wheel →</a>
+      </div>
+
+      <div class="concept-card">
+        <h3>3. Concentric Rings</h3>
+        <p>Nested rings that map the movement of the syllabus. Outer ring = beginning. Center = deeper material.</p>
+        <a href="nav-rings.html">Open Concentric Rings →</a>
+      </div>
+    </div>
+
+    <div class="footer">
+      Choose the one that feels most natural. We can refine or hybridize afterward.
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>

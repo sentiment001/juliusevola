@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vertical Axis Navigation</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .axis-wrapper {
+      position: relative;
+      max-width: 520px;
+      margin: 0 auto;
+      padding: 2rem 0 6rem;
+    }
+
+    .axis-line {
+      position: absolute;
+      left: 28px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to top, var(--border), var(--accent));
+    }
+
+    .day-node {
+      position: relative;
+      padding: 0.9rem 0 0.9rem 70px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .day-node:hover {
+      background: var(--quote-bg);
+    }
+
+    .day-node::before {
+      content: "";
+      position: absolute;
+      left: 22px;
+      top: 1.35rem;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 2px solid var(--accent);
+      z-index: 2;
+    }
+
+    .day-node:hover::before {
+      background: var(--accent);
+    }
+
+    .day-num {
+      font-size: 0.8rem;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+
+    .day-title {
+      font-size: 1.05rem;
+      font-weight: 500;
+      margin-top: 0.15rem;
+    }
+
+    .phase-label {
+      padding: 1.5rem 0 0.5rem 70px;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .peak-note {
+      text-align: center;
+      margin-top: 3rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="nav-concepts.html">Concepts</a>
+          <a href="nav-vertical.html" class="active">Vertical</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <h2>Vertical Axis</h2>
+    <p style="color: var(--muted); margin-bottom: 2rem;">Scroll upward. Early days sit lower. Later material climbs toward the peak.</p>
+
+    <div class="axis-wrapper">
+      <div class="axis-line"></div>
+
+      <div class="phase-label">Orientation</div>
+
+      <div class="day-node" onclick="location.href='day-01.html'">
+        <div class="day-num">Day 01</div>
+        <div class="day-title">What Tradition Means</div>
+      </div>
+      <div class="day-node" onclick="location.href='day-02.html'">
+        <div class="day-num">Day 02</div>
+        <div class="day-title">Vertical and Horizontal</div>
+      </div>
+      <div class="day-node" onclick="location.href='day-03.html'">
+        <div class="day-num">Day 03</div>
+        <div class="day-title">Quality and Quantity</div>
+      </div>
+      <div class="day-node" onclick="location.href='day-04.html'">
+        <div class="day-num">Day 04</div>
+        <div class="day-title">The Lost Center</div>
+      </div>
+      <div class="day-node" onclick="location.href='day-05.html'">
+        <div class="day-num">Day 05</div>
+        <div class="day-title">Tradition and Traditionalism</div>
+      </div>
+
+      <div class="phase-label">The Differentiated Man</div>
+
+      <div class="day-node" onclick="location.href='day-06.html'">
+        <div class="day-num">Day 06</div>
+        <div class="day-title">Higher and Lower Ways of Being</div>
+      </div>
+      <div class="day-node" onclick="location.href='day-07.html'">
+        <div class="day-num">Day 07</div>
+        <div class="day-title">The Type of Man Required</div>
+      </div>
+      <div class="day-node" onclick="location.href='day-08.html'">
+        <div class="day-num">Day 08</div>
+        <div class="day-title">Myth as Higher Knowledge</div>
+      </div>
+      <div class="day-node" onclick="location.href='day-09.html'">
+        <div class="day-num">Day 09</div>
+        <div class="day-title">The Condition of the Age</div>
+      </div>
+      <div class="day-node" onclick="location.href='day-10.html'">
+        <div class="day-num">Day 10</div>
+        <div class="day-title">Why This Matters</div>
+      </div>
+
+      <div class="phase-label" style="opacity: 0.5;">Later phases rise higher...</div>
+
+      <div class="peak-note">The peak remains above</div>
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>

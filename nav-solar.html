@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solar Wheel Navigation</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .wheel-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 2rem 0 4rem;
+    }
+
+    .wheel {
+      position: relative;
+      width: 340px;
+      height: 340px;
+      border-radius: 50%;
+      border: 2px solid var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .wheel-inner {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 1.5px solid var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      text-align: center;
+      color: var(--accent);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .ray {
+      position: absolute;
+      width: 3px;
+      height: 28px;
+      background: var(--accent);
+      top: 8px;
+      left: 50%;
+      transform-origin: center 162px;
+      cursor: pointer;
+      opacity: 0.7;
+      transition: opacity 0.2s, height 0.2s;
+    }
+
+    .ray:hover {
+      opacity: 1;
+      height: 36px;
+    }
+
+    .ray-label {
+      position: absolute;
+      font-size: 0.7rem;
+      color: var(--muted);
+      white-space: nowrap;
+      pointer-events: none;
+    }
+
+    .selected-day {
+      margin-top: 2.5rem;
+      text-align: center;
+      min-height: 80px;
+    }
+
+    .selected-day h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .selected-day p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .selected-day a {
+      display: inline-block;
+      margin-top: 0.8rem;
+      font-weight: 500;
+    }
+
+    .hint {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="nav-concepts.html">Concepts</a>
+          <a href="nav-solar.html" class="active">Solar</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <h2>Solar Wheel</h2>
+    <p style="color: var(--muted); margin-bottom: 1rem;">Click any ray on the wheel. The selected day appears below.</p>
+
+    <div class="wheel-container">
+      <div class="wheel" id="wheel">
+        <div class="wheel-inner">Solar<br>Year</div>
+      </div>
+
+      <div class="selected-day" id="selected">
+        <p class="hint">Select a day on the wheel</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const days = [
+      { num: 1, title: "What Tradition Means", link: "day-01.html" },
+      { num: 2, title: "Vertical and Horizontal", link: "day-02.html" },
+      { num: 3, title: "Quality and Quantity", link: "day-03.html" },
+      { num: 4, title: "The Lost Center", link: "day-04.html" },
+      { num: 5, title: "Tradition and Traditionalism", link: "day-05.html" },
+      { num: 6, title: "Higher and Lower Ways of Being", link: "day-06.html" },
+      { num: 7, title: "The Type of Man Required", link: "day-07.html" },
+      { num: 8, title: "Myth as Higher Knowledge", link: "day-08.html" },
+      { num: 9, title: "The Condition of the Age", link: "day-09.html" },
+      { num: 10, title: "Why This Matters", link: "day-10.html" }
+    ];
+
+    const wheel = document.getElementById('wheel');
+    const selected = document.getElementById('selected');
+
+    days.forEach((d, i) => {
+      const angle = (i / days.length) * 360;
+      const ray = document.createElement('div');
+      ray.className = 'ray';
+      ray.style.transform = `translateX(-50%) rotate(${angle}deg)`;
+      ray.title = `Day ${d.num}`;
+      ray.addEventListener('click', () => {
+        selected.innerHTML = `
+          <h3>Day ${d.num}</h3>
+          <p>${d.title}</p>
+          <a href="${d.link}">Open this day →</a>
+        `;
+      });
+      wheel.appendChild(ray);
+    });
+
+    // Theme toggle
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>
