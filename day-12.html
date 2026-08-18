@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 12 — Race of the Spirit</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-12.html" class="active">Day 12</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-11.html">← Day 11</a>
+      <a href="day-13.html">Day 13 →</a>
+    </div>
+
+    <h2>Day 12 — Race of the Spirit</h2>
+
+    <div class="quote">
+      "What I am about to say does not concern the ordinary man of our day. On the contrary, I have in mind the man who finds himself involved in today's world, even at its most problematic and paroxysmal points; yet he does not belong inwardly to such a world, nor will he give in to it. He feels himself, in essence, as belonging to a different race from that of the overwhelming majority of his contemporaries. The natural place for such a man, the land in which he would not be a stranger, is the world of Tradition."
+      <cite>— Julius Evola, Ride the Tiger</cite>
+    </div>
+
+    <p>Evola uses the phrase "race of the spirit" to name a difference that runs deeper than blood, language, or nationality. It is the difference between those who still carry an orientation toward the vertical and those who have become fully horizontal. This is not a biological claim in the modern sense. It is a statement about the quality of the inner man and the presence or absence of a higher measure.</p>
+
+    <p>Most young men are taught that all human differences of this kind are either imaginary or dangerous. The teaching is thorough. It produces a habit of suspicion toward any ranking of types. When you encounter the idea of a spiritual race you will likely feel that suspicion rise. Notice it. Then set it aside long enough to test the idea on its own terms. The question is simple: do some men live from a different center than others, and does that difference matter more than the surface similarities of the age?</p>
+
+    <p>The man of the race of the spirit is not defined by outward success or by the approval of his peers. He is defined by an interior distance. He participates in the world of his time without letting that world rewrite his standards. He can work, speak, and act among his contemporaries while remaining inwardly ordered by something they no longer recognize. This is the type these pages address.</p>
+
+    <p>Do not treat the idea as a flattering label to claim for yourself. Treat it as a measure. The modern environment works continuously to erase the possibility of such a difference. Holding the idea clearly is already a form of resistance that requires no slogans and no public performance.</p>
+
+    <div class="day-nav">
+      <a href="day-11.html">← Day 11</a>
+      <a href="day-13.html">Day 13 →</a>
+    </div>
+
+    <div class="footer">
+      Day 12 of 15 · Orientation
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>
