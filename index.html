@@ -36,25 +36,38 @@
       outline: none;
       border-color: var(--accent);
     }
-    .day-list {
-      list-style: none;
-      margin-top: 1.25rem;
-    }
-    .day-list li {
-      margin-bottom: 0.65rem;
-    }
-    .day-list a {
-      font-size: 1.05rem;
-    }
     .month-title {
       font-size: 1.15rem;
       font-weight: 600;
-      margin-bottom: 0.75rem;
+      margin-bottom: 1.25rem;
       color: var(--accent);
+    }
+    .day-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem 2.5rem;
+      margin-top: 0.5rem;
+    }
+    .day-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .day-list li {
+      margin-bottom: 0.7rem;
+    }
+    .day-list a {
+      font-size: 1.02rem;
     }
     .coming {
       color: var(--muted);
       font-size: 0.95rem;
+    }
+    @media (max-width: 600px) {
+      .day-columns {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+      }
     }
   </style>
 </head>
@@ -168,15 +181,25 @@
 
     function renderMonth(m) {
       const [start, end] = monthRanges[m];
-      let html = `<div class="month-title">${monthNames[m]} (Day ${start} – Day ${end})</div><ul class="day-list">`;
-      for (let d = start; d <= end; d++) {
-        if (realDays[d]) {
-          html += `<li><a href="${realDays[d].link}">Day ${d} — ${realDays[d].title}</a></li>`;
-        } else {
-          html += `<li><a href="day.html?d=${d}" class="coming">Day ${d} — Coming soon</a></li>`;
+      const mid = Math.floor((start + end) / 2);
+      function listHtml(from, to) {
+        let html = `<ul class="day-list">`;
+        for (let d = from; d <= to; d++) {
+          if (realDays[d]) {
+            html += `<li><a href="${realDays[d].link}">Day ${d} — ${realDays[d].title}</a></li>`;
+          } else {
+            html += `<li><a href="day.html?d=${d}" class="coming">Day ${d} — Coming soon</a></li>`;
+          }
         }
+        html += `</ul>`;
+        return html;
       }
-      html += `</ul>`;
+      const html = `
+        <div class="month-title">${monthNames[m]} (Day ${start} – Day ${end})</div>
+        <div class="day-columns">
+          <div>${listHtml(start, mid)}</div>
+          <div>${listHtml(mid + 1, end)}</div>
+        </div>`;
       document.getElementById('monthContent').innerHTML = html;
     }
 
