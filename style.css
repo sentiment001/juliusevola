@@ -1,10 +1,22 @@
 :root {
+  /* Light / Day mode (default) */
+  --bg: #F7F3ED;
+  --text: #1a1a1a;
+  --muted: #5c5c5c;
+  --accent: #8B1A1A;
+  --quote-bg: #F0EBE3;
+  --border: #e0d9cf;
+  --header-bg: #F7F3ED;
+}
+
+[data-theme="dark"] {
   --bg: #0f0f0f;
   --text: #e8e6e3;
   --muted: #a0a0a0;
-  --accent: #c9a227;
+  --accent: #c45c5c;
   --quote-bg: #1a1a1a;
   --border: #2a2a2a;
+  --header-bg: #0f0f0f;
 }
 
 * {
@@ -16,9 +28,10 @@
 body {
   background: var(--bg);
   color: var(--text);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-  line-height: 1.7;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Georgia, "Times New Roman", serif;
+  line-height: 1.75;
   font-size: 18px;
+  transition: background 0.25s ease, color 0.25s ease;
 }
 
 a {
@@ -37,19 +50,23 @@ a:hover {
 }
 
 header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
   margin-bottom: 3rem;
   padding-bottom: 1.5rem;
   border-bottom: 1px solid var(--border);
 }
 
-header h1 {
-  font-size: 1.6rem;
+.header-left h1 {
+  font-size: 1.55rem;
   font-weight: 600;
   letter-spacing: -0.02em;
+  color: var(--text);
 }
 
 nav {
-  margin-top: 1rem;
+  margin-top: 0.6rem;
   font-size: 0.95rem;
 }
 
@@ -60,6 +77,22 @@ nav a {
 
 nav a:hover,
 nav a.active {
+  color: var(--accent);
+}
+
+.theme-toggle {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  padding: 0.4rem 0.75rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.theme-toggle:hover {
+  border-color: var(--accent);
   color: var(--accent);
 }
 
@@ -76,26 +109,28 @@ nav a.active {
   padding: 1.25rem 1.5rem;
   margin: 2rem 0 2.5rem;
   font-size: 1.05rem;
-  line-height: 1.6;
+  line-height: 1.65;
+  font-style: italic;
 }
 
 .quote cite {
   display: block;
-  margin-top: 0.85rem;
+  margin-top: 0.9rem;
   font-size: 0.85rem;
   color: var(--muted);
   font-style: normal;
 }
 
 h2 {
-  font-size: 1.35rem;
+  font-size: 1.4rem;
   font-weight: 600;
   margin-bottom: 1.5rem;
   letter-spacing: -0.01em;
+  color: var(--text);
 }
 
 p {
-  margin-bottom: 1.35rem;
+  margin-bottom: 1.4rem;
 }
 
 .footer {
@@ -115,7 +150,7 @@ p {
 }
 
 .day-list li {
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.8rem;
 }
 
 .day-list a {

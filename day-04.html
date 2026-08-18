@@ -9,11 +9,14 @@
 <body>
   <div class="container">
     <header>
-      <h1>Julius Evola Daily</h1>
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="day-04.html" class="active">Day 4</a>
-      </nav>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-04.html" class="active">Day 4</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
     </header>
 
     <div class="day-nav">
@@ -45,5 +48,26 @@
       Day 4 of 10 · Orientation
     </div>
   </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
 </body>
 </html>
