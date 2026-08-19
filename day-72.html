@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 72 — Interior Sovereignty</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-72.html" class="active">Day 72</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-71.html">← Day 71</a>
+      <a href="day-73.html">Day 73 →</a>
+    </div>
+
+    <h2>Day 72 — Interior Sovereignty</h2>
+
+    <div class="quote">
+      "Sovereignty in the modern world can only be interior. The outer supports of authority and rank have been dismantled. What remains is the capacity of the individual to rule himself according to a higher law that he alone upholds."
+      <cite>— Julius Evola, Ride the Tiger</cite>
+    </div>
+
+    <p>Interior sovereignty is the practical expression of the unmoved center. It means that the man determines the meaning of his own acts from within. The age seeks to supply him with ready-made meanings: career success, social approval, political belonging, the pursuit of sensation. Each of these is a claim on his orientation. The differentiated individual refuses to grant them final authority. He remains the one who decides what measures his life.</p>
+
+    <p>This sovereignty is not license. It is the opposite of the modern idea of freedom as the absence of limits. The man who is sovereign over himself is bound more tightly than the mass man, because the law he obeys is higher and more exacting. He does not consult the shifting consensus of his time for permission to hold a standard. The standard is already present. His task is to enforce it upon himself without the assistance of external structures that once performed that function for entire castes and orders.</p>
+
+    <p>The friction with contemporary training is sharp. Young men are taught that identity is fluid, that values are personal preferences, that any firm self-rule is a form of repression. The differentiated type treats this teaching as part of the dissolution itself. He does not argue with it at length. He simply continues to exercise the sovereignty that the teaching denies is possible. In doing so he demonstrates that the possibility still exists.</p>
+
+    <p>Interior sovereignty is tested daily in small decisions of attention, speech, desire, and work. Each time the man chooses the higher measure over the easier current he reasserts it. Over time the habit becomes character. Character of this kind is the only remaining form of aristocracy available in a leveled world. It cannot be inherited or granted by institutions. It must be taken and held.</p>
+
+    <div class="day-nav">
+      <a href="day-71.html">← Day 71</a>
+      <a href="day-73.html">Day 73 →</a>
+    </div>
+
+    <div class="footer">
+      Day 72 of 75 · The Differentiated Individual
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>
