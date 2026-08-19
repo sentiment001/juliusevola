@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 24 — Softness and the Decline of Virility</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-24.html" class="active">Day 24</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-23.html">← Day 23</a>
+      <a href="day-25.html">Day 25 →</a>
+    </div>
+
+    <h2>Day 24 — Softness and the Decline of Virility</h2>
+
+    <div class="quote">
+      "The modern world has systematically undermined the virile qualities. What was once regarded as the normal formation of the male type—hardness, self-mastery, capacity for risk and sacrifice—has been reinterpreted as pathology or as residual barbarism."
+      <cite>— Julius Evola, Ride the Tiger</cite>
+    </div>
+
+    <p>Virility in the Traditional sense is not a matter of aggression or display. It is the capacity to stand upright under pressure, to command oneself, and to act from a center that is not determined by comfort or by the need for approval. That capacity was once cultivated through discipline, hardship, and the expectation that a man would be ready to risk himself for something higher than his private well-being.</p>
+
+    <p>The present age has inverted the valuation. Softness is treated as moral progress. The avoidance of discomfort, the expansion of sensitivity, and the demand that every environment be made safe are presented as higher achievements. The result is a progressive thinning of the male type. Young men are formed in an atmosphere that treats hardness as suspect and that offers endless justifications for retreat from difficulty.</p>
+
+    <p>You will feel the friction of this diagnosis. Much of what you have been taught about emotional health and social progress points in the opposite direction. The test is practical. Observe the men around you and the men the culture celebrates. Ask whether the qualities that once defined the higher male type are still being formed or whether they are being systematically discouraged. The answer is visible in the posture, the speech, and the capacity for sustained effort of the average young man.</p>
+
+    <p>Recovery is not a matter of adopting a style. It is a matter of daily choices that rebuild the capacity to endure, to decide, and to remain unmoved by the demand for perpetual softness. The man who begins to train that capacity is already moving against the current of the age.</p>
+
+    <div class="day-nav">
+      <a href="day-23.html">← Day 23</a>
+      <a href="day-25.html">Day 25 →</a>
+    </div>
+
+    <div class="footer">
+      Day 24 of 35 · Diagnosis of the Modern World
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>
