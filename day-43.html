@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 43 — The Two Natures of Man</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-43.html" class="active">Day 43</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-42.html">← Day 42</a>
+      <a href="day-44.html">Day 44 →</a>
+    </div>
+
+    <h2>Day 43 — The Two Natures of Man</h2>
+
+    <div class="quote">
+      "Man has two natures. One belongs to the contingent, the temporal, the physical and the psychological. The other belongs to the transcendent, the eternal, the metaphysical. The Traditional path consists in the progressive realization of the second nature and the subordination of the first to it."
+      <cite>— Julius Evola, Revolt Against the Modern World</cite>
+    </div>
+
+    <p>Every man is born into the first nature. It is the nature of appetite, of fear, of social reaction, of the body that ages and of the mind that is shaped by its environment. Most men live and die inside that nature without ever questioning its limits. The age encourages them to do so. It treats the first nature as the whole of man and organizes life around its satisfaction and its management.</p>
+
+    <p>The second nature is not invented by effort. It is discovered. It is the part of the human being that is capable of standing apart from the flux of circumstance and of measuring that flux by a standard that does not change with it. In Traditional language this second nature is often called the immortal or the solar element in man. It is the seat of true dignity.</p>
+
+    <p>The friction between these two natures is permanent. The first nature seeks comfort, recognition, and the reduction of tension. The second nature seeks clarity, rank, and the capacity to remain unmoved when the first nature is disturbed. The man who refuses the conflict remains a creature of the age. The man who accepts the conflict and takes sides with the second nature begins to live under a different law.</p>
+
+    <p>This distinction is not abstract. It appears in concrete decisions about what one will endure, what one will pursue, and what one will refuse. The young man who keeps the two natures in view will find that many of the pressures of modern life lose their force. They address only the first nature. When the second nature is awake, those pressures no longer command the whole man.</p>
+
+    <div class="day-nav">
+      <a href="day-42.html">← Day 42</a>
+      <a href="day-44.html">Day 44 →</a>
+    </div>
+
+    <div class="footer">
+      Day 43 of 55 · The Traditional Order
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>
