@@ -137,18 +137,39 @@
     const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
 
     const W = 1200;
-    const padding = 72;
-    const maxTextW = W - padding * 2;
+    const pad = 72;                 // equal top and bottom margin
+    const maxTextW = W - pad * 2;
+    const lineH = 58;
 
-    // Measure first
+    // Add literal quotation marks
+    const quoteText = `“${text}”`;
+
     const canvas = document.createElement('canvas');
     const ctx = canvas.getContext('2d');
+
+    // Measure lines with the quoted text
     ctx.font = 'italic 42px Georgia, "Times New Roman", serif';
-    const lines = wrapText(ctx, text, maxTextW);
-    const lineH = 58;
-    const citeH = 36;
-    const headerH = 48;
-    const H = padding * 2 + headerH + 24 + lines.length * lineH + 40 + citeH + 70;
+    const lines = wrapText(ctx, quoteText, maxTextW);
+
+    // Precise vertical layout (all values in px from top of content area)
+    // header baseline offset, gap after header, quote lines, gap before cite,
+    // cite, gap before URL, URL
+    const headerBaseline = 28;
+    const gapAfterHeader = 36;
+    const gapBeforeCite = 28;
+    const gapBeforeUrl = 40;
+    const urlSize = 20;
+
+    const contentHeight =
+      headerBaseline +
+      gapAfterHeader +
+      lines.length * lineH +
+      gapBeforeCite +
+      26 +               // cite font size approx
+      gapBeforeUrl +
+      urlSize;
+
+    const H = pad + contentHeight + pad;
 
     canvas.width = W;
     canvas.height = H;
@@ -164,31 +185,31 @@
     // Day label
     ctx.fillStyle = isDark ? '#a0a0a0' : '#5c5c5c';
     ctx.font = '28px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif';
-    ctx.fillText(`Day ${dayNum} — Julius Evola Daily`, padding, padding + 28);
+    ctx.fillText(`Day ${dayNum} — Julius Evola Daily`, pad, pad + headerBaseline);
 
-    // Quote
+    // Quote (with curly quotes)
     ctx.fillStyle = isDark ? '#e8e6e3' : '#1a1a1a';
     ctx.font = 'italic 42px Georgia, "Times New Roman", serif';
-    let y = padding + headerH + 36;
+    let y = pad + headerBaseline + gapAfterHeader;
     lines.forEach(ln => {
-      ctx.fillText(ln, padding, y);
+      ctx.fillText(ln, pad, y);
       y += lineH;
     });
 
     // Cite
-    y += 28;
+    y += gapBeforeCite;
     ctx.fillStyle = isDark ? '#a0a0a0' : '#5c5c5c';
     ctx.font = '26px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif';
-    ctx.fillText(cite || '— Julius Evola', padding, y);
+    ctx.fillText(cite || '— Julius Evola', pad, y);
 
     // Full page URL, bottom right
     const dayFile = Number(dayNum) < 10 ? `day-0${dayNum}.html` : `day-${dayNum}.html`;
     const pageUrl = `https://sentiment001.github.io/juliusevola/${dayFile}`;
-    y += 52;
+    y += gapBeforeUrl;
     ctx.font = '20px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif';
     ctx.fillStyle = isDark ? '#666' : '#999';
     const urlWidth = ctx.measureText(pageUrl).width;
-    ctx.fillText(pageUrl, W - padding - urlWidth, y);
+    ctx.fillText(pageUrl, W - pad - urlWidth, y);
 
     return new Promise(resolve => {
       canvas.toBlob(blob => resolve(blob), 'image/png', 0.92);
