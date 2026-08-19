@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 26 — The Modern Intellectual</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-26.html" class="active">Day 26</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-25.html">← Day 25</a>
+      <a href="day-27.html">Day 27 →</a>
+    </div>
+
+    <h2>Day 26 — The Modern Intellectual</h2>
+
+    <div class="quote">
+      "The modern intellectual is typically a man without a center. His activity consists in the free play of ideas and critiques that never bind him to any higher commitment or to any form of real authority."
+      <cite>— Julius Evola, Revolt Against the Modern World</cite>
+    </div>
+
+    <p>The intellectual type that dominates the present age is defined by detachment from any binding higher principle. Ideas are treated as instruments for analysis, critique, and the continuous revision of all received forms. The result is a permanent state of provisionality. Nothing is finally settled because the intellectual posture itself requires that every position remain open to further deconstruction.</p>
+
+    <p>This type is celebrated as the highest expression of free thought. In Traditional terms it represents a regression. Thought that is no longer ordered by a vertical measure becomes a form of restlessness. It can dismantle but it cannot found. It can expose the limits of every concrete order while remaining incapable of generating a new one that is more than a temporary arrangement of interests.</p>
+
+    <p>Young men who are drawn to ideas often absorb this posture without noticing its cost. The capacity for decisive judgment is weakened. The habit of endless qualification replaces the ability to take a stand that costs something. The modern intellectual environment rewards precisely this inability to be bound.</p>
+
+    <p>The alternative is not anti-intellectualism. It is the recovery of a different relation to thought. Ideas must again serve a higher orientation rather than floating free of all commitment. The man who thinks in order to clarify a path of action and formation has already left the modern intellectual type behind.</p>
+
+    <div class="day-nav">
+      <a href="day-25.html">← Day 25</a>
+      <a href="day-27.html">Day 27 →</a>
+    </div>
+
+    <div class="footer">
+      Day 26 of 35 · Diagnosis of the Modern World
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>
