@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 44 — The Axis and the Pole</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-44.html" class="active">Day 44</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-43.html">← Day 43</a>
+      <a href="day-45.html">Day 45 →</a>
+    </div>
+
+    <h2>Day 44 — The Axis and the Pole</h2>
+
+    <div class="quote">
+      "The axis is the invisible center around which the world of Tradition is ordered. It is the pole that remains fixed while everything else turns. Without reference to that axis no true hierarchy and no true order can endure."
+      <cite>— Julius Evola, Revolt Against the Modern World</cite>
+    </div>
+
+    <p>In Traditional symbolism the axis or the pole stands for the unmoving center of the world. All motion, all change, all particular forms receive their meaning from their relation to that center. The king, the sacred mountain, the world tree, and the polar star are different expressions of the same idea. They point to a reality that does not participate in the flux and that therefore can serve as a measure for everything that does.</p>
+
+    <p>The modern world has no such axis in its public life. Its centers are temporary, functional, and horizontal. They shift with economic cycles, with political majorities, with technological change. A man who looks only to those centers will find no stable orientation. He will be carried by successive currents and will call that movement progress or adaptation.</p>
+
+    <p>The recovery of the axis is first an interior task. The young man must locate within himself a point that is not identical with his changing moods, ambitions, and reactions. That point is not created by willpower alone. It is recognized and then protected. Once it is recognized, every exterior demand can be tested against it. What strengthens the axis is kept. What weakens it is refused or limited.</p>
+
+    <p>This is the practical meaning of having a center. Without it the man remains a periphery attached to whatever periphery the age presents as important. With it he becomes capable of standing still while the surrounding forms move and dissolve. The capacity to stand still under those conditions is one of the marks of the higher type.</p>
+
+    <div class="day-nav">
+      <a href="day-43.html">← Day 43</a>
+      <a href="day-45.html">Day 45 →</a>
+    </div>
+
+    <div class="footer">
+      Day 44 of 55 · The Traditional Order
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>
