@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 113 — Conflict</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-113.html" class="active">Day 113</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-112.html">← Day 112</a>
+      <a href="day-114.html">Day 114 →</a>
+    </div>
+
+    <h2>Day 113 — Conflict</h2>
+
+    <div class="quote">
+      "Conflict is inevitable in a world of dissolution. The differentiated individual must meet it without the loss of center and without the theatrical postures that the age mistakes for strength."
+      <cite>— Julius Evola, Ride the Tiger</cite>
+    </div>
+
+    <p>Conflict is the moment when the interior order is tested against an opposing force. The age produces continuous low-level conflict and occasional higher-stakes confrontation. Most men under conflict either collapse into compliance or escalate into displays that serve the ego rather than the higher measure. The differentiated individual holds a third possibility. He remains located in the permanent standard while meeting the force that opposes him.</p>
+
+    <p>The practical demand is clarity about what is worth the cost of conflict and what is not. Many of the frictions the age generates are traps designed to pull the man into the horizontal current of continuous reaction. The higher type refuses most of them. When conflict cannot be refused, he enters it with the same measured presence applied to every other domain. Speech remains precise. The body remains under command. The decision is made from the center rather than from the heat of the moment.</p>
+
+    <p>Young men are trained in two opposite errors: the avoidance of all friction in the name of peace, and the pursuit of conflict as a form of self-assertion. Both errors keep the man inside the logic of the age. The higher type selects. He does not seek conflict for its own sake. He does not flee it when the permanent measure requires that a line be held. The distinction is maintained without the need for external applause.</p>
+
+    <p>Prepare for conflict by strengthening the applications already established. The man who has ordered the body, speech, desire, and time is already more capable of remaining vertical when opposition arrives. The unprepared man discovers his limits only when the test is underway. That discovery is usually too late. The work of intensification is the refusal to leave the discovery until the moment of necessity.</p>
+
+    <div class="day-nav">
+      <a href="day-112.html">← Day 112</a>
+      <a href="day-114.html">Day 114 →</a>
+    </div>
+
+    <div class="footer">
+      Day 113 of 130 · Intensification / Application
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>
