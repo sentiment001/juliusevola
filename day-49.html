@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 49 — Tradition as Living Force</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-49.html" class="active">Day 49</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-48.html">← Day 48</a>
+      <a href="day-50.html">Day 50 →</a>
+    </div>
+
+    <h2>Day 49 — Tradition as Living Force</h2>
+
+    <div class="quote">
+      "Tradition is not a collection of customs or a nostalgic attachment to the past. It is a living force, a continuous transmission of a spiritual influence that gives form and meaning to the successive generations."
+      <cite>— Julius Evola, Revolt Against the Modern World</cite>
+    </div>
+
+    <p>Tradition in the higher sense is not the sum of inherited habits. It is the presence of a formative principle that continues to act across time. That principle is not preserved by mere repetition of outer forms. It is preserved by the presence of men who still carry the quality that originally shaped those forms. When the quality disappears, the outer forms become empty shells and eventually dissolve.</p>
+
+    <p>The modern world treats Tradition as a museum or as an obstacle. It either embalms the past for aesthetic consumption or attacks it as a barrier to progress. Both attitudes miss the living character of the real Tradition. The real Tradition is recognized by its capacity to generate order, hierarchy, and a sense of the sacred in the present. Where that capacity is absent, the name Tradition is being used for something else.</p>
+
+    <p>The young man who seeks contact with this living force will not find it primarily in books or in reconstructed ceremonies. He will find it in the rare individuals and small groups that still embody a higher measure in their actual conduct. He will also find it in himself when he succeeds in acting from a center that is not determined by the age. The force is transmitted through quality of being more than through formal continuity.</p>
+
+    <p>This understanding removes both the temptation of sterile traditionalism and the opposite temptation of pure innovation. The task is not to restore a vanished outer order by force of will. The task is to keep alive, in one's own person and in the narrow circle one can influence, the vertical orientation that alone gives any order its ultimate justification. That is the only form of Tradition still possible under present conditions.</p>
+
+    <div class="day-nav">
+      <a href="day-48.html">← Day 48</a>
+      <a href="day-50.html">Day 50 →</a>
+    </div>
+
+    <div class="footer">
+      Day 49 of 55 · The Traditional Order
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>
