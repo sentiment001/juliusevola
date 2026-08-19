@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 91 — Independence from Results</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-91.html" class="active">Day 91</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-90.html">← Day 90</a>
+      <a href="day-92.html">Day 92 →</a>
+    </div>
+
+    <h2>Day 91 — Independence from Results</h2>
+
+    <div class="quote">
+      "The differentiated man acts with full intensity while remaining independent of the results. Attachment to outcomes is one of the ways the age dissolves the higher type."
+      <cite>— Julius Evola, Ride the Tiger</cite>
+    </div>
+
+    <p>Action under the higher measure is complete in itself. The man does what the center requires. The visible outcome belongs to a larger order of causes that he does not control. When he becomes dependent on a particular result he has already begun to surrender the interior position. The age exploits that dependence. It offers rewards and punishments calibrated to keep the man oriented toward external success rather than toward the permanent standard.</p>
+
+    <p>Independence from results does not mean indifference to quality or to consequence. The action itself is performed with the full seriousness of the type. What is refused is the identification of the self with the success or failure of the action in the terms of the surrounding world. The man remains the same whether the immediate field yields or resists. That sameness is the mark of the center that has not been captured.</p>
+
+    <p>This stance is difficult because the age trains men from childhood to measure themselves by results. Grades, careers, recognition, numbers of followers, accumulation of resources. The entire environment reinforces the equation of value with visible outcome. Breaking that equation requires a deliberate and repeated refusal of the training. The refusal is one of the practical disciplines of the rider.</p>
+
+    <p>When independence from results is achieved the man becomes capable of sustained action over long periods without the need for constant reinforcement from the environment. He can continue when the current runs against him. He can also stop when the higher measure requires it, without the sense of personal defeat that attaches to the man who has staked his identity on the outcome. That capacity is essential for riding the tiger through an extended phase of dissolution.</p>
+
+    <div class="day-nav">
+      <a href="day-90.html">← Day 90</a>
+      <a href="day-92.html">Day 92 →</a>
+    </div>
+
+    <div class="footer">
+      Day 91 of 100 · Riding the Tiger
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>
