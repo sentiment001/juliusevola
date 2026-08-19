@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 163 — Standing as the Residual Act</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-163.html" class="active">Day 163</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-162.html">← Day 162</a>
+      <a href="day-164.html">Day 164 →</a>
+    </div>
+
+    <h2>Day 163 — Standing as the Residual Act</h2>
+
+    <div class="quote">
+      "In the residual phase the primary act is simply to remain standing according to the permanent measure when every supporting structure has been withdrawn."
+      <cite>— Julius Evola, Ride the Tiger</cite>
+    </div>
+
+    <p>Standing as the residual act is the simplest and most exact statement of the path. The traditional world supplied forms that made the higher type the natural product of participation in those forms. The residual age supplies the opposite. Standing under these conditions is no longer the byproduct of an ordered environment. It is the deliberate residual act that the differentiated individual must perform continuously.</p>
+
+    <p>The act is not dramatic. It is the daily maintenance of the residual axis, the interior form, and the applications already established. It is the refusal to let the dissolution rewrite the measure. It is the continued presence of the higher quality in a man who no longer receives external confirmation of that quality. The accumulation of such days is the residual continuity.</p>
+
+    <p>Young men who reach this depth of the sequence often look for a more spectacular conclusion. The residual path does not supply one. The conclusion is the continued standing itself. The man who keeps the measure under residual pressure has already performed the essential act. Nothing further is required for the residual possibility to be actual.</p>
+
+    <p>Stand. Keep the residual axis without requiring the age to supply a supporting stage. The man who does so has already completed the movement that the deeper material has been clarifying. That standing is the residual victory of the type.</p>
+
+    <div class="day-nav">
+      <a href="day-162.html">← Day 162</a>
+      <a href="day-164.html">Day 164 →</a>
+    </div>
+
+    <div class="footer">
+      Day 163 · Deeper Material
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>
