@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 93 — Orientation Under Acceleration</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-93.html" class="active">Day 93</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-92.html">← Day 92</a>
+      <a href="day-94.html">Day 94 →</a>
+    </div>
+
+    <h2>Day 93 — Orientation Under Acceleration</h2>
+
+    <div class="quote">
+      "The acceleration of the forces of dissolution is itself a test. The man who loses his orientation under that acceleration has already been thrown by the tiger."
+      <cite>— Julius Evola, Ride the Tiger</cite>
+    </div>
+
+    <p>The age accelerates. Processes that once took generations now unfold in years or months. Information, fashion, political language, technological change, the revision of basic social forms. The speed itself becomes a solvent. It prevents the formation of stable habits of mind and it rewards the man who can change direction without friction. Under these conditions orientation is constantly threatened.</p>
+
+    <p>The differentiated individual does not try to match the speed of the age with an equal speed of adaptation. He maintains a slower and more deliberate rhythm of decision. That rhythm is not nostalgia for a vanished pace of life. It is the practical expression of the permanent measure. Decisions that matter are allowed the time required for referral to the center. The pressure of acceleration is registered but not obeyed as law.</p>
+
+    <p>Many men collapse under the acceleration by becoming pure reactors. Their positions, their interests, their very sense of self are revised with each new wave. Others collapse by freezing into a rigid posture that cannot move at all. Both failures leave the man unable to ride. The correct response is the maintenance of orientation while still capable of necessary movement. The orientation is the fixed point. The movement is selective and measured.</p>
+
+    <p>This capacity is formed through practice under increasing pressure. The man deliberately exposes himself to the accelerations of the age in controlled ways and tests whether the center remains operative. Where it does not he strengthens the disciplines that restore it. Over time the orientation becomes less fragile. The tiger may run faster. The rider remains upright.</p>
+
+    <div class="day-nav">
+      <a href="day-92.html">← Day 92</a>
+      <a href="day-94.html">Day 94 →</a>
+    </div>
+
+    <div class="footer">
+      Day 93 of 100 · Riding the Tiger
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>
