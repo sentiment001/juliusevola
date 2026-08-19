@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 81 — Beyond Futile Opposition</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-81.html" class="active">Day 81</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-80.html">← Day 80</a>
+      <a href="day-82.html">Day 82 →</a>
+    </div>
+
+    <h2>Day 81 — Beyond Futile Opposition</h2>
+
+    <div class="quote">
+      "Direct and total opposition to the forces that dominate a terminal phase of a cycle is usually futile. The man of higher type must learn to act in another mode. He does not waste himself in battles that cannot be won on the plane where they are fought."
+      <cite>— Julius Evola, Ride the Tiger</cite>
+    </div>
+
+    <p>Futile opposition is the trap that catches many who sense the wrongness of the age. They recognize the dissolution. They feel the demand to resist. They then throw themselves against the most visible manifestations of that dissolution — political, cultural, or institutional — with an energy that the system is well equipped to absorb, redirect, or crush. The result is often the exhaustion of the better type and the further confirmation of the system’s power.</p>
+
+    <p>The differentiated individual moves beyond this pattern. He does not abandon the higher measure. He abandons the illusion that the higher measure can be restored by frontal assault on a cycle that has already entered its descending phase. The energy that would have been spent in futile opposition is conserved and redirected into the maintenance of the interior position and into the selective use of the forces themselves.</p>
+
+    <p>This is a hard teaching for young men whose natural impulse is to fight what they see as the enemy. The impulse is not wrong in origin. It is wrong in application when the terrain no longer favors open battle. The man who insists on fighting on the enemy’s chosen ground has already conceded the strategic advantage. The rider of the tiger chooses different ground. The ground is first of all interior. From there he decides when and how any outer action is still useful.</p>
+
+    <p>Beyond futile opposition does not mean quietism or collaboration. It means the refusal to be drawn into contests whose only possible outcome is the depletion of the higher type. The man remains capable of action. He simply reserves that capacity for moments and forms that serve the continuity of the principle rather than the satisfaction of immediate resistance. That reservation is itself a form of strength.</p>
+
+    <div class="day-nav">
+      <a href="day-80.html">← Day 80</a>
+      <a href="day-82.html">Day 82 →</a>
+    </div>
+
+    <div class="footer">
+      Day 81 of 100 · Riding the Tiger
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>
