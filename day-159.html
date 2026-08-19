@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 159 — The Man of the Residual Path</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-159.html" class="active">Day 159</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-158.html">← Day 158</a>
+      <a href="day-160.html">Day 160 →</a>
+    </div>
+
+    <h2>Day 159 — The Man of the Residual Path</h2>
+
+    <div class="quote">
+      "The man who follows the residual path is defined by the fact that he continues to form himself according to the permanent measure after every collective support for that measure has disappeared."
+      <cite>— Julius Evola, Ride the Tiger</cite>
+    </div>
+
+    <p>The man of the residual path is the concrete figure the sequence has been forming. He is not a revolutionary and he is not a reactionary in the ordinary sense of those terms. He is the man who has accepted the irreversible character of the present phase and has refused to surrender the higher type on that account. His definition is practical rather than ideological. It is visible in the consistency of the residual stance under ordinary pressure.</p>
+
+    <p>This man does not require a supporting environment in order to remain what he is. The environment of the residual age is hostile or indifferent to the higher quality. He continues anyway. The continuation is not a performance for others. It is the interior decision repeated until it becomes the stable form of the life. That form is the residual path made actual.</p>
+
+    <p>Young men who sense the call of a higher measure often look for a ready-made identity that will carry the measure for them. The residual path supplies no such identity. It supplies only the repeated demand to keep the axis, the form, and the applications. The man who answers the demand becomes the residual type through the answering itself.</p>
+
+    <p>Continue on the residual path without further negotiation. Keep the measure under the conditions that exist. The man who does so has already become the figure the sequence has been preparing. That becoming is the residual victory.</p>
+
+    <div class="day-nav">
+      <a href="day-158.html">← Day 158</a>
+      <a href="day-160.html">Day 160 →</a>
+    </div>
+
+    <div class="footer">
+      Day 159 · Deeper Material
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>

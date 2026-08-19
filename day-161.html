@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 161 — Continuity Without Continuity of Forms</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-161.html" class="active">Day 161</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-160.html">← Day 160</a>
+      <a href="day-162.html">Day 162 →</a>
+    </div>
+
+    <h2>Day 161 — Continuity Without Continuity of Forms</h2>
+
+    <div class="quote">
+      "True continuity is the transmission of the higher quality itself, even when the external forms that once carried that quality have been broken."
+      <cite>— Julius Evola, Revolt Against the Modern World</cite>
+    </div>
+
+    <p>Continuity without continuity of forms is the residual mode of transmission. Traditional continuity operated through institutions, initiations, and the unbroken succession of ranks and functions. Those vehicles have largely ceased. What remains is the possibility of transmitting the higher quality through the continued existence of the type itself. The man who becomes the residual type becomes a point of continuity even though no formal chain supports him.</p>
+
+    <p>This continuity is invisible to the collective. It does not appear in public records or in recognized lineages. It appears in the practical fact that a man continues to live according to the permanent measure after the supporting structures have withdrawn. That fact is the residual transmission. It does not require recognition in order to be real.</p>
+
+    <p>Young men who seek higher orientation often look for an unbroken formal tradition that will receive them. The residual age supplies few such traditions in living form. The search can become a substitute for the actual work of becoming the residual type. Continuity of quality does not wait for the formal vehicle to reappear. It is established by the man who keeps the measure under residual conditions.</p>
+
+    <p>Become the residual continuity. Keep the axis, the form, and the applications without requiring a supporting institution to authorize the keeping. The man who does so has already entered the only transmission that remains intact in the residual phase.</p>
+
+    <div class="day-nav">
+      <a href="day-160.html">← Day 160</a>
+      <a href="day-162.html">Day 162 →</a>
+    </div>
+
+    <div class="footer">
+      Day 161 · Deeper Material
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>
