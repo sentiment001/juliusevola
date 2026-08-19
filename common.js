@@ -141,35 +141,31 @@
     const maxTextW = W - pad * 2;
     const lineH = 58;
 
-    // Add literal quotation marks
+    // Literal quotation marks around the quote
     const quoteText = `“${text}”`;
 
     const canvas = document.createElement('canvas');
     const ctx = canvas.getContext('2d');
 
-    // Measure lines with the quoted text
+    // Measure wrapped lines
     ctx.font = 'italic 42px Georgia, "Times New Roman", serif';
     const lines = wrapText(ctx, quoteText, maxTextW);
 
-    // Precise vertical layout (all values in px from top of content area)
-    // header baseline offset, gap after header, quote lines, gap before cite,
-    // cite, gap before URL, URL
+    // Layout constants
     const headerBaseline = 28;
-    const gapAfterHeader = 36;
-    const gapBeforeCite = 28;
-    const gapBeforeUrl = 40;
-    const urlSize = 20;
+    const gapAfterHeader = 40;   // from header baseline to first quote baseline
+    const gapBeforeCite = 36;    // from last quote baseline to cite baseline
+    const gapBeforeUrl = 44;     // from cite baseline to URL baseline
 
-    const contentHeight =
-      headerBaseline +
-      gapAfterHeader +
-      lines.length * lineH +
-      gapBeforeCite +
-      26 +               // cite font size approx
-      gapBeforeUrl +
-      urlSize;
-
-    const H = pad + contentHeight + pad;
+    // Simulate the final URL baseline so canvas height matches exactly
+    // (avoids overlap / clipping and keeps top/bottom padding equal)
+    let simY = pad + headerBaseline + gapAfterHeader;
+    if (lines.length > 0) {
+      simY += (lines.length - 1) * lineH;  // last quote baseline
+    }
+    simY += gapBeforeCite;                 // cite baseline
+    simY += gapBeforeUrl;                  // URL baseline
+    const H = simY + pad;                  // equal bottom padding
 
     canvas.width = W;
     canvas.height = H;
@@ -178,7 +174,7 @@
     ctx.fillStyle = isDark ? '#0f0f0f' : '#F7F3ED';
     ctx.fillRect(0, 0, W, H);
 
-    // Accent bar
+    // Left accent bar
     ctx.fillStyle = isDark ? '#c45c5c' : '#8B1A1A';
     ctx.fillRect(0, 0, 12, H);
 
@@ -187,13 +183,13 @@
     ctx.font = '28px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif';
     ctx.fillText(`Day ${dayNum} — Julius Evola Daily`, pad, pad + headerBaseline);
 
-    // Quote (with curly quotes)
+    // Quote lines (with curly quotes)
     ctx.fillStyle = isDark ? '#e8e6e3' : '#1a1a1a';
     ctx.font = 'italic 42px Georgia, "Times New Roman", serif';
     let y = pad + headerBaseline + gapAfterHeader;
-    lines.forEach(ln => {
+    lines.forEach((ln, i) => {
       ctx.fillText(ln, pad, y);
-      y += lineH;
+      if (i < lines.length - 1) y += lineH;
     });
 
     // Cite
