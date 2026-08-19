@@ -42,7 +42,7 @@
     return paras.join('\n\n');
   }
 
-  // ---------- Action bar ----------
+  // ---------- Action bar (top placement for visibility on phone) ----------
   const bar = document.createElement('div');
   bar.className = 'action-bar';
   bar.innerHTML = `
@@ -50,12 +50,14 @@
     <button type="button" class="action-btn" id="shareBtn" aria-label="Share quote as image">Share quote</button>
     <button type="button" class="action-btn" id="reportBtn" aria-label="Report inaccuracy">Report inaccuracy</button>
   `;
-  // Insert before the footer
-  const footer = document.querySelector('.footer');
-  if (footer) {
-    footer.parentNode.insertBefore(bar, footer);
+  // Place immediately after the first day-nav so controls are visible without scrolling on phone
+  const topNav = document.querySelector('.day-nav');
+  if (topNav && topNav.parentNode) {
+    topNav.parentNode.insertBefore(bar, topNav.nextSibling);
   } else {
-    document.querySelector('.container').appendChild(bar);
+    const footer = document.querySelector('.footer');
+    if (footer) footer.parentNode.insertBefore(bar, footer);
+    else document.querySelector('.container').appendChild(bar);
   }
 
   const listenBtn = document.getElementById('listenBtn');
@@ -146,7 +148,7 @@
     const lineH = 58;
     const citeH = 36;
     const headerH = 48;
-    const H = padding * 2 + headerH + 24 + lines.length * lineH + 40 + citeH + 60;
+    const H = padding * 2 + headerH + 24 + lines.length * lineH + 40 + citeH + 70;
 
     canvas.width = W;
     canvas.height = H;
@@ -179,11 +181,14 @@
     ctx.font = '26px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif';
     ctx.fillText(cite || '— Julius Evola', padding, y);
 
-    // Site line
-    y += 48;
-    ctx.font = '22px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif';
+    // Full page URL, bottom right
+    const dayFile = Number(dayNum) < 10 ? `day-0${dayNum}.html` : `day-${dayNum}.html`;
+    const pageUrl = `https://sentiment001.github.io/juliusevola/${dayFile}`;
+    y += 52;
+    ctx.font = '20px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif';
     ctx.fillStyle = isDark ? '#666' : '#999';
-    ctx.fillText('juliusevola · Tradition as vertical orientation', padding, y);
+    const urlWidth = ctx.measureText(pageUrl).width;
+    ctx.fillText(pageUrl, W - padding - urlWidth, y);
 
     return new Promise(resolve => {
       canvas.toBlob(blob => resolve(blob), 'image/png', 0.92);
