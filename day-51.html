@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 51 — The Principle of Superiority</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-51.html" class="active">Day 51</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-50.html">← Day 50</a>
+      <a href="day-52.html">Day 52 →</a>
+    </div>
+
+    <h2>Day 51 — The Principle of Superiority</h2>
+
+    <div class="quote">
+      "Superiority is not a claim of the ego. It is the objective presence of a higher quality of being. Where that quality is present, rank follows as a natural consequence. Where it is absent, every assertion of rank is empty."
+      <cite>— Julius Evola, Revolt Against the Modern World</cite>
+    </div>
+
+    <p>The principle of superiority is the recognition that qualitative differences among men are real and that those differences create a natural order of rank. Superiority is measured by proximity to the transcendent, by the degree of form, clarity, and detachment a man has achieved. It is not measured by success within the categories of the age.</p>
+
+    <p>The modern world denies the principle in theory while operating by crude versions of it in practice. It denies that any man can be higher in type. At the same time it produces hierarchies of money, of technical skill, of media visibility, and of political power. These hierarchies lack a spiritual foundation and therefore remain unstable and ultimately degrading.</p>
+
+    <p>The young man who accepts the principle of superiority must apply it first to himself. He must ask whether a higher quality is actually present in him or whether he is merely asserting a position. The answer is found in the concrete tests of daily life: the capacity to remain clear under pressure, the capacity to refuse the lower when it is easy and advantageous, the capacity to act without needing the approval of the surrounding level.</p>
+
+    <p>When the principle is held without self-deception it produces a quiet and exacting standard. The man no longer competes for the ranks the age distributes. He measures himself against a different scale and accepts the isolation that scale often requires. That isolation is the price of remaining superior in a world that has declared superiority itself illegitimate.</p>
+
+    <div class="day-nav">
+      <a href="day-50.html">← Day 50</a>
+      <a href="day-52.html">Day 52 →</a>
+    </div>
+
+    <div class="footer">
+      Day 51 of 55 · The Traditional Order
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>
