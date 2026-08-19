@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 137 — Clarity of Type</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-137.html" class="active">Day 137</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-136.html">← Day 136</a>
+      <a href="day-138.html">Day 138 →</a>
+    </div>
+
+    <h2>Day 137 — Clarity of Type</h2>
+
+    <div class="quote">
+      "The differentiated individual must possess a clear awareness of his own type and of the distance that separates that type from the prevailing human material of the age."
+      <cite>— Julius Evola, Ride the Tiger</cite>
+    </div>
+
+    <p>Clarity of type is the refusal of confusion between the higher measure and the common condition. The age works continuously to erase that distinction. It presents the ordinary man as the only real type and treats any claim to a higher standard as pretension or pathology. The differentiated individual must therefore maintain an interior clarity that the surrounding environment will never confirm.</p>
+
+    <p>This clarity is not a matter of social comparison or of ranking oneself above others. It is the recognition that the permanent measure exists and that certain men are still capable of living according to it. The recognition does not require external validation. It is established by the consistency with which the man applies the measure to his own existence. When the applications are maintained, the type becomes clear from within.</p>
+
+    <p>Young men often experience a tension here. They sense a difference between themselves and the surrounding mass, yet they have been trained to distrust that sense. The training produces either self-doubt or theatrical superiority. Both are forms of confusion. Clarity of type is free of both. It is the quiet knowledge that the measure is real and that the man is responsible for remaining faithful to it regardless of how few others recognize the same responsibility.</p>
+
+    <p>Strengthen the applications that make the type concrete. Body, speech, attention, and decision are the domains in which clarity is either confirmed or lost. The man who remains consistent in these domains already possesses the clarity that the age cannot supply. He does not need to announce it. He needs only to continue it.</p>
+
+    <div class="day-nav">
+      <a href="day-136.html">← Day 136</a>
+      <a href="day-138.html">Day 138 →</a>
+    </div>
+
+    <div class="footer">
+      Day 137 · Deeper Material
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>
