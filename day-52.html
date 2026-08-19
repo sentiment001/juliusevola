@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 52 — Organic Hierarchy</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-52.html" class="active">Day 52</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-51.html">← Day 51</a>
+      <a href="day-53.html">Day 53 →</a>
+    </div>
+
+    <h2>Day 52 — Organic Hierarchy</h2>
+
+    <div class="quote">
+      "An organic hierarchy is one in which each level and each function finds its proper place within a living whole ordered from above. It is the opposite of both mechanical equality and of pure domination by force."
+      <cite>— Julius Evola, Revolt Against the Modern World</cite>
+    </div>
+
+    <p>Organic hierarchy is the Traditional answer to the problem of order among unequal beings. It is organic because the relations within it are living and qualitative rather than mechanical. Each rank has a function that contributes to the whole, and the whole is oriented toward a principle that stands above the particular interests of any rank. The lower is not crushed. It is given its place and its dignity within a structure that acknowledges the higher.</p>
+
+    <p>The modern alternatives are mechanical equality and the open rule of force. Mechanical equality pretends that qualitative differences do not exist or should not matter. The rule of force accepts differences but reduces them to the capacity to coerce. Neither produces a durable or elevated order. Both produce instability and the progressive loss of meaning.</p>
+
+    <p>The young man cannot reconstruct an organic hierarchy in the public institutions of the age. He can, however, understand the principle and apply it where he has real influence. In his own life he can establish a clear order among his own impulses and activities. In the small groups he forms or joins he can insist on qualitative rank rather than on numerical or sentimental equality.</p>
+
+    <p>This application will meet resistance. The age has trained men to experience any clear hierarchy as an offense. The man who holds the principle will therefore need both firmness and precision. He must be able to distinguish true organic rank from mere personal preference or from the will to dominate. Only the first is worth defending. The defense of the first is already a form of Traditional action in a late age.</p>
+
+    <div class="day-nav">
+      <a href="day-51.html">← Day 51</a>
+      <a href="day-53.html">Day 53 →</a>
+    </div>
+
+    <div class="footer">
+      Day 52 of 55 · The Traditional Order
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>
