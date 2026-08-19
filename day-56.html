@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 56 — The Differentiated Individual</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-56.html" class="active">Day 56</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-55.html">← Day 55</a>
+      <a href="day-57.html">Day 57 →</a>
+    </div>
+
+    <h2>Day 56 — The Differentiated Individual</h2>
+
+    <div class="quote">
+      "In the conditions of the modern world the only possible attitude for a man who still possesses a higher sense of being is that of the differentiated individual. He lives in the world without belonging to it, and he draws his measure from a principle that the world no longer recognizes."
+      <cite>— Julius Evola, Ride the Tiger</cite>
+    </div>
+
+    <p>The Traditional Order has been set out. Its principles remain true. They no longer find support in the surrounding institutions, customs, or collective spirit of the age. The man who has understood those principles must therefore carry them alone. The differentiated individual is the name given to this type. He is differentiated because he stands apart from the leveling process that defines the time. He is individual because the center he obeys is interior and no longer supplied by a living tradition outside himself.</p>
+
+    <p>This is not a romantic posture. It is a necessity imposed by the condition of the age. The supports that once formed men of higher type have been removed or inverted. Education dissolves rank. Public life rewards adaptation. The economic order treats every man as interchangeable material. Under these conditions the vertical orientation can continue only as a personal decision repeatedly renewed. The differentiated individual is the man who makes that decision and holds to it.</p>
+
+    <p>He does not withdraw into fantasy or into the reconstruction of vanished forms. He remains in the world. He works, he moves among others, he faces the same pressures. What changes is the point from which he measures those pressures. The age offers him its standards of success, of pleasure, of belonging. He answers to a different standard. The distance this creates is the first mark of his type.</p>
+
+    <p>From this day forward the demand sharpens. The principles of hierarchy, of quality, of the higher measure must now be applied without the assistance of an outer order. The man who continues will find that the work is harder and the isolation more complete. That is the terrain. The differentiated individual is the only type still capable of standing on it.</p>
+
+    <div class="day-nav">
+      <a href="day-55.html">← Day 55</a>
+      <a href="day-57.html">Day 57 →</a>
+    </div>
+
+    <div class="footer">
+      Day 56 of 75 · The Differentiated Individual
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>
