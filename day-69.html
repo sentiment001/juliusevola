@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 69 — Clarity</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-69.html" class="active">Day 69</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-68.html">← Day 68</a>
+      <a href="day-70.html">Day 70 →</a>
+    </div>
+
+    <h2>Day 69 — Clarity</h2>
+
+    <div class="quote">
+      "Clarity is the first weapon of the differentiated man. Without it he is moved by forces he does not recognize and cannot resist. With it he sees the age as it is and maintains his own orientation against it."
+      <cite>— Julius Evola, Ride the Tiger</cite>
+    </div>
+
+    <p>Clarity is the capacity to see without the distortions that the age systematically produces. Those distortions include the myth of progress, the equation of the new with the better, the reduction of all value to quantity and sensation, the treatment of hierarchy as injustice. The man who still accepts any of these as true has already been claimed. Clarity begins with the refusal of the official story of the age about itself.</p>
+
+    <p>This clarity is not primarily intellectual. It is a quality of perception that must be maintained against continuous pressure. The environment supplies a constant stream of images, arguments, and emotional cues designed to keep the individual inside the horizontal view. The differentiated man learns to recognize these cues and to withhold his assent. The recognition itself is already an act of differentiation.</p>
+
+    <p>Clarity also concerns the self. The man must see his own tendencies toward collapse, toward theatrical rebellion, toward the search for belonging, toward the soft resignation that treats the higher measure as too difficult. Self-deception is one of the most effective tools of the dissolving process. The interior hierarchy cannot be established by a man who will not look at what is actually present in himself.</p>
+
+    <p>The fruit of clarity is freedom of movement. The man who sees the terrain and sees himself is no longer a passive material of the age. He can choose where to place his force. He can refuse what dissolves and strengthen what orders. That freedom is limited and costly. It remains the only freedom still available to the higher type under present conditions.</p>
+
+    <div class="day-nav">
+      <a href="day-68.html">← Day 68</a>
+      <a href="day-70.html">Day 70 →</a>
+    </div>
+
+    <div class="footer">
+      Day 69 of 75 · The Differentiated Individual
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>
