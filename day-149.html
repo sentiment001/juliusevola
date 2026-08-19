@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 149 — The Residual Axis</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-149.html" class="active">Day 149</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-148.html">← Day 148</a>
+      <a href="day-150.html">Day 150 →</a>
+    </div>
+
+    <h2>Day 149 — The Residual Axis</h2>
+
+    <div class="quote">
+      "What remains possible is the maintenance of an interior axis that no longer finds correspondence in the external order and yet continues to determine the quality of the man who possesses it."
+      <cite>— Julius Evola, Ride the Tiger</cite>
+    </div>
+
+    <p>The residual axis is the vertical orientation that survives the disappearance of every supporting structure. In the traditional world the axis was confirmed by rank, by sacred authority, by the presence of higher forms. Those confirmations are gone. The axis itself is not gone. It continues as the interior principle that orders the differentiated individual when nothing outside him any longer orders him in the same direction.</p>
+
+    <p>The age offers many substitutes for an axis. Ideologies, movements, private systems of meaning, and the constant demand for emotional intensity all present themselves as centers. None of them is an axis. An axis is vertical. It does not depend on collective agreement or on the energy of the moment. It is the permanent measure applied to the self under conditions that no longer recognize any permanent measure. The man who keeps it is already living from a residual center.</p>
+
+    <p>Young men who feel the absence of external support often look for a new collective form that will restore the missing confirmation. That search is a residual form of dependence. The residual axis does not wait for confirmation. It is established by the repeated decision to measure oneself by the higher standard even when the standard appears to have no public existence. The decision accumulates into a stable orientation.</p>
+
+    <p>Maintain the applications already established. Let them serve the residual axis rather than any hope of external restoration. The man who does this has already placed himself under a principle that the cycle has not been able to dissolve. That placement is the residual possibility made concrete.</p>
+
+    <div class="day-nav">
+      <a href="day-148.html">← Day 148</a>
+      <a href="day-150.html">Day 150 →</a>
+    </div>
+
+    <div class="footer">
+      Day 149 · Deeper Material
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>

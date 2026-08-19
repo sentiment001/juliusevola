@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 150 — Sovereignty Without Recognition</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-150.html" class="active">Day 150</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-149.html">← Day 149</a>
+      <a href="day-151.html">Day 151 →</a>
+    </div>
+
+    <h2>Day 150 — Sovereignty Without Recognition</h2>
+
+    <div class="quote">
+      "The absolute individual is sovereign over himself even when no external order recognizes or supports that sovereignty."
+      <cite>— Julius Evola, Ride the Tiger</cite>
+    </div>
+
+    <p>Sovereignty without recognition is the condition of the residual type. In earlier ages sovereignty was visible. It was embodied in the king, the warrior aristocracy, the sacred hierarchy. Those embodiments have vanished. What remains is the possibility of an interior sovereignty that does not require the age to acknowledge it. The man who exercises it rules the only domain still fully available to him: himself.</p>
+
+    <p>Recognition is a horizontal demand. The man who needs it continues to measure his standing by the response of others. That measurement reintroduces the collective standard into the interior life. Sovereignty without recognition cuts the demand. The man acts, decides, and orders his existence according to the permanent measure. Whether the age notices or approves becomes irrelevant to the validity of the act.</p>
+
+    <p>Young men raised in a culture of constant validation find this stance difficult. The absence of external echo feels like absence of reality. The difficulty is the residue of the horizontal formation. When the need for recognition is released, the interior space becomes quieter and more exact. Decisions regain their proper weight because they are no longer performed for an audience that does not exist.</p>
+
+    <p>Exercise the residual sovereignty daily. Keep the body, speech, and attention under the higher measure without waiting for confirmation that the measure still matters. The man who does so is already sovereign in the only sense that remains intact. That sovereignty is the residual form of the traditional principle of superiority.</p>
+
+    <div class="day-nav">
+      <a href="day-149.html">← Day 149</a>
+      <a href="day-151.html">Day 151 →</a>
+    </div>
+
+    <div class="footer">
+      Day 150 · Deeper Material
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>
