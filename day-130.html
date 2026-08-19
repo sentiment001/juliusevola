@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 130 — The Applied Measure</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-130.html" class="active">Day 130</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-129.html">← Day 129</a>
+      <a href="day-131.html">Day 131 →</a>
+    </div>
+
+    <h2>Day 130 — The Applied Measure</h2>
+
+    <div class="quote">
+      "The measure that remains only an idea has not yet been applied. Application is the point at which the higher orientation becomes the actual form of a life."
+      <cite>— Julius Evola, Ride the Tiger</cite>
+    </div>
+
+    <p>The phase of intensification ends here. The preceding days have taken the permanent measure into the concrete domains of the ordinary life: the body, work, speech, desire, friendship, time, pressure, the morning, fatigue, the gaze, silence, reading, bearing, endurance, the evening, decision in weakness, the unnecessary, and habit. None of these domains is secondary. Each is a site where the higher orientation is either made real or left as theory.</p>
+
+    <p>The age prefers the idea of a higher standard to its continuous application. Ideas can be discussed, displayed, and held without cost. Application requires the repeated expenditure of will against the current of the surrounding world and against the lower nature. The differentiated individual accepts that expenditure as the ordinary condition of his existence. He does not expect the application to become easy. He expects it to become more automatic through the installation of ordered habit.</p>
+
+    <p>Young men who have followed the sequence this far now possess a practical map. The map is useless if it is not used. The work from this point is the continuous return to the same domains under the same measure. New situations will appear. The measure itself does not change. The man who has made the applications habitual moves through new situations with a different starting point from the man who still treats each domain as a separate problem.</p>
+
+    <p>The intensification is complete only in the sense that the principal domains have been named and the demand has been stated. The actual formation continues for as long as the man remains upright. Return to the applications. Tighten the gaps. The type is formed by the accumulation of those returns, not by the completion of a sequence of pages.</p>
+
+    <div class="day-nav">
+      <a href="day-129.html">← Day 129</a>
+      <a href="day-131.html">Day 131 →</a>
+    </div>
+
+    <div class="footer">
+      Day 130 of 130 · Intensification / Application
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>
