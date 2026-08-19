@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 115 — Consistency</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-115.html" class="active">Day 115</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-114.html">← Day 114</a>
+      <a href="day-116.html">Day 116 →</a>
+    </div>
+
+    <h2>Day 115 — Consistency</h2>
+
+    <div class="quote">
+      "Consistency is the form that the higher measure takes across time. Without it every insight remains an episode and every decision remains reversible."
+      <cite>— Julius Evola, Ride the Tiger</cite>
+    </div>
+
+    <p>Consistency is the cumulative result of the applications already set out. The body ordered on one day and abandoned on the next is not ordered. The speech measured in one conversation and released in the next is not measured. The higher type is formed by the refusal to allow the permanent measure to become intermittent. Intermittence is the preferred mode of the age. It permits the appearance of orientation without the substance.</p>
+
+    <p>The practical demand is the continuation of the same standard across the variations of mood, energy, and external circumstance. The man who applies the measure only when conditions are favorable has not yet established the measure. He has established a preference. Preference collapses under pressure. Consistency does not. The difference is visible only over the course of weeks and months. That is why the age, which lives in the immediate, cannot recognize it.</p>
+
+    <p>Young men are trained to treat consistency as rigidity or as a lack of spontaneity. The higher type treats it as the necessary condition of any real formation. Without it the work of intensification remains a sequence of separate efforts that never cohere into a type. With it the separate efforts begin to reinforce one another. The ordered body supports the ordered speech. The ordered time supports the ordered desire. The whole becomes more than the sum of the parts.</p>
+
+    <p>Examine the points at which the standard is currently allowed to lapse. Those points are the exact locations where the type remains incomplete. Close them without waiting for ideal conditions. Consistency is not achieved by a single decision. It is achieved by the repeated decision to continue when the reason for continuing is no longer felt. That repetition is the work that remains after every other application has been understood.</p>
+
+    <div class="day-nav">
+      <a href="day-114.html">← Day 114</a>
+      <a href="day-116.html">Day 116 →</a>
+    </div>
+
+    <div class="footer">
+      Day 115 of 130 · Intensification / Application
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>
