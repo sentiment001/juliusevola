@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 129 — Habit</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-129.html" class="active">Day 129</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-128.html">← Day 128</a>
+      <a href="day-130.html">Day 130 →</a>
+    </div>
+
+    <h2>Day 129 — Habit</h2>
+
+    <div class="quote">
+      "Habit is the mechanism by which a higher measure becomes the ordinary form of the man rather than a continuous act of will."
+      <cite>— Julius Evola, Ride the Tiger</cite>
+    </div>
+
+    <p>Habit is double-edged. The same mechanism that can lock in the permanent measure can also lock in the patterns of dissolution. The differentiated individual does not reject habit. He places it under deliberate command. He selects the sequences that will be repeated until they no longer require the full pressure of conscious will. Those sequences become the automatic support of the type.</p>
+
+    <p>The age leaves habit largely to the environment and to the lower nature. The result is a set of automatic responses that serve comfort, stimulus, and the avoidance of difficulty. The higher type reverses the process. He installs habits that serve the measure even when attention is elsewhere. The morning sequence, the control of speech, the protection of silence, the ordered bearing: each of these can be made habitual. Once habitual, they free the will for the decisions that still require full presence.</p>
+
+    <p>Young men often treat habit as the enemy of spontaneity or of living intensity. The higher type treats uncontrolled habit as the enemy of formation. Spontaneity that is not grounded in ordered habit is simply the lower nature expressing itself without resistance. True freedom of action appears only after the necessary sequences have been made automatic.</p>
+
+    <p>Identify the habits that currently undermine the measure and replace them with habits that support it. The replacement is gradual and specific. Do not attempt a total reconstruction at once. Install one sequence, stabilize it, then move to the next. Over time the man discovers that a large portion of his ordinary life now runs according to the permanent standard without continuous effort. That is the practical goal of habit under a higher measure.</p>
+
+    <div class="day-nav">
+      <a href="day-128.html">← Day 128</a>
+      <a href="day-130.html">Day 130 →</a>
+    </div>
+
+    <div class="footer">
+      Day 129 of 130 · Intensification / Application
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>
