@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 148 — Preparation Without Expectation</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-148.html" class="active">Day 148</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-147.html">← Day 147</a>
+      <a href="day-149.html">Day 149 →</a>
+    </div>
+
+    <h2>Day 148 — Preparation Without Expectation</h2>
+
+    <div class="quote">
+      "The higher type prepares himself for what may follow the present phase of the cycle without making the validity of his orientation depend on any particular future outcome."
+      <cite>— Julius Evola, Ride the Tiger</cite>
+    </div>
+
+    <p>Preparation without expectation is the final clarification of the residual stance. The differentiated individual continues to form himself according to the permanent measure. He does so with the awareness that the cycle may open new possibilities or may continue its descent for a long time. The preparation is real. The expectation that the preparation will be rewarded by a favorable turn of the age is refused. The measure remains valid under either outcome.</p>
+
+    <p>Expectation is the residual attachment to the idea that the higher life requires external confirmation. When that attachment is present, the man begins to calculate. He measures his efforts against the likelihood of a better age. The calculation quietly reintroduces the horizontal standard. The man who prepares without expectation has already cut that attachment. He forms the type because the type is the residual possibility that still belongs to him. The rest is left to the larger movement of the cycle.</p>
+
+    <p>Young men who have reached this point in the sequence often feel the tension between preparation and the absence of a visible horizon. The tension is the last form of the dependence on external support. When it is released, the preparation becomes cleaner. It is no longer a wager on the future. It is the present realization of the quality that the age has not been able to extinguish.</p>
+
+    <p>Continue the applications. Maintain the interior axis. Prepare the type without requiring the age to supply a stage on which that type will be recognized. The man who does so has already completed the essential movement of the residual path. He stands ready for whatever follows without having made his readiness conditional on any particular form of what follows.</p>
+
+    <div class="day-nav">
+      <a href="day-147.html">← Day 147</a>
+      <a href="day-149.html">Day 149 →</a>
+    </div>
+
+    <div class="footer">
+      Day 148 · Deeper Material
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>

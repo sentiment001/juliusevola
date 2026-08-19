@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 144 — Interior Hierarchy Under Pressure</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-144.html" class="active">Day 144</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-143.html">← Day 143</a>
+      <a href="day-145.html">Day 145 →</a>
+    </div>
+
+    <h2>Day 144 — Interior Hierarchy Under Pressure</h2>
+
+    <div class="quote">
+      "The true test of an interior hierarchy is its capacity to remain ordered when the external pressures of the age intensify."
+      <cite>— Julius Evola, Ride the Tiger</cite>
+    </div>
+
+    <p>Interior hierarchy under pressure is the residual hierarchy tested by the conditions of the age. Pressure appears as fatigue, as social isolation, as economic necessity, as the continuous demand for horizontal adjustment. Under these pressures the ranking of forces inside the man is either confirmed or allowed to collapse into the common disorder. The differentiated individual treats the pressure as the ordinary terrain rather than as an exception that excuses the loss of order.</p>
+
+    <p>The applications already established are the means by which the hierarchy is maintained under pressure. When the body is disciplined, when speech remains measured, when attention is not surrendered to every stimulus, the interior ranking continues to function. When these applications are neglected, the pressure quickly produces the same leveling that the age has already accomplished in the external world. The man becomes reactive, diffuse, and dependent on the next relief.</p>
+
+    <p>Young men often believe that hierarchy is a matter of conviction that can be held in calm conditions and temporarily suspended under stress. The belief is a misunderstanding. Hierarchy that exists only in favorable conditions is not yet real. It becomes real only when it continues to order the man while the pressure is present. The pressure is therefore not an obstacle to the hierarchy. It is the condition under which the hierarchy either proves itself or reveals its absence.</p>
+
+    <p>Accept the pressure as the normal climate of the residual path. Strengthen the applications that keep the interior ranking intact. The capacity to remain ordered under these conditions is one of the possibilities that still belong to the higher type. It is realized in the man who does not wait for the pressure to lessen before he begins to live according to rank.</p>
+
+    <div class="day-nav">
+      <a href="day-143.html">← Day 143</a>
+      <a href="day-145.html">Day 145 →</a>
+    </div>
+
+    <div class="footer">
+      Day 144 · Deeper Material
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>
