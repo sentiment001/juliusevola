@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 152 — Interior Form</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-152.html" class="active">Day 152</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-151.html">← Day 151</a>
+      <a href="day-153.html">Day 153 →</a>
+    </div>
+
+    <h2>Day 152 — Interior Form</h2>
+
+    <div class="quote">
+      "Form is not an external arrangement. It is the imprint of a higher principle on the substance of a life."
+      <cite>— Julius Evola, Revolt Against the Modern World</cite>
+    </div>
+
+    <p>Interior form is the residual equivalent of the traditional principle of limit and definition. In the traditional world form was visible in caste, in ritual, in the ordered hierarchy of functions. Those external expressions have dissolved. The principle itself has not. A life still requires form if it is to possess quality. The form must now be imposed from within.</p>
+
+    <p>Without form the residual path collapses into vague intensity or private mood. Form supplies the limit that turns force into direction. It appears in the regularity of the applications, in the refusal of what is soft or excessive, in the consistent ordering of time and attention. The man who maintains these limits is already living under a residual form even though no public structure supports him.</p>
+
+    <p>Young men often confuse form with rigidity or with external rules imposed by others. The confusion is a product of the age that has made form synonymous with oppression. True form is the free imposition of a higher measure on the self. It increases capacity rather than diminishing it. The man who lacks it remains porous to every current of the dissolution.</p>
+
+    <p>Establish and keep the interior form. Let the applications of the earlier phase become the concrete shape of that form. The man who does so possesses a residual structure that the surrounding disorder cannot erase. That structure is the continuing presence of the traditional principle under the conditions of the residual age.</p>
+
+    <div class="day-nav">
+      <a href="day-151.html">← Day 151</a>
+      <a href="day-153.html">Day 153 →</a>
+    </div>
+
+    <div class="footer">
+      Day 152 · Deeper Material
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>
