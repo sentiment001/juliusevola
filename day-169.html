@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 169 — The Kingship of the Self</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-169.html" class="active">Day 169</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-168.html">← Day 168</a>
+      <a href="day-170.html">Day 170 →</a>
+    </div>
+
+    <h2>Day 169 — The Kingship of the Self</h2>
+
+    <div class="quote">
+      "True kingship was the visible expression of an interior sovereignty. When the external form vanishes the residual man must realize that sovereignty within."
+      <cite>— Julius Evola, Revolt Against the Modern World</cite>
+    </div>
+
+    <p>The kingship of the self is the residual recovery of sovereign orientation when every external form of kingship has disappeared. Traditional kingship rested on a higher sanction and expressed an interior order made visible. The residual age has abolished both the sanction and the visibility. Sovereignty remains available as an interior fact. The differentiated man becomes its sole seat.</p>
+
+    <p>Interior sovereignty is the capacity to govern the forces within according to a permanent measure. It is the refusal to be ruled by the lower impulses or by the collective currents of the age. The man who achieves this governance has already realized a residual form of the royal principle. No external recognition is required for the realization to be actual.</p>
+
+    <p>Young men are trained to regard any claim to sovereignty as pretension. The residual path requires them to recover the legitimacy of self-rule under the higher measure. Without that recovery the interior remains a territory governed by whatever force happens to be strongest at the moment. The man who establishes rule from the center has already begun the residual recovery of kingship.</p>
+
+    <p>Establish the kingship of the self through continuous governance of the interior. Do not wait for a restored royal order. The man who rules his own forces according to the permanent standard is already living the residual form of the principle that traditional kingship once made visible.</p>
+
+    <div class="day-nav">
+      <a href="day-168.html">← Day 168</a>
+      <a href="day-170.html">Day 170 →</a>
+    </div>
+
+    <div class="footer">
+      Day 169 · Deeper Material
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>

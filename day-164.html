@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 164 — Residual Rank</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-164.html" class="active">Day 164</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-163.html">← Day 163</a>
+      <a href="day-165.html">Day 165 →</a>
+    </div>
+
+    <h2>Day 164 — Residual Rank</h2>
+
+    <div class="quote">
+      "Where external hierarchy has been abolished the differentiated man restores rank as an interior fact that no collective process can revoke."
+      <cite>— Julius Evola, Ride the Tiger</cite>
+    </div>
+
+    <p>Residual rank is the interior restoration of hierarchy when every external form of rank has been leveled. The traditional world made rank visible in function, caste, and recognition. The residual age has dismantled those supports. Rank does not disappear with them. It retreats into the man who still measures himself by a permanent standard and refuses to accept the horizontal leveling as the final measure of human worth.</p>
+
+    <p>The restoration is not theatrical. It does not announce itself through costume or declaration. It appears in the quiet insistence that quality remains quality, that higher and lower continue to exist, and that the man himself is responsible for embodying the higher. The age will treat this insistence as arrogance or delusion. The residual type treats the age’s judgment as irrelevant to the measure he has chosen to keep.</p>
+
+    <p>Young men raised under leveling pressures often feel rank as something shameful to claim. The residual path requires them to recover the capacity to recognize rank without apology. Recognition begins with self-assessment under the permanent standard. The man who knows where he stands relative to that standard has already begun to reestablish residual rank inside himself.</p>
+
+    <p>Carry residual rank without external confirmation. Do not wait for the age to restore visible hierarchy. The man who maintains the interior fact of rank is already living the hierarchical principle under residual conditions. That living is the only form of rank the residual age still permits.</p>
+
+    <div class="day-nav">
+      <a href="day-163.html">← Day 163</a>
+      <a href="day-165.html">Day 165 →</a>
+    </div>
+
+    <div class="footer">
+      Day 164 · Deeper Material
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>

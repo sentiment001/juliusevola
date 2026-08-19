@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 167 — The Warrior as Residual Type</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-167.html" class="active">Day 167</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-166.html">← Day 166</a>
+      <a href="day-168.html">Day 168 →</a>
+    </div>
+
+    <h2>Day 167 — The Warrior as Residual Type</h2>
+
+    <div class="quote">
+      "The warrior type is not extinguished when the warrior caste disappears. It becomes an interior possibility that the residual man may still realize."
+      <cite>— Julius Evola, Revolt Against the Modern World</cite>
+    </div>
+
+    <p>The warrior as residual type is the recovery of the martial orientation under conditions that no longer support a warrior caste. Traditional societies gave the warrior a recognized place, a code, and a higher sanction. The residual age has removed those supports. The martial orientation remains available as an interior form. The man who realizes it does so without external confirmation and without the traditional framework that once made the warrior the natural product of his world.</p>
+
+    <p>The residual warrior is defined by orientation rather than by occupation. He meets pressure without collapse. He maintains clarity under threat. He acts from a measure that is not rewritten by fear or by the demand for comfort. These capacities can be cultivated in ordinary life. They do not require a battlefield. They require the decision to treat ordinary pressure as the residual field of martial testing.</p>
+
+    <p>Young men often romanticize the warrior while remaining soft under daily conditions. The residual path rejects the romance. It demands the actual recovery of martial qualities in the present terrain. Softness under ordinary pressure is the real defeat. The man who hardens the interior under residual conditions is already living the warrior type in the only form still possible.</p>
+
+    <p>Realize the residual warrior through the daily meeting of pressure. Do not wait for a restored martial order. The man who maintains clarity and form under the pressures of the residual age is already embodying the warrior principle that the traditional world once made visible.</p>
+
+    <div class="day-nav">
+      <a href="day-166.html">← Day 166</a>
+      <a href="day-168.html">Day 168 →</a>
+    </div>
+
+    <div class="footer">
+      Day 167 · Deeper Material
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>

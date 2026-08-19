@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 176 — The Path Without External Confirmation</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-176.html" class="active">Day 176</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-175.html">← Day 175</a>
+      <a href="day-177.html">Day 177 →</a>
+    </div>
+
+    <h2>Day 176 — The Path Without External Confirmation</h2>
+
+    <div class="quote">
+      "The residual path does not supply the confirmations that a traditional order once provided. The differentiated man must continue without them."
+      <cite>— Julius Evola, Ride the Tiger</cite>
+    </div>
+
+    <p>The path without external confirmation is the residual condition of the higher orientation when every surrounding structure withholds recognition. Traditional societies confirmed the higher type through rank, function, and collective acknowledgment. The residual age confirms nothing of the kind. The differentiated man continues anyway. The continuation itself becomes the residual form of confirmation.</p>
+
+    <p>The absence of confirmation is a permanent feature of the residual terrain. The man who requires recognition will eventually abandon the measure. The residual type does not require it. He measures himself by the permanent standard and accepts that the age will treat the standard as private eccentricity or as arrogance. The acceptance is part of the residual discipline.</p>
+
+    <p>Young men often seek groups, platforms, or reconstructed orders that will supply the missing confirmation. The residual path does not forbid association. It refuses to make confirmation the condition of continuity. The man who stops when confirmation is withheld has already revealed that the orientation was never residual. It was still dependent on the horizontal field.</p>
+
+    <p>Continue the residual path without external confirmation. Do not treat recognition as a necessary condition. The man who keeps the measure under the permanent absence of confirmation is already living the differentiated individual in the form that the residual age still permits.</p>
+
+    <div class="day-nav">
+      <a href="day-175.html">← Day 175</a>
+      <a href="day-177.html">Day 177 →</a>
+    </div>
+
+    <div class="footer">
+      Day 176 · Deeper Material
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>

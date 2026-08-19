@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 178 — The Continuing Demand</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-178.html" class="active">Day 178</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-177.html">← Day 177</a>
+      <a href="day-179.html">Day 179 →</a>
+    </div>
+
+    <h2>Day 178 — The Continuing Demand</h2>
+
+    <div class="quote">
+      "The residual path does not culminate in a final state of arrival. It continues as the daily demand to remain oriented under conditions that never cease to dissolve."
+      <cite>— Julius Evola, Ride the Tiger</cite>
+    </div>
+
+    <p>The continuing demand is the residual form of the higher path under late conditions. Traditional paths often supplied stages, initiations, and recognitions that marked progress. The residual path supplies none of these. It supplies only the repeated demand to keep the measure present under pressure that does not end. The demand itself becomes the residual form of the path.</p>
+
+    <p>There is no final residual victory that removes the need for further standing. The age continues. The dissolving forces continue. The man who has established residual orientation must reestablish it every day. The reestablishment is the continuity of the type. It is also the only form of progress that the residual age still permits.</p>
+
+    <p>Young men often look for a conclusion that will allow them to rest in a completed state. The residual path does not offer that rest. It offers the continued capacity to stand. The capacity is not diminished by the absence of a final arrival. It is clarified by it. The man who keeps standing under the continuing demand has already realized the residual possibility.</p>
+
+    <p>Meet the continuing demand without expectation of final rest. Do not treat the residual path as a project that ends. The man who keeps the permanent measure present under residual pressure that never ceases is already living the deeper continuity that the sequence has been clarifying.</p>
+
+    <div class="day-nav">
+      <a href="day-177.html">← Day 177</a>
+      <a href="day-179.html">Day 179 →</a>
+    </div>
+
+    <div class="footer">
+      Day 178 · Deeper Material
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>

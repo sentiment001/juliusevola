@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 165 — The Interior Caste</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-165.html" class="active">Day 165</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-164.html">← Day 164</a>
+      <a href="day-166.html">Day 166 →</a>
+    </div>
+
+    <h2>Day 165 — The Interior Caste</h2>
+
+    <div class="quote">
+      "Caste was never merely a social arrangement. It was the expression of a qualitative difference of spirit that the residual man must now realize within himself."
+      <cite>— Julius Evola, Revolt Against the Modern World</cite>
+    </div>
+
+    <p>The interior caste is the residual recovery of qualitative difference when every external caste structure has been destroyed. Traditional castes corresponded to distinct ways of being: the sacred, the warrior, the productive, the servile. Those correspondences have been erased from the social surface. The residual man recovers the distinction as an interior hierarchy of forces within his own being. He refuses to treat every impulse as equal.</p>
+
+    <p>The recovery begins with discrimination. Certain impulses belong to the higher order. Others belong to the lower. The residual type ranks them accordingly and acts from the higher. This ranking is the first act of interior caste. It does not require external validation. It requires only the capacity to distinguish quality from quantity inside the man himself.</p>
+
+    <p>Most young men have been trained to regard any such ranking as illegitimate. The residual path requires them to recover the legitimacy of qualitative discrimination. Without it the interior becomes a democracy of appetites in which the lower always outvotes the higher. The man who restores rank among his own forces has already begun to live according to the caste principle under residual conditions.</p>
+
+    <p>Establish the interior caste through daily discrimination. Do not ask the age to restore external castes. The man who ranks his own forces according to the permanent measure is already realizing the qualitative principle that the traditional world once made visible.</p>
+
+    <div class="day-nav">
+      <a href="day-164.html">← Day 164</a>
+      <a href="day-166.html">Day 166 →</a>
+    </div>
+
+    <div class="footer">
+      Day 165 · Deeper Material
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>

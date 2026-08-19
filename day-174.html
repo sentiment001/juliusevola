@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 174 — Permanent Measure in Motion</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-174.html" class="active">Day 174</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-173.html">← Day 173</a>
+      <a href="day-175.html">Day 175 →</a>
+    </div>
+
+    <h2>Day 174 — Permanent Measure in Motion</h2>
+
+    <div class="quote">
+      "The permanent measure does not require stillness. It requires the capacity to remain oriented while the residual man moves among the forces of the age."
+      <cite>— Julius Evola, Ride the Tiger</cite>
+    </div>
+
+    <p>Permanent measure in motion is the residual capacity to keep the higher standard present while participating in the necessary movements of ordinary life. Detachment is not withdrawal from action. It is the preservation of orientation while action continues. The residual man does not freeze in place. He moves. He simply refuses to allow the movement to rewrite the measure by which he moves.</p>
+
+    <p>The capacity is tested continuously. Work, speech, desire, and conflict all pull toward the horizontal. The residual type meets each pull while keeping the permanent measure intact. The meeting is the daily form of the residual path. No special conditions are required. The ordinary day supplies the field.</p>
+
+    <p>Young men often treat orientation as something that can only be maintained in protected conditions. The residual path rejects that limitation. The measure must hold under motion. The man who can keep it only in solitude has not yet realized the residual possibility. The man who keeps it while moving among the forces of the age has already begun the deeper application.</p>
+
+    <p>Keep the permanent measure present in motion. Do not restrict orientation to conditions of stillness. The man who remains oriented while participating in the residual field is already realizing the capacity that the differentiated individual requires.</p>
+
+    <div class="day-nav">
+      <a href="day-173.html">← Day 173</a>
+      <a href="day-175.html">Day 175 →</a>
+    </div>
+
+    <div class="footer">
+      Day 174 · Deeper Material
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>

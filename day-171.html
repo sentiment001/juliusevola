@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 171 — Carrying the Axis Alone</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-171.html" class="active">Day 171</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-170.html">← Day 170</a>
+      <a href="day-172.html">Day 172 →</a>
+    </div>
+
+    <h2>Day 171 — Carrying the Axis Alone</h2>
+
+    <div class="quote">
+      "When the collective axis is broken the residual possibility is that a man may still carry the axis within himself and orient from it."
+      <cite>— Julius Evola, Ride the Tiger</cite>
+    </div>
+
+    <p>Carrying the axis alone is the residual condition of orientation when every collective structure that once provided a center has collapsed. Traditional societies oriented themselves around a living axis that made the higher measure visible and shared. The residual age has broken that axis. The differentiated man becomes its temporary carrier. He orients from it without the support of a surrounding order that confirms the orientation.</p>
+
+    <p>The carrying is continuous. The axis is not a possession that can be set down. It is the permanent measure that the man applies to every domain of his life. Under residual pressure the temptation is to abandon the measure and float with the horizontal currents. The residual type refuses the temptation. He keeps the axis present even when no one else appears to be carrying it.</p>
+
+    <p>Young men feel the absence of a collective axis as a kind of weightlessness. The residual path does not remove the weightlessness. It trains the man to supply the axis from within. The training is the daily return to the permanent measure under ordinary conditions. Each return strengthens the capacity to carry the axis alone.</p>
+
+    <p>Carry the residual axis without collective confirmation. Do not wait for a restored center. The man who keeps the permanent measure present under residual conditions is already realizing the principle of orientation that traditional societies once made the foundation of their entire order.</p>
+
+    <div class="day-nav">
+      <a href="day-170.html">← Day 170</a>
+      <a href="day-172.html">Day 172 →</a>
+    </div>
+
+    <div class="footer">
+      Day 171 · Deeper Material
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>

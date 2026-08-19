@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 170 — Sacred Residual</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-170.html" class="active">Day 170</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-169.html">← Day 169</a>
+      <a href="day-171.html">Day 171 →</a>
+    </div>
+
+    <h2>Day 170 — Sacred Residual</h2>
+
+    <div class="quote">
+      "The sacred does not vanish because the forms that once carried it have been emptied. It becomes a residual possibility that the differentiated individual must approach from within."
+      <cite>— Julius Evola, Revolt Against the Modern World</cite>
+    </div>
+
+    <p>Sacred residual is the continued presence of the higher dimension under conditions that have systematically desacralized every form. Traditional societies oriented the entire order toward the sacred. The residual age has reduced the sacred to private preference or to empty ritual. The higher dimension itself remains. The residual man approaches it without the support of living forms and without the collective confirmation that once made the approach natural.</p>
+
+    <p>The approach is interior and exacting. It does not rely on the survival of institutions that have already been emptied. It relies on the capacity of the man to maintain orientation toward the permanent measure even when every external support has been withdrawn. This capacity is the residual form of the sacred attitude.</p>
+
+    <p>Young men often seek the sacred in reconstructed forms or in theatrical gestures. The residual path rejects both. The sacred under residual conditions is not recovered by imitation of the past. It is recovered by the continuous maintenance of a vertical orientation in a horizontal age. The man who keeps that orientation is already living the residual possibility of the sacred.</p>
+
+    <p>Approach the sacred residual through the maintenance of vertical orientation. Do not wait for restored forms. The man who keeps the higher dimension present under residual pressure is already realizing the principle that traditional societies once made the center of their entire order.</p>
+
+    <div class="day-nav">
+      <a href="day-169.html">← Day 169</a>
+      <a href="day-171.html">Day 171 →</a>
+    </div>
+
+    <div class="footer">
+      Day 170 · Deeper Material
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>

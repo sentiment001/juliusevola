@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 168 — Martial Detachment</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-168.html" class="active">Day 168</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-167.html">← Day 167</a>
+      <a href="day-169.html">Day 169 →</a>
+    </div>
+
+    <h2>Day 168 — Martial Detachment</h2>
+
+    <div class="quote">
+      "Detachment is the higher form of the warrior virtue. It allows action without the bondage of results and presence without the collapse into reaction."
+      <cite>— Julius Evola, Ride the Tiger</cite>
+    </div>
+
+    <p>Martial detachment is the residual refinement of the warrior orientation. Ordinary courage still binds the man to outcomes and to the emotional charge of the conflict. Detachment removes that bondage. The residual warrior acts with full force while remaining free of the need for a particular result. He meets the pressure without allowing the pressure to rewrite his center.</p>
+
+    <p>This detachment is not indifference. It is the capacity to remain present and effective while the interior remains unmoved by the oscillation of gain and loss. The traditional warrior codes contained elements of this freedom. The residual age has no such codes. The differentiated man must recover the freedom through deliberate interior work under ordinary conditions.</p>
+
+    <p>Young men often confuse detachment with withdrawal or coldness. The residual form is neither. It is active, precise, and fully engaged. The coldness of the age is the product of dissolution. Martial detachment is the product of a higher orientation that refuses to be dissolved by the forces it meets. The difference is visible in the quality of the action that follows.</p>
+
+    <p>Cultivate martial detachment in the residual field. Do not wait for conditions that make detachment easy. The man who acts with force while remaining free of the bondage of results is already realizing the higher form of the warrior virtue under residual conditions.</p>
+
+    <div class="day-nav">
+      <a href="day-167.html">← Day 167</a>
+      <a href="day-169.html">Day 169 →</a>
+    </div>
+
+    <div class="footer">
+      Day 168 · Deeper Material
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>

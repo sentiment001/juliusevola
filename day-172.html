@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 172 — Vertical Continuity</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-172.html" class="active">Day 172</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-171.html">← Day 171</a>
+      <a href="day-173.html">Day 173 →</a>
+    </div>
+
+    <h2>Day 172 — Vertical Continuity</h2>
+
+    <div class="quote">
+      "Vertical continuity is the residual transmission of the higher orientation across a break in the forms that once carried it."
+      <cite>— Julius Evola, Revolt Against the Modern World</cite>
+    </div>
+
+    <p>Vertical continuity is the residual possibility of transmitting the higher orientation when the traditional chain of transmission has been broken. Traditional societies maintained continuity through living forms, initiation, and recognized succession. The residual age has interrupted those forms. Continuity does not cease. It becomes the responsibility of the differentiated individual who still orients according to the permanent measure.</p>
+
+    <p>The continuity is not historical nostalgia. It is the living presence of the same orientation that once shaped the traditional world. The residual man does not reconstruct the past. He realizes the orientation under present conditions. That realization is the residual form of continuity. It does not require unbroken institutions. It requires unbroken orientation.</p>
+
+    <p>Young men often seek continuity in external reconstructions or in groups that claim traditional authority. The residual path places the demand elsewhere. Continuity under residual conditions is first an interior fact. The man who keeps the higher orientation present is already transmitting it, even if no one around him appears to receive it. The transmission begins with the quality of the man himself.</p>
+
+    <p>Maintain vertical continuity through the unbroken presence of the higher orientation. Do not wait for restored forms of transmission. The man who keeps the permanent measure under residual pressure is already realizing the continuity that traditional societies once secured through living institutions.</p>
+
+    <div class="day-nav">
+      <a href="day-171.html">← Day 171</a>
+      <a href="day-173.html">Day 173 →</a>
+    </div>
+
+    <div class="footer">
+      Day 172 · Deeper Material
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>
