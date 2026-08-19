@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 108 — The Ordinary Day</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-108.html" class="active">Day 108</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-107.html">← Day 107</a>
+      <a href="day-109.html">Day 109 →</a>
+    </div>
+
+    <h2>Day 108 — The Ordinary Day</h2>
+
+    <div class="quote">
+      "The higher type is formed less by exceptional moments than by the quality he brings to the unbroken succession of ordinary days."
+      <cite>— Julius Evola, Ride the Tiger</cite>
+    </div>
+
+    <p>The ordinary day is the primary field of application. Most of a man's life is spent inside it. The age trains the young man to treat the ordinary as something to be escaped or filled with continuous novelty. The differentiated individual treats the ordinary day as the place where the permanent measure is either maintained or abandoned. Exceptional circumstances reveal the type. The ordinary day builds it.</p>
+
+    <p>The practical demand is consistency of presence across the unremarkable hours. Rising, work, speech, the use of the evening, the quality of sleep: each of these is an opportunity to enact the same orientation. The man who reserves the higher standard for moments of crisis and allows the rest of the day to drift has misunderstood the nature of formation. Formation is the cumulative result of repeated small decisions made under ordinary conditions.</p>
+
+    <p>Young men are taught to look for transformation in dramatic rupture or in intense experience. The higher type looks for it in the texture of the day that repeats. The body ordered, the speech measured, the time protected, the desire held under command: these practices do not require an audience or a special occasion. They require only the decision to apply them again when the day offers no external encouragement. That decision, repeated, is the work.</p>
+
+    <p>Examine a single ordinary day without the protective filter of intention. Note the hours that answered to the higher measure and the hours that did not. The gap between the two is the exact measure of the work that remains. Close the gap without waiting for a more favorable day. The favorable day is the one in which the measure is applied regardless of mood or circumstance.</p>
+
+    <div class="day-nav">
+      <a href="day-107.html">← Day 107</a>
+      <a href="day-109.html">Day 109 →</a>
+    </div>
+
+    <div class="footer">
+      Day 108 of 130 · Intensification / Application
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>
