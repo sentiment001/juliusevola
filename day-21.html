@@ -1,1 +1,73 @@
-PLACEHOLDER
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 21 — Democracy and the Leveling Process</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-21.html" class="active">Day 21</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-20.html">← Day 20</a>
+      <a href="day-22.html">Day 22 →</a>
+    </div>
+
+    <h2>Day 21 — Democracy and the Leveling Process</h2>
+
+    <div class="quote">
+      "Democracy is the political expression of a society that has abandoned every higher principle of authority and hierarchy. It is the form that corresponds to the pure quantitative principle, to the predominance of the mass over the differentiated individual."
+      <cite>— Julius Evola, Revolt Against the Modern World</cite>
+    </div>
+
+    <p>Democracy presents itself as the final and most just form of political organization. The claim rests on the idea that power should flow from the numerical majority and that every vote carries equal weight. In Traditional terms this is a radical inversion. Authority once descended from above, from a principle that stood higher than the collectivity. When that principle is rejected, the only remaining measure becomes number. The result is the systematic elevation of the average and the gradual erasure of rank.</p>
+
+    <p>The leveling process does not stop at the ballot. It works through language, education, and the slow corrosion of any standard that cannot be reduced to majority preference. Qualities that once marked a higher type of man are reinterpreted as privileges to be dismantled. Excellence is tolerated only when it can be made to serve the mass or when it is stripped of any claim to natural superiority. The young man who still feels the weight of qualitative difference will sense that the official story of equality is incomplete.</p>
+
+    <p>You are not asked to romanticize every past hierarchy. Many historical forms were imperfect and some were corrupt. The demand is more severe. You must decide whether a society that treats all differences of type as temporary or illegitimate can still produce and protect the higher human possibilities. If the answer is no, then the democratic premise itself becomes part of the diagnosis rather than the cure.</p>
+
+    <p>Hold the idea without theatrics. The man who sees the leveling process clearly does not need to announce his rejection at every turn. He simply refuses to let the quantitative standard rewrite the inner hierarchy he is trying to form. That refusal is already an act of differentiation.</p>
+
+    <div class="day-nav">
+      <a href="day-20.html">← Day 20</a>
+      <a href="day-22.html">Day 22 →</a>
+    </div>
+
+    <div class="footer">
+      Day 21 of 35 · Diagnosis of the Modern World
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>
