@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 143 — The Man Who Does Not Wait</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-143.html" class="active">Day 143</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-142.html">← Day 142</a>
+      <a href="day-144.html">Day 144 →</a>
+    </div>
+
+    <h2>Day 143 — The Man Who Does Not Wait</h2>
+
+    <div class="quote">
+      "The residual possibilities belong to the man who is willing to realize them under the present conditions rather than postpone them until a more favorable phase of the cycle."
+      <cite>— Julius Evola, Ride the Tiger</cite>
+    </div>
+
+    <p>The man who does not wait is the practical form of the residual possibility. Many who sense the higher measure still treat it as something that will become fully available only after the age changes. They prepare, they study, they maintain a private orientation, yet they defer the full application until external conditions improve. The deferral is itself a form of dependence on the cycle. The differentiated individual refuses the deferral. He realizes what can still be realized now.</p>
+
+    <p>Waiting is often disguised as prudence or as a long view of history. In reality it is frequently the reluctance to accept the full weight of the present phase. The age will not rearrange itself to make the higher life easier. The man who continues to wait for that rearrangement has already placed the validity of the measure outside his own capacity. The residual possibility is closed to him for as long as the waiting continues.</p>
+
+    <p>Young men are especially prone to this postponement. The future still appears open. The temptation is to treat the present as a period of preparation for a later seriousness. The higher type rejects the division. Preparation and realization are the same process under the conditions of a late age. Every day that the measure is applied is already the realization. Every day that it is deferred is a day in which the residual possibility remains unused.</p>
+
+    <p>Begin the full application without further delay. The conditions will not improve. The capacity to act under them is the capacity that still belongs to the man who is willing to claim it. The man who does not wait is already living the residual possibility. He has ceased to make the cycle the condition of his own orientation.</p>
+
+    <div class="day-nav">
+      <a href="day-142.html">← Day 142</a>
+      <a href="day-144.html">Day 144 →</a>
+    </div>
+
+    <div class="footer">
+      Day 143 · Deeper Material
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>

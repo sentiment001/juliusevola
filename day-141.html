@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 141 — The Residual Hierarchy</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-141.html" class="active">Day 141</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-140.html">← Day 140</a>
+      <a href="day-142.html">Day 142 →</a>
+    </div>
+
+    <h2>Day 141 — The Residual Hierarchy</h2>
+
+    <div class="quote">
+      "Even when every external hierarchy has been leveled, the man who has established an interior order continues to live according to a hierarchical principle."
+      <cite>— Julius Evola, Ride the Tiger</cite>
+    </div>
+
+    <p>The residual hierarchy is the interior ranking of forces and values that the differentiated individual maintains after the collapse of external rank. In traditional orders hierarchy was visible in law, in function, and in the ordinary relations of life. That visibility has been erased. What remains is the capacity of the man to order his own existence according to the same principle. Higher and lower continue to exist. They exist now as distinctions the man must enforce within himself.</p>
+
+    <p>The age denies the legitimacy of any hierarchy that is not temporary and functional. It treats the permanent ranking of qualities as an offense against equality. The differentiated individual refuses the denial. He continues to rank his impulses, his associations, and his uses of time according to the permanent measure. The ranking is private in the sense that it does not seek public recognition. It is real in the sense that it determines the actual direction of his life.</p>
+
+    <p>Young men who have begun to sense the difference between higher and lower often lack a clear method for applying the distinction. They feel the hierarchy but do not yet know how to enforce it in the ordinary day. The applications already established supply the method. Each domain of life becomes a field in which the residual hierarchy is either confirmed or allowed to dissolve. Consistency in those domains is the practical form of the hierarchy.</p>
+
+    <p>Strengthen the interior ranking. Refuse the equalization of impulses that the age encourages. The residual hierarchy is one of the possibilities that survive the leveling process. It is realized in the man who continues to live as if rank still mattered, even when the surrounding world has declared that it does not.</p>
+
+    <div class="day-nav">
+      <a href="day-140.html">← Day 140</a>
+      <a href="day-142.html">Day 142 →</a>
+    </div>
+
+    <div class="footer">
+      Day 141 · Deeper Material
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>

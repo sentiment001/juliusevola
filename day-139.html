@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 139 — Action From the Center</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-139.html" class="active">Day 139</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-138.html">← Day 138</a>
+      <a href="day-140.html">Day 140 →</a>
+    </div>
+
+    <h2>Day 139 — Action From the Center</h2>
+
+    <div class="quote">
+      "When action proceeds from an established interior center it retains its quality even if the external results remain uncertain or adverse."
+      <cite>— Julius Evola, Ride the Tiger</cite>
+    </div>
+
+    <p>Action from the center is the practical expression of interior orientation. Most action in the present age is reactive. It is provoked by stimuli, by the demands of the surrounding environment, or by the need to maintain a temporary identity. Such action is determined from outside. The differentiated individual reverses the relation. He acts from a center that has already been established. The external situation becomes the field in which the center expresses itself rather than the source that dictates the expression.</p>
+
+    <p>The establishment of the center is the work of the previous applications. Body, speech, attention, and the small decisions of the day have either reinforced the axis or allowed it to remain diffuse. When the axis is present, action takes on a different character. It is less hurried, less dependent on immediate feedback, and less vulnerable to the oscillations of the surrounding climate. The man knows what the measure requires. He proceeds accordingly.</p>
+
+    <p>Young men often experience action as a search for confirmation. They act in order to feel that they are still advancing or still belonging. Action from the center does not require that confirmation. It is complete in the fidelity of the act itself. The results belong to the larger movement of the cycle. The man is responsible only for the quality of the origin from which the act proceeds.</p>
+
+    <p>Test the ordinary actions of the day against this standard. Ask whether they arise from the interior measure or from the pressure of the moment. The capacity to act from the center is one of the residual possibilities that the collapse of external supports has left intact. It is realized in the man who continues to practice it without waiting for more favorable conditions.</p>
+
+    <div class="day-nav">
+      <a href="day-138.html">← Day 138</a>
+      <a href="day-140.html">Day 140 →</a>
+    </div>
+
+    <div class="footer">
+      Day 139 · Deeper Material
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>
