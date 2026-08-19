@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 114 — Practiced Solitude</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-114.html" class="active">Day 114</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-113.html">← Day 113</a>
+      <a href="day-115.html">Day 115 →</a>
+    </div>
+
+    <h2>Day 114 — Practiced Solitude</h2>
+
+    <div class="quote">
+      "Solitude is not the absence of others. It is the presence of the self under the higher measure, unmediated by the continuous demands of the surrounding world."
+      <cite>— Julius Evola, Ride the Tiger</cite>
+    </div>
+
+    <p>Practiced solitude is the deliberate cultivation of periods in which the man stands alone with the permanent measure. The age has made continuous company and continuous stimulation into the default condition. The man who never leaves that condition never fully tests the strength of his interior order. He remains dependent on the presence of others for the confirmation of his own reality. The differentiated individual breaks that dependence by regular practice.</p>
+
+    <p>The practical demand is the reservation of time that is not filled by conversation, media, or the soft company of distraction. In that time the man confronts the quality of his own presence. He discovers whether the orientation established in the previous phases is actual or merely theoretical. The discovery is often uncomfortable. The discomfort is useful. It indicates the exact points at which the type still relies on external support.</p>
+
+    <p>Young men are taught to treat solitude as loneliness or as a temporary inconvenience to be ended as soon as possible. The higher type treats it as a necessary condition of formation. Without it the continuous current of the age reclaims the attention and slowly erodes the distinctions that have been established. With it the man renews the center from which every other application proceeds. The practice does not require isolation from the world. It requires intervals in which the world is held at a deliberate distance.</p>
+
+    <p>Establish the intervals and protect them. The length is less important than the regularity and the quality of presence maintained inside them. The man who can remain ordered in solitude is already more capable of remaining ordered among others. The reverse is rarely true. Solitude is therefore not a retreat from the work. It is one of the primary fields in which the work is performed.</p>
+
+    <div class="day-nav">
+      <a href="day-113.html">← Day 113</a>
+      <a href="day-115.html">Day 115 →</a>
+    </div>
+
+    <div class="footer">
+      Day 114 of 130 · Intensification / Application
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>
