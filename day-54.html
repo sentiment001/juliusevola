@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 54 — Order Against Chaos</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-54.html" class="active">Day 54</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-53.html">← Day 53</a>
+      <a href="day-55.html">Day 55 →</a>
+    </div>
+
+    <h2>Day 54 — Order Against Chaos</h2>
+
+    <div class="quote">
+      "Order is the visible expression of a higher principle. Chaos is the absence of that principle or its active rejection. Between the two there is no lasting compromise. One or the other must prevail in the long run."
+      <cite>— Julius Evola, Revolt Against the Modern World</cite>
+    </div>
+
+    <p>Order in the Traditional sense is never a mere arrangement of external parts. It is the manifestation of a qualitative hierarchy that has its root in the transcendent. Chaos is the condition that appears when that hierarchy is denied or forgotten. The modern world lives in a state of managed chaos. Outer mechanisms of control continue to function, yet the inner principle that once gave them meaning has withdrawn.</p>
+
+    <p>The young man who sees this will not confuse the persistence of technical systems with the presence of real order. He will recognize that the deeper current of the age moves toward dissolution. Forms that once held qualitative content are emptied and then discarded. New forms appear that are designed from the beginning for fluidity and for the erasure of rank.</p>
+
+    <p>The task under these conditions is not to invent a new system of public order. The task is to keep alive, in oneself and in whatever narrow field one can influence, the principle of order against the principle of chaos. That means preferring form to formlessness, limit to unlimited expansion, hierarchy to leveling, and the vertical to the horizontal in every concrete decision.</p>
+
+    <p>This preference will often appear as rigidity or as an excessive attachment to the past. The charge is irrelevant. The man who holds to order is not defending a particular historical arrangement. He is defending the possibility that existence can still be measured by a higher standard. Without that possibility the future holds only more refined versions of the same dissolution.</p>
+
+    <div class="day-nav">
+      <a href="day-53.html">← Day 53</a>
+      <a href="day-55.html">Day 55 →</a>
+    </div>
+
+    <div class="footer">
+      Day 54 of 55 · The Traditional Order
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>
