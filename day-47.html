@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 47 — Form and the Limit</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-47.html" class="active">Day 47</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-46.html">← Day 46</a>
+      <a href="day-48.html">Day 48 →</a>
+    </div>
+
+    <h2>Day 47 — Form and the Limit</h2>
+
+    <div class="quote">
+      "Form is the principle that gives shape, limit, and qualitative determination to existence. Without form there is only the indeterminate, the chaotic, and the lower. Every higher order is an order of form."
+      <cite>— Julius Evola, Revolt Against the Modern World</cite>
+    </div>
+
+    <p>Form is not an external decoration applied to a neutral material. In the Traditional understanding form is the active principle that organizes matter and life according to a higher idea. The limit is the positive expression of form. What has clear limits has character. What has no limits dissolves into the formless and the common.</p>
+
+    <p>The modern world systematically attacks form and limit. It treats every boundary as an arbitrary restriction and every qualitative distinction as an injustice. The result is a progressive loss of shape in the individual, in institutions, and in culture. The human being is encouraged to expand without measure in the name of freedom or authenticity. The expansion produces only a more refined formlessness.</p>
+
+    <p>The young man who accepts the value of form will begin to impose limits on himself. He will choose specific disciplines, specific styles of life, specific refusals. These limits are not chosen for their own sake. They are chosen because they create the conditions under which a higher quality can appear. Without them the personality remains a shifting collection of impulses and social reflections.</p>
+
+    <p>This practice will be misunderstood. The age interprets every deliberate limit as repression or as a failure of openness. The man who understands form will not argue the point in the terms of the age. He will continue to shape himself according to a standard that requires edges, hierarchy, and the capacity to say no. That capacity is the beginning of real presence.</p>
+
+    <div class="day-nav">
+      <a href="day-46.html">← Day 46</a>
+      <a href="day-48.html">Day 48 →</a>
+    </div>
+
+    <div class="footer">
+      Day 47 of 55 · The Traditional Order
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>
