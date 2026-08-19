@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 121 — The Gaze</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-121.html" class="active">Day 121</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-120.html">← Day 120</a>
+      <a href="day-122.html">Day 122 →</a>
+    </div>
+
+    <h2>Day 121 — The Gaze</h2>
+
+    <div class="quote">
+      "The gaze is an act. It either asserts presence or yields it. In a late age the habitual yielding of the gaze is one of the quiet signs of dissolution."
+      <cite>— Julius Evola, Men Among the Ruins</cite>
+    </div>
+
+    <p>The gaze is the first contact with the external world after the interior has been ordered. Most young men have never considered it as a domain under their command. The eyes move according to habit, stimulus, and the pressure of the environment. They avoid, they seek, they drift. The differentiated individual treats the gaze as an expression of the same measure that governs speech and posture. It is not aggressive. It is simply present and under control.</p>
+
+    <p>The age trains the eyes to seek continuous input and to avoid sustained contact that is not mediated by a screen or by a social script. That training produces a man who is present only in fragments. The higher type recovers the capacity to look steadily, without the need to dominate and without the need to retreat. The gaze that is ordered does not hunt for stimulation. It does not flinch from ordinary human contact. It remains available to the will.</p>
+
+    <p>Young men often interpret a controlled gaze as intensity or as a performance of confidence. Both interpretations miss the point. The controlled gaze is simply the refusal to let the eyes become another organ of the horizontal man. When the eyes are left to their own devices they follow the lowest available current. When they are placed under the same standard as the rest of the type, they become an instrument of presence rather than a leak.</p>
+
+    <p>Examine the habitual movements of the eyes across a single day. Note the points of unnecessary seeking and the points of unnecessary avoidance. Correct them without theatrical emphasis. The gaze that answers to the higher measure is quiet. It does not announce itself. It simply no longer drifts.</p>
+
+    <div class="day-nav">
+      <a href="day-120.html">← Day 120</a>
+      <a href="day-122.html">Day 122 →</a>
+    </div>
+
+    <div class="footer">
+      Day 121 of 130 · Intensification / Application
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>
