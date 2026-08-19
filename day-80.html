@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 80 — The Active Stance</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-80.html" class="active">Day 80</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-79.html">← Day 79</a>
+      <a href="day-81.html">Day 81 →</a>
+    </div>
+
+    <h2>Day 80 — The Active Stance</h2>
+
+    <div class="quote">
+      "Riding the tiger is an active stance. It is not the passive endurance of whatever the age imposes. The man remains the agent of his own direction even while he moves inside forces larger than himself."
+      <cite>— Julius Evola, Ride the Tiger</cite>
+    </div>
+
+    <p>The active stance distinguishes the rider from the mere survivor. Survival can be passive. A man can keep his head down, avoid unnecessary conflict, and wait for better times. That posture may preserve the body. It does not preserve the higher type. The differentiated individual acts. He chooses the terrain on which he will engage the forces of the age. He decides which instruments to master and which to leave aside. He determines the measure of his own participation.</p>
+
+    <p>Activity here does not mean constant intervention or the attempt to change the direction of the cycle. The cycle has its own momentum. The activity is the continuous exercise of discrimination and of will inside the given conditions. The man remains awake. He does not drift. Every significant decision is referred back to the center. That referral is the action that keeps him free.</p>
+
+    <p>The culture of the age confuses activity with agitation. It rewards the man who is always reacting, always expressing, always in motion according to the latest stimulus. The active stance of the differentiated type is quieter and more deliberate. It may look like stillness from the outside. Inwardly it is the steady assertion of a direction that the surrounding agitation cannot supply.</p>
+
+    <p>This stance is demanding because it must be maintained without the reinforcement of a living Traditional environment. There is no order of warriors or initiates to confirm the correctness of the orientation. The man confirms it himself through the consistency of his acts over time. That consistency is the proof that the tiger is being ridden rather than merely endured.</p>
+
+    <div class="day-nav">
+      <a href="day-79.html">← Day 79</a>
+      <a href="day-81.html">Day 81 →</a>
+    </div>
+
+    <div class="footer">
+      Day 80 of 100 · Riding the Tiger
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>
