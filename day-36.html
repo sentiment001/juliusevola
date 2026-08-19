@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 36 — The Hierarchical Principle</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-36.html" class="active">Day 36</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-35.html">← Day 35</a>
+      <a href="day-37.html">Day 37 →</a>
+    </div>
+
+    <h2>Day 36 — The Hierarchical Principle</h2>
+
+    <div class="quote">
+      "Hierarchy is the foundation of every true order. It is the visible expression of the qualitative differences that exist among men and of the subordination of the lower to the higher according to a spiritual measure."
+      <cite>— Julius Evola, Revolt Against the Modern World</cite>
+    </div>
+
+    <p>The hierarchical principle is the recognition that men are not equal in type or in capacity and that a healthy order arranges them according to those differences. The higher is not defined by wealth or by force alone. It is defined by proximity to a spiritual and qualitative standard. The lower finds its proper place and its dignity within a structure that acknowledges the higher.</p>
+
+    <p>Modern thought treats hierarchy as an artificial and oppressive arrangement. The Traditional view treats it as the natural reflection of reality. When the hierarchical principle is denied, the social form that replaces it is either the rule of pure number or the rule of pure force. Neither can generate a durable and elevated civilization.</p>
+
+    <p>The young man who accepts the hierarchical principle does not thereby claim a place at the summit. He accepts that rank exists and that his own task is to discover and to form the rank that corresponds to his nature. That acceptance is already a departure from the leveling atmosphere of the age.</p>
+
+    <p>Hierarchy begins within. The man who has no interior order of command and obedience will never understand or sustain an exterior hierarchy. The first application of the principle is therefore the establishment of a clear rank among the forces of one’s own being. From that interior hierarchy a different relation to the world becomes possible.</p>
+
+    <div class="day-nav">
+      <a href="day-35.html">← Day 35</a>
+      <a href="day-37.html">Day 37 →</a>
+    </div>
+
+    <div class="footer">
+      Day 36 of 55 · The Traditional Order
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>
