@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 95 — The Victory of the Type</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-95.html" class="active">Day 95</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-94.html">← Day 94</a>
+      <a href="day-96.html">Day 96 →</a>
+    </div>
+
+    <h2>Day 95 — The Victory of the Type</h2>
+
+    <div class="quote">
+      "In the conditions of the end of a cycle the only victory that remains is the preservation of the higher type. That victory is absolute even when it is invisible to the age."
+      <cite>— Julius Evola, Ride the Tiger</cite>
+    </div>
+
+    <p>The age measures victory by scale, by numbers, by visible power, by the capacity to impose a form on the collective. By those measures the differentiated individual is defeated in advance. He does not command armies or institutions. He does not reverse the cycle. The victory available to him is of another order. It is the continued existence of a type of man who still embodies the vertical measure in a world that has abandoned it.</p>
+
+    <p>This victory is not theatrical. It does not require recognition. It is registered in the consistency of the man's acts, in the clarity of his discrimination, in the fact that he remains standing when the surrounding forms have collapsed into fluidity. The age may never notice. The cycle itself registers the difference. Something higher has been kept from dissolution.</p>
+
+    <p>Young men who seek larger and more dramatic victories often abandon the only victory that is still open. They wait for a movement, a restoration, a visible turning. In the waiting the formation of the type is neglected. When the larger opportunity does not arrive they are left with neither the outer victory nor the inner one. The correct order is the reverse. The type is formed first. Everything else is secondary and may never appear.</p>
+
+    <p>The preservation of the type is therefore the practical goal of the entire sequence that has led to this day. Orientation, diagnosis, the recovery of Traditional principles, the formation of the differentiated individual, the stance of riding the tiger: all of these serve the single end of keeping a higher possibility alive in concrete human form. That end is sufficient. It is the only end that does not depend on the cooperation of the age.</p>
+
+    <div class="day-nav">
+      <a href="day-94.html">← Day 94</a>
+      <a href="day-96.html">Day 96 →</a>
+    </div>
+
+    <div class="footer">
+      Day 95 of 100 · Riding the Tiger
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>
