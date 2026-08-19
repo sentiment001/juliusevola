@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 119 — The Morning</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-119.html" class="active">Day 119</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-118.html">← Day 118</a>
+      <a href="day-120.html">Day 120 →</a>
+    </div>
+
+    <h2>Day 119 — The Morning</h2>
+
+    <div class="quote">
+      "The quality of the day is fixed in its first hour. The man who begins in disorder has already surrendered the rest."
+      <cite>— Julius Evola, Ride the Tiger</cite>
+    </div>
+
+    <p>The morning is the first test of the measure. Sleep ends and the lower nature asserts itself at once: the pull toward delay, the demand for stimulus, the preference for the softest available path. The differentiated individual treats that first interval as decisive. He rises according to the hour he has set. He refuses the immediate reach for the device. He places the body under a clear demand before the mind is allowed to scatter. The morning is not a transition. It is the first act of the day.</p>
+
+    <p>The age trains the young man to treat the morning as recovery from the previous night and preparation for the coming pressure. The higher type reverses the order. The morning is the point at which the permanent standard is reasserted against the residual inertia of sleep. Whatever follows will either continue that reassertion or undo it. The man who begins the day by negotiating with himself has already accepted that the measure is optional. Once that acceptance is present, the rest of the day becomes a series of further negotiations.</p>
+
+    <p>Young men are taught that a harsh morning is a sign of discipline and that a soft morning is a sign of balance. Both framings are secondary. The real question is whether the first hour answers to the same standard that will be required under pressure later. If the morning is allowed to drift, the claim to consistency later in the day is hollow. The small decision examined yesterday finds its first and clearest application here.</p>
+
+    <p>Establish the morning as non-negotiable. The hour of rising, the order of the first actions, the refusal of unnecessary input. Protect that sequence until it becomes automatic. When the sequence is automatic, the rest of the day inherits a different starting point. The work of intensification begins before the world has made its claims. That is the practical meaning of the morning.</p>
+
+    <div class="day-nav">
+      <a href="day-118.html">← Day 118</a>
+      <a href="day-120.html">Day 120 →</a>
+    </div>
+
+    <div class="footer">
+      Day 119 of 130 · Intensification / Application
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>
