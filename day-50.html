@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 50 — The Center and the Periphery</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-50.html" class="active">Day 50</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-49.html">← Day 49</a>
+      <a href="day-51.html">Day 51 →</a>
+    </div>
+
+    <h2>Day 50 — The Center and the Periphery</h2>
+
+    <div class="quote">
+      "In every Traditional order there is a center and a periphery. The center is the seat of the higher principle. The periphery receives its form and its legitimacy from the center. When the center fails, the periphery falls into chaos or into purely material organization."
+      <cite>— Julius Evola, Revolt Against the Modern World</cite>
+    </div>
+
+    <p>The distinction between center and periphery is structural. The center is the point of qualitative intensity, the place where the higher order is most fully present. The periphery is the zone of application, of lesser intensity, of participation that decreases with distance. In a healthy Traditional structure the periphery is not despised. It is ordered and given meaning by its relation to the center.</p>
+
+    <p>The modern world has inverted the relation. It treats the periphery as the only reality and the center as an outdated fiction. Power, attention, and legitimacy are claimed by the mass, by the quantitative majority, by the economic and technical processes that operate on the surface. The result is a world that is all periphery. Nothing stands still long enough or high enough to give the whole a durable form.</p>
+
+    <p>The young man must decide where he will stand. If he remains on the periphery he will be moved by every current that sweeps across it. If he seeks the center he will find that the public institutions of the age offer him none. The center must therefore be established first in himself. That interior center becomes the reference by which he judges the claims of the surrounding periphery.</p>
+
+    <p>This decision produces a new geography of life. Certain people, certain activities, and certain demands move closer to the center. Others are recognized as peripheral and are treated accordingly. The man who maintains this distinction will appear selective or distant to those who live only on the surface. The appearance is accurate. He has chosen a different location.</p>
+
+    <div class="day-nav">
+      <a href="day-49.html">← Day 49</a>
+      <a href="day-51.html">Day 51 →</a>
+    </div>
+
+    <div class="footer">
+      Day 50 of 55 · The Traditional Order
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>
