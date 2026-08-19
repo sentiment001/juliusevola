@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 37 — Rank and Function</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-37.html" class="active">Day 37</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-36.html">← Day 36</a>
+      <a href="day-38.html">Day 38 →</a>
+    </div>
+
+    <h2>Day 37 — Rank and Function</h2>
+
+    <div class="quote">
+      "The traditional order was built on the recognition that different human types are fitted by nature for different functions. Rank was not arbitrary privilege but the outer form of a qualitative difference."
+      <cite>— Julius Evola, Revolt Against the Modern World</cite>
+    </div>
+
+    <p>In a Traditional civilization, men were not regarded as interchangeable units. Different types of men were understood to possess different capacities and different orientations of the spirit. These differences were given social form through a structure of ranks and corresponding functions. The priestly, the warrior, the productive, and the service roles were not merely jobs. They were the public expression of distinct natures.</p>
+
+    <p>The historical name for this structure is the caste system. The word has become heavy with modern political associations, yet the underlying principle remains clear: qualitative rank and functional differentiation. When that principle is denied, the result is the confusion of roles, the invasion of higher functions by lower types, and the gradual loss of the excellence each function once required.</p>
+
+    <p>The modern mind treats any fixed correspondence between type and function as a denial of freedom. The Traditional view sees the opposite. Freedom of the higher kind is possible only when a man is placed according to what he is. The interchangeable individual who can be moved from one role to another without regard to fitness is not freer. He is simply more available to the forces of the age.</p>
+
+    <p>The young man is not asked to reconstruct a historical caste system. He is asked to recover the principle itself. Self-knowledge begins here: the discernment of one’s own type and of the function that corresponds to it. That discernment is more important than any external title. From it the hierarchical principle becomes concrete rather than abstract.</p>
+
+    <div class="day-nav">
+      <a href="day-36.html">← Day 36</a>
+      <a href="day-38.html">Day 38 →</a>
+    </div>
+
+    <div class="footer">
+      Day 37 of 55 · The Traditional Order
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>
