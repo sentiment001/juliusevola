@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 34 — The Dark Age</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-34.html" class="active">Day 34</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-33.html">← Day 33</a>
+      <a href="day-35.html">Day 35 →</a>
+    </div>
+
+    <h2>Day 34 — The Dark Age</h2>
+
+    <div class="quote">
+      "We are living in the last age of the cycle, the age of dissolution, of the predominance of the lowest forces, and of the almost complete obscuration of the higher principles."
+      <cite>— Julius Evola, Revolt Against the Modern World</cite>
+    </div>
+
+    <p>Traditional teaching describes history as a long descent through successive ages. Each age is marked by a progressive loss of quality, of contact with the sacred, and of the higher human type. The final phase is the one in which quantitative, material, and chaotic forces reach their fullest expression. Higher forms of authority, knowledge, and life survive only as fragments. This late phase is what the present pages have been diagnosing under many particular names.</p>
+
+    <p>The traditional name for this phase is the Kali Yuga, the Dark Age. The name is not a poetic flourish. It is a precise description of a morphological condition: the near-total predominance of the lower over the higher, of becoming over Being, of the mass over the differentiated individual. The signs already examined—the myth of progress, the reign of the economy, the leveling process, the loss of the sacred, the reduction of man to sensation—are the concrete marks of this age.</p>
+
+    <p>Most young men are given a linear and optimistic map of history. The traditional map is cyclical and descending. The friction between the two maps is real and should not be papered over. Holding the traditional view does not require theatrical despair or the pose of the prophet of doom. It requires clarity about the terrain on which one must stand and act.</p>
+
+    <p>Once the age is named and seen for what it is, the task of the differentiated individual becomes clearer. He is not required to reverse the cycle by force of will. He is required to remain standing within it, to preserve a higher measure in himself, and to prepare for the conditions that will follow when the present process has run its course. That clarity is the necessary ground for everything that follows in these pages.</p>
+
+    <div class="day-nav">
+      <a href="day-33.html">← Day 33</a>
+      <a href="day-35.html">Day 35 →</a>
+    </div>
+
+    <div class="footer">
+      Day 34 of 35 · Diagnosis of the Modern World
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>
