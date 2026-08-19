@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 46 — The Race of the Spirit</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-46.html" class="active">Day 46</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-45.html">← Day 45</a>
+      <a href="day-47.html">Day 47 →</a>
+    </div>
+
+    <h2>Day 46 — The Race of the Spirit</h2>
+
+    <div class="quote">
+      "Above the race of the body and the race of the soul there stands the race of the spirit. It is the race determined by the degree of participation in the transcendent and by the presence or absence of a higher formative force."
+      <cite>— Julius Evola, Revolt Against the Modern World</cite>
+    </div>
+
+    <p>Evola distinguishes three levels of race. The race of the body is the biological and anthropological fact. The race of the soul is the complex of character, temperament, and cultural style. The race of the spirit is the decisive level. It concerns the presence or absence of a metaphysical orientation, the capacity to live under a transcendent measure rather than under the measure of the species or the collective.</p>
+
+    <p>This third race cuts across the first two. Men of the same bodily and cultural stock can belong to different races of the spirit. One can be solar, hierarchical, and oriented toward the absolute. Another can be telluric, formless, and oriented toward the horizontal. The modern age has largely erased the distinction. It treats all men as equal members of a single biological and economic species and measures them only by that standard.</p>
+
+    <p>The young man who grasps the idea of the race of the spirit gains a new criterion. He no longer asks only what group he belongs to by birth or by culture. He asks what quality of being is active in him and in those around him. He learns to recognize the higher type even when it appears in unexpected places and to recognize the lower type even when it wears the marks of the higher stock.</p>
+
+    <p>This recognition is not a license for contempt. It is a demand for self-examination. The race of the spirit is not inherited automatically. It must be confirmed and strengthened by the way a man lives. The age offers every inducement to fall into the lower race of the spirit while retaining the external marks of the higher. The man who refuses that fall has already taken a decisive step.</p>
+
+    <div class="day-nav">
+      <a href="day-45.html">← Day 45</a>
+      <a href="day-47.html">Day 47 →</a>
+    </div>
+
+    <div class="footer">
+      Day 46 of 55 · The Traditional Order
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>
