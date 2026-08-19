@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 29 — Equality as Leveling</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-29.html" class="active">Day 29</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-28.html">← Day 28</a>
+      <a href="day-30.html">Day 30 →</a>
+    </div>
+
+    <h2>Day 29 — Equality as Leveling</h2>
+
+    <div class="quote">
+      "Equality, as it is understood in the modern world, is not the recognition of a higher common dignity. It is the systematic denial of qualitative differences and the reduction of every hierarchy to a temporary and unjust arrangement."
+      <cite>— Julius Evola, Revolt Against the Modern World</cite>
+    </div>
+
+    <p>The modern doctrine of equality begins with a moral claim and ends as a technical process of leveling. Differences of capacity, of type, and of rank are treated as obstacles to be removed or as injustices to be corrected. The process is never complete because the human material continues to produce variation. The response is to intensify the mechanisms of equalization.</p>
+
+    <p>Traditional societies recognized equality before the sacred or before a higher law while maintaining clear distinctions of function and of quality. The modern form abolishes the higher reference and then attempts to abolish the distinctions themselves. The result is not a higher form of justice. It is the progressive suppression of the conditions under which the superior can appear and develop.</p>
+
+    <p>You will encounter the claim that any defense of hierarchy is a defense of privilege and oppression. The claim is powerful because it appeals to a genuine sense of fairness. The deeper question is whether a society that refuses to recognize qualitative rank can still produce the higher human types that once gave form to civilization. The evidence of the present age suggests that the answer is negative.</p>
+
+    <p>The differentiated man does not need to argue for inequality as an abstract principle. He needs to protect, in himself and where possible around him, the space in which difference of rank is still allowed to exist and to operate. That protection is already a concrete act against the leveling process.</p>
+
+    <div class="day-nav">
+      <a href="day-28.html">← Day 28</a>
+      <a href="day-30.html">Day 30 →</a>
+    </div>
+
+    <div class="footer">
+      Day 29 of 35 · Diagnosis of the Modern World
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>

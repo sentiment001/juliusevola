@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 28 — The Cult of Novelty</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-28.html" class="active">Day 28</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-27.html">← Day 27</a>
+      <a href="day-29.html">Day 29 →</a>
+    </div>
+
+    <h2>Day 28 — The Cult of Novelty</h2>
+
+    <div class="quote">
+      "The modern world is obsessed with the new. Novelty has become a value in itself, independent of any qualitative judgment. What is recent is presumed superior simply because it is recent."
+      <cite>— Julius Evola, Revolt Against the Modern World</cite>
+    </div>
+
+    <p>The cult of novelty is the practical expression of the myth of progress applied to everyday life. Every season of fashion, every technological update, every shift in language and sensibility is presented as an advance. The past is treated as a storehouse of errors to be left behind. The result is a permanent restlessness that never pauses long enough to test whether the new is actually higher.</p>
+
+    <p>Tradition works with a different valuation. What has endured across generations carries a weight that the merely recent cannot claim. Forms that have proven themselves capable of forming men over long periods of time are not automatically inferior because they are old. The modern habit of treating age itself as a disqualification is a symptom of the horizontal orientation.</p>
+
+    <p>Young men are formed inside this cult from the earliest years. The pressure to remain current, to speak the latest language, and to discard yesterday’s standards is constant. Resistance begins with the simple refusal to accept novelty as a criterion of value. A form, an idea, or a discipline must be judged by its qualitative content and by its capacity to elevate, not by its date of appearance.</p>
+
+    <p>The man who can hold a standard that does not shift with every wave of novelty has already begun to stand outside the current. That capacity is rare and must be trained deliberately against the grain of the age.</p>
+
+    <div class="day-nav">
+      <a href="day-27.html">← Day 27</a>
+      <a href="day-29.html">Day 29 →</a>
+    </div>
+
+    <div class="footer">
+      Day 28 of 35 · Diagnosis of the Modern World
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>
