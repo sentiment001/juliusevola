@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 107 — Action Under Pressure</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-107.html" class="active">Day 107</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-106.html">← Day 106</a>
+      <a href="day-108.html">Day 108 →</a>
+    </div>
+
+    <h2>Day 107 — Action Under Pressure</h2>
+
+    <div class="quote">
+      "The true test of the differentiated individual is not the clarity he maintains in calm conditions. It is the capacity to act from the same center when the surrounding forces press hardest against it."
+      <cite>— Julius Evola, Ride the Tiger</cite>
+    </div>
+
+    <p>Pressure is the element in which the type is either confirmed or exposed. The age supplies continuous forms of it: economic uncertainty, social friction, the acceleration of events, the demand for immediate reaction. Most men under pressure abandon the higher measure and fall back on the habits the environment has prepared. The differentiated individual treats pressure as the condition under which the interior order must prove itself.</p>
+
+    <p>The practical demand is the refusal of panic and of improvisation that abandons principle. Action under pressure must still answer to the same standard applied in ordinary conditions. Speed is sometimes required. Haste that dissolves the center is never required. The man who has trained the body, speech, desire, and time according to a higher measure already possesses the instruments needed when the terrain becomes difficult. The work of intensification is precisely the preparation of those instruments before the test arrives.</p>
+
+    <p>Young men are taught to treat pressure as an excuse for the temporary suspension of standards. The higher type rejects the excuse. The moment of pressure is the moment in which the type is most visible. If the permanent measure is set aside whenever difficulty increases, then the measure was never permanent. It was a preference maintained under favorable conditions. Preference is not orientation.</p>
+
+    <p>Prepare for pressure by practicing the applications already set out. The body that can sustain effort, the speech that remains measured, the desire that remains ordered, the time that remains under command: these are the elements that hold when the outer situation tightens. The differentiated individual does not wait for calm in order to live according to the higher form. He lives according to it so that calm is no longer the required condition.</p>
+
+    <div class="day-nav">
+      <a href="day-106.html">← Day 106</a>
+      <a href="day-108.html">Day 108 →</a>
+    </div>
+
+    <div class="footer">
+      Day 107 of 130 · Intensification / Application
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>
