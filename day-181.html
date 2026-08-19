@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 181 — The Man Who Carries His Own Law</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-181.html" class="active">Day 181</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-180.html">← Day 180</a>
+      <a href="day-182.html">Day 182 →</a>
+    </div>
+
+    <h2>Day 181 — The Man Who Carries His Own Law</h2>
+
+    <div class="quote">
+      "In the absence of a living traditional law, the differentiated individual must become the bearer of the law within himself. This is the residual form of sovereignty."
+      <cite>— Julius Evola, Ride the Tiger</cite>
+    </div>
+
+    <p>The man who carries his own law is the residual figure of the age. Traditional law was given from above and embodied in a living order. When that order collapses, the law does not disappear for the higher type. It migrates into the interior of the man capable of holding it. He becomes its residual carrier. The carrying is not a private invention. It is the continuation of the same vertical standard under residual conditions.</p>
+
+    <p>This interior law is not the modern idea of personal authenticity. Authenticity is horizontal. It merely affirms whatever the individual already feels. The residual law is vertical. It judges the individual according to a measure that does not originate in his feelings. The man who submits to that measure while carrying it is already practicing a residual form of the traditional relationship between the superior and the inferior within himself.</p>
+
+    <p>Young men often confuse the residual law with self-will. The confusion is dangerous. Self-will belongs to the dissolving forces. The residual law belongs to the permanent measure. The difference is visible in the results. Self-will produces further dissolution. The residual law produces continuity of the type under pressure.</p>
+
+    <p>Carry the law without seeking external authorization for it. The man who holds the permanent measure as his own interior standard is already living the residual sovereignty that the age can neither grant nor revoke.</p>
+
+    <div class="day-nav">
+      <a href="day-180.html">← Day 180</a>
+      <a href="day-182.html">Day 182 →</a>
+    </div>
+
+    <div class="footer">
+      Day 181 · Deeper Material
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>

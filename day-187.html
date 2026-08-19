@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 187 — Residual Virility</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-187.html" class="active">Day 187</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-186.html">← Day 186</a>
+      <a href="day-188.html">Day 188 →</a>
+    </div>
+
+    <h2>Day 187 — Residual Virility</h2>
+
+    <div class="quote">
+      "Virility in the residual sense is the capacity to remain oriented and capable of decision under conditions that systematically undermine both orientation and decision."
+      <cite>— Julius Evola, Ride the Tiger</cite>
+    </div>
+
+    <p>Residual virility is the form of masculine force that survives the dissolution of the traditional supports for virile life. Traditional virility was sustained by a world that still recognized rank, risk, and the higher measure of action. Residual virility must be sustained by the man himself when those recognitions have disappeared. It is the capacity to keep the center firm and the will clear under residual pressure.</p>
+
+    <p>The age confuses virility with aggression, with display, or with the mere refusal of softness. Residual virility is none of these. It is the interior firmness that allows the man to act according to the permanent measure without requiring the age to approve the action. The firmness is quiet. It does not need to announce itself. Its presence is visible in the continuity of decision under conditions that favor indecision.</p>
+
+    <p>Young men are offered many counterfeit forms of the virile. Some are theatrical. Some are purely reactive. None of them possess the residual quality of the higher type. The residual path requires the recovery of the capacity to stand and decide without the surrounding confirmation that earlier ages supplied. The recovery is the residual form of the warrior stance.</p>
+
+    <p>Cultivate residual virility as the capacity to remain oriented under residual pressure. Do not confuse it with the noise of the age. The man who keeps firm decision under dissolving conditions is already living the residual form of the higher masculine type.</p>
+
+    <div class="day-nav">
+      <a href="day-186.html">← Day 186</a>
+      <a href="day-188.html">Day 188 →</a>
+    </div>
+
+    <div class="footer">
+      Day 187 · Deeper Material
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>

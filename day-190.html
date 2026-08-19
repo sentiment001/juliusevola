@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 190 — The Path That Does Not Seek Recognition</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-190.html" class="active">Day 190</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-189.html">← Day 189</a>
+      <a href="day-191.html">Day 191 →</a>
+    </div>
+
+    <h2>Day 190 — The Path That Does Not Seek Recognition</h2>
+
+    <div class="quote">
+      "The residual path does not require recognition from the age in order to remain valid. The validity is interior and is measured by the permanent standard alone."
+      <cite>— Julius Evola, Ride the Tiger</cite>
+    </div>
+
+    <p>The path that does not seek recognition is the residual form of the higher path under late conditions. Traditional paths often possessed visible degrees, public rites, and collective confirmations. The residual path possesses none of these. Its validity is established solely by the continued fidelity of the man to the permanent measure. Recognition from the age is neither required nor expected.</p>
+
+    <p>The desire for recognition is itself a residual weakness. It seeks confirmation from a world that has lost the capacity to confirm the higher. The man who continues to orient himself by the measure without that confirmation is already practicing the residual detachment that the path requires. The practice is quiet. It does not need an audience.</p>
+
+    <p>Young men often feel the absence of recognition as a form of failure. The residual path rejects that feeling. Failure would be the abandonment of the measure. Continuity under the absence of recognition is the residual success that still remains possible. The success is not visible to the age. It is visible to the man who continues the path.</p>
+
+    <p>Walk the path without seeking recognition. The man who keeps the permanent measure under residual conditions is already living the deeper form of residual continuity that does not depend on the judgment of the dissolving world.</p>
+
+    <div class="day-nav">
+      <a href="day-189.html">← Day 189</a>
+      <a href="day-191.html">Day 191 →</a>
+    </div>
+
+    <div class="footer">
+      Day 190 · Deeper Material
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>

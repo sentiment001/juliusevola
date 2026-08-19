@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 180 — Orientation Without Horizon</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-180.html" class="active">Day 180</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-179.html">← Day 179</a>
+      <a href="day-181.html">Day 181 →</a>
+    </div>
+
+    <h2>Day 180 — Orientation Without Horizon</h2>
+
+    <div class="quote">
+      "The man who still orients himself does so without the guarantee of a visible future that will confirm his orientation. The orientation itself is the residual act."
+      <cite>— Julius Evola, Ride the Tiger</cite>
+    </div>
+
+    <p>Orientation without horizon is the residual capacity to remain directed when no collective future supplies a clear direction. Traditional man oriented himself within a living order that pointed beyond the individual life. The residual man must orient himself when that order no longer stands. The absence of a shared horizon does not cancel the need for orientation. It intensifies it.</p>
+
+    <p>The age offers many substitute horizons: political projects, technological utopias, personal brands, collective identities. Each of these is a horizontal substitute for the vertical direction that has been lost. The differentiated individual refuses the substitutes. He continues to orient himself according to the permanent measure even when no external landscape confirms the direction. That continuation is the residual orientation.</p>
+
+    <p>Young men feel the absence of horizon as a kind of disorientation that never fully lifts. The residual path does not promise that the feeling will disappear. It requires that the man keep his direction under the feeling. Direction under disorientation is a higher form of orientation than direction under favorable conditions. It is the form that the residual age still permits.</p>
+
+    <p>Orient yourself without waiting for a horizon to appear. The man who keeps a clear direction under residual conditions is already living the deeper continuity that does not depend on collective confirmation.</p>
+
+    <div class="day-nav">
+      <a href="day-179.html">← Day 179</a>
+      <a href="day-181.html">Day 181 →</a>
+    </div>
+
+    <div class="footer">
+      Day 180 · Deeper Material
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>
