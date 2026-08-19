@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 96 — The Rider's Discipline</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-96.html" class="active">Day 96</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-95.html">← Day 95</a>
+      <a href="day-97.html">Day 97 →</a>
+    </div>
+
+    <h2>Day 96 — The Rider's Discipline</h2>
+
+    <div class="quote">
+      "Riding the tiger is a continuous discipline. It is not a single decision but the repeated exercise of discrimination, detachment, and the higher measure under the pressure of the age."
+      <cite>— Julius Evola, Ride the Tiger</cite>
+    </div>
+
+    <p>Discipline for the differentiated individual is not the external regimen of a Traditional order. No such order exists in living form. The discipline is interior and self-imposed. It consists of the habits that keep the center operative: the regular return to the permanent measure, the examination of the effects of participation, the refusal of the stimuli that dissolve clarity, the maintenance of a style that expresses rank even in the absence of recognition.</p>
+
+    <p>This discipline is tested by the absence of external support. There is no community of initiates to correct deviations. There is no sacred authority to confirm the correctness of the orientation. The man must become his own measure and his own corrector. The risk of self-deception is real. The only protection is the severity of the standard itself and the honesty with which the man applies it to his own conduct.</p>
+
+    <p>The age offers many counterfeit disciplines. Fitness programs, productivity systems, ideological commitments, spiritual techniques of various kinds. Most of these remain within the horizontal plane. They improve performance or provide temporary feelings of control without touching the question of the higher type. The rider's discipline is oriented to that question alone. Everything else is secondary and is accepted only when it serves the primary end.</p>
+
+    <p>The continuous character of the discipline is what makes the stance durable. A single decision to ride the tiger is not enough. The decision must be renewed under changing conditions and under the fatigue that comes with prolonged exposure to the forces of dissolution. The man who treats the stance as a permanent occupation rather than as a temporary posture will still be upright when the phase has run further toward its end.</p>
+
+    <div class="day-nav">
+      <a href="day-95.html">← Day 95</a>
+      <a href="day-97.html">Day 97 →</a>
+    </div>
+
+    <div class="footer">
+      Day 96 of 100 · Riding the Tiger
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>
