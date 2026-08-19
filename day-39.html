@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 39 — Sacred Authority</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-39.html" class="active">Day 39</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-38.html">← Day 38</a>
+      <a href="day-40.html">Day 40 →</a>
+    </div>
+
+    <h2>Day 39 — Sacred Authority</h2>
+
+    <div class="quote">
+      "Sacred authority is the authority that derives from a direct relation to the transcendent. It is the principle that legitimates every other form of power and that gives the political and social order its ultimate justification."
+      <cite>— Julius Evola, Revolt Against the Modern World</cite>
+    </div>
+
+    <p>In the Traditional world the highest authority was sacred. The king or the emperor was not merely a political functionary. He was the point of contact between the human order and the divine or metaphysical order. His legitimacy rested on that contact. When the sacred dimension was present, the entire hierarchy received its meaning from above.</p>
+
+    <p>The modern world has severed that relation. Authority is now justified by popular will, by historical success, or by technical competence. None of these sources can supply the absolute character that once belonged to sacred authority. The result is a permanent instability. Every form of power remains open to challenge because none of them can claim a foundation that stands beyond human agreement.</p>
+
+    <p>The young man who seeks a standard that is not provisional will find that the age offers him none at the level of public authority. The recovery must therefore begin at another level. The sense of the sacred can still be cultivated as an interior reality. The man who orients himself by a transcendent measure has already restored, in his own person, the condition that the public order has lost.</p>
+
+    <p>That interior restoration does not immediately change the external world. It changes the position from which the external world is faced. The man who lives under a sacred standard is no longer fully available to the purely horizontal forces of the age. That unavailability is the beginning of a different form of freedom.</p>
+
+    <div class="day-nav">
+      <a href="day-38.html">← Day 38</a>
+      <a href="day-40.html">Day 40 →</a>
+    </div>
+
+    <div class="footer">
+      Day 39 of 55 · The Traditional Order
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 40 — Empire as Form</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-40.html" class="active">Day 40</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-39.html">← Day 39</a>
+      <a href="day-41.html">Day 41 →</a>
+    </div>
+
+    <h2>Day 40 — Empire as Form</h2>
+
+    <div class="quote">
+      "The idea of Empire is the political expression of a universal and hierarchical principle. It is the attempt to give terrestrial form to a higher order that transcends the particularism of nations and of purely human interests."
+      <cite>— Julius Evola, Revolt Against the Modern World</cite>
+    </div>
+
+    <p>Empire, in the Traditional sense, is not merely a large territorial state. It is the political form that seeks to embody a universal principle of order and hierarchy. The Roman idea of Imperium, the medieval idea of the Holy Roman Empire, and analogous forms in other civilizations all pointed toward a center that stood above the particular peoples and that claimed a legitimacy derived from a higher source.</p>
+
+    <p>The modern world has replaced the imperial idea with the nation-state and, more recently, with various forms of global management. Neither of these can supply the qualitative and hierarchical character that once belonged to Empire. The nation-state remains bound to particular interests. The global forms remain bound to economic and technical rationality. The vertical dimension is absent from both.</p>
+
+    <p>The young man is not called to reconstruct historical empires. He is called to understand the principle that those forms attempted to express. The principle is the subordination of the particular to a higher and more universal order. That principle can still operate at the level of the individual and of small groups even when it has disappeared from the public structures of the age.</p>
+
+    <p>The imperial attitude in the present conditions is the refusal to be limited by the purely local, the purely temporal, and the purely human. It is the decision to measure every particular loyalty and every particular struggle by a standard that transcends them. That decision is the beginning of a different scale of life.</p>
+
+    <div class="day-nav">
+      <a href="day-39.html">← Day 39</a>
+      <a href="day-41.html">Day 41 →</a>
+    </div>
+
+    <div class="footer">
+      Day 40 of 55 · The Traditional Order
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>
