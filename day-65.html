@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 65 — Style</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-65.html" class="active">Day 65</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-64.html">← Day 64</a>
+      <a href="day-66.html">Day 66 →</a>
+    </div>
+
+    <h2>Day 65 — Style</h2>
+
+    <div class="quote">
+      "Style is the visible expression of an interior order. In the differentiated man it appears as a certain distance, a certain clarity of form, a refusal of the formless and the excessive that characterize the age."
+      <cite>— Julius Evola, Ride the Tiger</cite>
+    </div>
+
+    <p>Style is not decoration. It is the outer sign of the hierarchy that has been established within. When the higher elements govern, the man's bearing, speech, and conduct acquire a corresponding form. That form is recognized even by those who do not understand its source. It registers as a quality of presence that the horizontal man lacks.</p>
+
+    <p>The modern world has largely destroyed the traditional forms of style. What remains is often a mixture of casual dissolution and theatrical display. The differentiated individual does not attempt to reconstruct vanished costumes. He cultivates the qualities that produce style from the inside: restraint, precision, the absence of unnecessary movement, the refusal to be driven by every impulse that arises. These qualities become visible.</p>
+
+    <p>Style includes the body. The way the body is held, trained, and presented is never neutral. A body that is soft, disordered, or given over to every appetite signals the absence of inner command. A body that is kept under discipline signals the presence of that command. The same is true of speech. Words that are scattered, reactive, or merely expressive of the mood of the moment dissolve form. Words that are measured preserve it.</p>
+
+    <p>The young man who takes this seriously will find that style is both a result and a discipline. It results from the inner work already described. It also becomes a daily practice that reinforces that work. To maintain form in small things is to strengthen the capacity for form in larger ones. In an age of formlessness, the presence of style is itself a quiet act of differentiation.</p>
+
+    <div class="day-nav">
+      <a href="day-64.html">← Day 64</a>
+      <a href="day-66.html">Day 66 →</a>
+    </div>
+
+    <div class="footer">
+      Day 65 of 75 · The Differentiated Individual
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>
