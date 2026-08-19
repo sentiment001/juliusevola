@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 97 — Energies Without Surrender</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-97.html" class="active">Day 97</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-96.html">← Day 96</a>
+      <a href="day-98.html">Day 98 →</a>
+    </div>
+
+    <h2>Day 97 — Energies Without Surrender</h2>
+
+    <div class="quote">
+      "The energies of the age can be turned without the man surrendering to them. The capacity to use those energies while remaining free of their law is the essence of the stance."
+      <cite>— Julius Evola, Ride the Tiger</cite>
+    </div>
+
+    <p>The forces of dissolution are not empty. They carry energy: the energy of technological acceleration, of organizational power, of the mobilization of masses, of the continuous generation of new forms. The differentiated individual does not pretend that this energy does not exist. He examines how far it can be turned toward ends that serve the higher measure without requiring the surrender of the center.</p>
+
+    <p>Turning an energy requires a point of leverage that is independent of the energy itself. That point is the permanent measure. From that point the man can decide which currents to enter, which instruments to master, which opportunities to accept. The decision remains his. When the energy begins to dictate the decision the turning has failed and the man is being carried.</p>
+
+    <p>The danger is always the subtle identification with the power of the current. Success in using the instruments of the age can produce the illusion that the man has mastered the age itself. The illusion is corrosive. It replaces the higher measure with the measure of effectiveness within the dissolving order. The rider who falls into that illusion has been thrown while still believing he is mounted.</p>
+
+    <p>The correct use of the energies of the age is therefore always limited and always provisional. The man takes what serves and remains ready to discard it when the service ends or when the cost to the type becomes too high. That readiness is the practical expression of the detachment that has been examined throughout this phase. Without it the energies of the age become the law of the life.</p>
+
+    <div class="day-nav">
+      <a href="day-96.html">← Day 96</a>
+      <a href="day-98.html">Day 98 →</a>
+    </div>
+
+    <div class="footer">
+      Day 97 of 100 · Riding the Tiger
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>
