@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 100 — The Task That Remains</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-100.html" class="active">Day 100</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-99.html">← Day 99</a>
+      <a href="index.html">Home</a>
+    </div>
+
+    <h2>Day 100 — The Task That Remains</h2>
+
+    <div class="quote">
+      "The task of the differentiated individual in a late age is never completed by a single phase of understanding. It is the continuous work of remaining the higher type under conditions that work against that type at every point."
+      <cite>— Julius Evola, Ride the Tiger</cite>
+    </div>
+
+    <p>This phase ends. The sequence from orientation through diagnosis, through the recovery of Traditional principles, through the formation of the differentiated individual, to the practical stance of riding the tiger has been completed in outline. The outline is not the work. The work is the conversion of the outline into a stable capacity that survives the pressure of ordinary days and of extreme ones.</p>
+
+    <p>The task that remains is therefore the same task that has been present from the first day. The man must continue to form himself according to the permanent measure. He must continue to exercise discrimination under the accelerations of the age. He must continue to ride the forces of dissolution without being dissolved by them. The understanding gained across these hundred days is useful only if it becomes the permanent orientation of a life.</p>
+
+    <p>No external confirmation will arrive to tell the man that he has succeeded. The age will continue according to its nature. The cycle will move toward whatever follows the present phase. The only confirmation is the interior consistency of the type over time. That consistency is visible to the man himself in the quality of his decisions, in the clarity that remains under pressure, in the refusal of the soft and the hard forms of leveling that the age continually offers.</p>
+
+    <p>Young men who have followed this sequence to its end now stand at a threshold. Behind them is a body of orientation that most of their generation will never encounter. Ahead of them is the concrete demand of a life lived according to that orientation. The demand does not lessen. The forces of the age will continue to press. The only question is whether the type that has been formed is strong enough to meet the pressure without surrender. That question is answered in the living, day after day, under the same measure that has been set before them here.</p>
+
+    <div class="day-nav">
+      <a href="day-99.html">← Day 99</a>
+      <a href="index.html">Home</a>
+    </div>
+
+    <div class="footer">
+      Day 100 of 100 · Riding the Tiger
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>
