@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 55 — The Traditional Man</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-55.html" class="active">Day 55</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-54.html">← Day 54</a>
+      <a href="day-56.html">Day 56 →</a>
+    </div>
+
+    <h2>Day 55 — The Traditional Man</h2>
+
+    <div class="quote">
+      "The Traditional man is the man who still lives according to a vertical orientation. He measures existence by a standard that stands above the contingent and the temporal. In him the higher principle remains active even when the outer forms of Tradition have disappeared."
+      <cite>— Julius Evola, Revolt Against the Modern World</cite>
+    </div>
+
+    <p>The Traditional man is defined by orientation rather than by historical costume. He is the man in whom the hierarchical principle, the sense of the sacred, and the awareness of a higher measure are still living realities. He may live inside a late age and under institutions that no longer express those realities. What matters is the direction of his being.</p>
+
+    <p>This type is rare. The age systematically selects against it. Education, entertainment, economic pressure, and social reward all favor the horizontal man, the man of sensation, of adaptation, of the immediate. The Traditional man appears as a residual figure. He is not produced by the surrounding environment. He is produced by a decision that runs against the environment.</p>
+
+    <p>The decision is not theatrical. It does not require public declarations or the reconstruction of vanished forms. It requires the steady subordination of the lower to the higher in the concrete details of life: in the use of the body, in the choice of company, in the quality of attention, in the refusal of what dissolves. Over time these details accumulate into a different type of presence.</p>
+
+    <p>With this day the phase of the Traditional Order is complete. The principles have been set out. What remains is their application under the conditions of the modern world. The differentiated individual is the next subject. He is the man who must carry the vertical orientation into an age that no longer supports it from the outside. The ground has been prepared. The demand now becomes more exacting.</p>
+
+    <div class="day-nav">
+      <a href="day-54.html">← Day 54</a>
+      <a href="day-56.html">Day 56 →</a>
+    </div>
+
+    <div class="footer">
+      Day 55 of 55 · The Traditional Order
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>
