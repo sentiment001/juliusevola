@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 83 — Detachment in Motion</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-83.html" class="active">Day 83</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-82.html">← Day 82</a>
+      <a href="day-84.html">Day 84 →</a>
+    </div>
+
+    <h2>Day 83 — Detachment in Motion</h2>
+
+    <div class="quote">
+      "Detachment must be maintained even while the man is in motion. The stillness of the center is not incompatible with outer activity. On the contrary, only the centered man can act without being possessed by the action."
+      <cite>— Julius Evola, Ride the Tiger</cite>
+    </div>
+
+    <p>Detachment in motion is the refinement of the earlier theme of detachment. In a quiet and withdrawn condition detachment is relatively easy. The real test comes when the man is engaged in the practical affairs of the age — work, movement, interaction, the handling of tools and situations that belong to the dissolving world. In those conditions the tendency is for the action itself to absorb the actor. Detachment is the capacity to remain free of that absorption.</p>
+
+    <p>The man acts fully. He does not withhold himself from the requirements of the task. At the same time a part of him remains the observer of the action. That observer is the unmoved center. It does not prevent the act. It prevents the act from becoming the definition of the man. When the act is finished, the center is still there, unaltered. This is the practical meaning of detachment in motion.</p>
+
+    <p>Most men either throw themselves completely into the current of activity and lose themselves in it, or they hold back from activity in order to protect a fragile sense of self. Both are forms of imbalance. The differentiated individual combines full engagement with interior non-identification. The combination is rare because it requires a center that is already stable. Without that prior stability the attempt at detachment collapses into either indifference or self-consciousness.</p>
+
+    <p>The cultivation of detachment in motion is therefore one of the daily disciplines of the rider. Every ordinary task becomes an occasion for practice. The man notices when he has been pulled into identification with the role or the outcome. He returns. The return is quiet and without drama. Over time the capacity strengthens. The tiger can then be ridden with less risk that the rider will forget who he is while the ride continues.</p>
+
+    <div class="day-nav">
+      <a href="day-82.html">← Day 82</a>
+      <a href="day-84.html">Day 84 →</a>
+    </div>
+
+    <div class="footer">
+      Day 83 of 100 · Riding the Tiger
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>
