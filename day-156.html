@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 156 — The Measure That Does Not Wait</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-156.html" class="active">Day 156</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-155.html">← Day 155</a>
+      <a href="day-157.html">Day 157 →</a>
+    </div>
+
+    <h2>Day 156 — The Measure That Does Not Wait</h2>
+
+    <div class="quote">
+      "The higher measure does not postpone its claim until external conditions become favorable. It claims the man in the conditions that actually exist."
+      <cite>— Julius Evola, Ride the Tiger</cite>
+    </div>
+
+    <p>The measure that does not wait is the permanent standard applied without delay and without condition. The residual age continually suggests that the higher life must wait for better circumstances, clearer authority, or a more favorable turn of the cycle. The suggestion is a residual form of dependence. The permanent measure rejects it. It claims the man now, under the exact conditions the dissolution has produced.</p>
+
+    <p>Waiting is the quiet refusal of the residual path. It presents itself as prudence or as realism. In reality it is the continuation of the horizontal formation that trained the man to look outside himself for the signal to begin. The measure that does not wait cuts the dependence on signals. The man begins because the measure is already present. The conditions are secondary.</p>
+
+    <p>Young men who have followed the sequence often still carry a hidden clause that says the work will become real only when something external changes. The clause must be identified and removed. When it is removed, the applications regain their proper weight. They are no longer provisional exercises performed in hope of a later confirmation. They are the present realization of the residual type.</p>
+
+    <p>Apply the measure without further delay. Keep the residual axis and the interior form under the pressure of the present phase. The man who does so has already stepped out of the waiting that the age encourages. That step is the residual form of decision.</p>
+
+    <div class="day-nav">
+      <a href="day-155.html">← Day 155</a>
+      <a href="day-157.html">Day 157 →</a>
+    </div>
+
+    <div class="footer">
+      Day 156 · Deeper Material
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>
