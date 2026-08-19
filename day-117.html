@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 117 — Attention</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-117.html" class="active">Day 117</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-116.html">← Day 116</a>
+      <a href="day-118.html">Day 118 →</a>
+    </div>
+
+    <h2>Day 117 — Attention</h2>
+
+    <div class="quote">
+      "Attention is the power by which the man either consolidates his center or disperses it into the surrounding current. In a late age the forces of dispersion are continuous and sophisticated."
+      <cite>— Julius Evola, Ride the Tiger</cite>
+    </div>
+
+    <p>Attention is the active capacity that determines the quality of every other practice. The age has industrialized the capture and fragmentation of attention. The young man is trained from childhood to move continuously between stimuli. Depth becomes difficult. Sustained focus on a single demand becomes rare. The differentiated individual treats the recovery of attention as a primary task of the intensification phase.</p>
+
+    <p>The practical demand is the deliberate withdrawal of attention from the continuous stream of low-value input. This is not a general condemnation of tools. It is the recognition that the default use of those tools dissolves the capacity for presence. The man who allows his attention to be continuously interrupted has already surrendered one of the central instruments of the higher type. Work, speech, physical discipline, and solitude all require attention that can remain located for extended periods.</p>
+
+    <p>Young men are formed in an environment that treats continuous partial attention as normal and that pathologizes the desire for unbroken focus. The higher type reverses the valuation. Fragmented attention is the normal condition of the dissolving age. Unbroken attention is a form of resistance and of formation. The resistance is practiced by the repeated refusal of the next stimulus when the present act still requires the mind.</p>
+
+    <p>Begin the recovery in the ordinary hours. Protect stretches of work and of solitude from interruption. Notice the impulse to escape into the next available input and refuse it. The refusal is small. The cumulative effect is the restoration of a capacity that the age has spent decades eroding. Without that capacity the permanent measure remains an idea rather than a lived orientation.</p>
+
+    <div class="day-nav">
+      <a href="day-116.html">← Day 116</a>
+      <a href="day-118.html">Day 118 →</a>
+    </div>
+
+    <div class="footer">
+      Day 117 of 130 · Intensification / Application
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>
