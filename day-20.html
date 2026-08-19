@@ -1,1 +1,73 @@
-PLACEHOLDER
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 20 — The Reign of the Economy</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-20.html" class="active">Day 20</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-19.html">← Day 19</a>
+      <a href="day-21.html">Day 21 →</a>
+    </div>
+
+    <h2>Day 20 — The Reign of the Economy</h2>
+
+    <div class="quote">
+      "Nothing is more evident than that modern capitalism is just as subversive as Marxism. The materialistic view of life on which both systems are based is identical; both of their ideals are qualitatively identical, including the premises connected to a world the centre of which is constituted of technology, science, production, productivity, and consumption."
+      <cite>— Julius Evola, Men Among the Ruins</cite>
+    </div>
+
+    <p>In the Traditional world the economic sphere was subordinate. It served the higher orders of life: the political, the warrior, the sacred. Production and trade had their place, but that place was lower. The modern inversion places the economic at the center of everything. Political decisions, cultural forms, and even private ideals are increasingly justified by economic logic.</p>
+
+    <p>Capitalism and Marxism appear as enemies. At the level of principle they share the same root. Both treat material production and distribution as the decisive reality. Both measure human progress by the organization of economic forces. The quarrel between them is over method and ownership, not over the primacy of the material. Evola saw this clearly. The deeper conflict is between any system that places the economy at the summit and a Traditional order that keeps it in its proper rank.</p>
+
+    <p>A young man formed inside the economic reign learns to evaluate almost every choice through the lens of advantage, security, and accumulation. Higher motives are either translated into economic language or dismissed as unrealistic. The result is a contraction of the inner life. What cannot be priced tends to lose reality.</p>
+
+    <p>The diagnosis does not require a romantic rejection of competence or prosperity. It requires seeing that an age which can no longer subordinate the economic to anything higher has already accepted a reduced vision of man. Recovering a vertical measure means refusing to let that reduction become the final word on what a life is for.</p>
+
+    <div class="day-nav">
+      <a href="day-19.html">← Day 19</a>
+      <a href="day-21.html">Day 21 →</a>
+    </div>
+
+    <div class="footer">
+      Day 20 of 35 · Diagnosis of the Modern World
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>

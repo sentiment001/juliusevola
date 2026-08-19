@@ -3,7 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Julius Evola Daily</title>
+  <title>Julius Evola Daily — A Daily Reader for Young Men</title>
+  <meta name="description" content="A 365-day reader drawn from Julius Evola's Revolt Against the Modern World and Ride the Tiger. Written for young men who want a clearer standard than the one the age offers.">
+  <meta name="keywords" content="Julius Evola, Tradition, Ride the Tiger, Revolt Against the Modern World, daily reader, differentiated individual, Traditionalism, hierarchy, young men">
+  <meta name="author" content="Julius Evola Daily">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Julius Evola Daily — A Daily Reader for Young Men">
+  <meta property="og:description" content="A 365-day reader drawn from Julius Evola's core works. Orientation, diagnosis, and the stance required to remain upright in a late age.">
+  <meta property="og:image" content="cover.jpg">
+  <meta property="og:url" content="https://sentiment001.github.io/juliusevola/">
+  <meta property="og:site_name" content="Julius Evola Daily">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Julius Evola Daily — A Daily Reader for Young Men">
+  <meta name="twitter:description" content="A 365-day reader drawn from Julius Evola's core works. Orientation, diagnosis, and the stance required to remain upright in a late age.">
+  <meta name="twitter:image" content="cover.jpg">
+
   <link rel="stylesheet" href="style.css">
   <style>
     .month-nav {
@@ -149,18 +167,18 @@
       31: { title: "Materialism as the Ruling Metaphysics", link: "day-31.html" },
       32: { title: "The End of True Authority", link: "day-32.html" },
       33: { title: "Sensation and the Horizontal Man", link: "day-33.html" },
-      34: { title: "The Kali Yuga Named", link: "day-34.html" },
+      34: { title: "The Dark Age", link: "day-34.html" },
       35: { title: "The Terrain", link: "day-35.html" },
       36: { title: "The Hierarchical Principle", link: "day-36.html" },
-      37: { title: "Caste and Function", link: "day-37.html" },
+      37: { title: "Rank and Function", link: "day-37.html" },
       38: { title: "The Warrior and the King", link: "day-38.html" },
       39: { title: "Sacred Authority", link: "day-39.html" },
       40: { title: "Empire as Form", link: "day-40.html" },
       41: { title: "The Solar Principle", link: "day-41.html" },
       42: { title: "Initiation and the Path", link: "day-42.html" },
       43: { title: "The Two Natures of Man", link: "day-43.html" },
-      44: { title: "The Polar Symbolism", link: "day-44.html" },
-      45: { title: "Hyperborea and the Origin", link: "day-45.html" },
+      44: { title: "The Axis and the Pole", link: "day-44.html" },
+      45: { title: "The Northern Origin", link: "day-45.html" },
       46: { title: "The Race of the Spirit", link: "day-46.html" },
       47: { title: "Form and the Limit", link: "day-47.html" },
       48: { title: "The Contemplative and the Active", link: "day-48.html" },
@@ -217,7 +235,6 @@
     select.addEventListener('change', () => renderMonth(select.value));
     renderMonth(1);
 
-    // Theme toggle
     const toggle = document.getElementById('themeToggle');
     const htmlEl = document.documentElement;
     const saved = localStorage.getItem('theme');
