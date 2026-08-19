@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 90 — The Horizon of the Cycle</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-90.html" class="active">Day 90</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-89.html">← Day 89</a>
+      <a href="day-91.html">Day 91 →</a>
+    </div>
+
+    <h2>Day 90 — The Horizon of the Cycle</h2>
+
+    <div class="quote">
+      "The man who rides the tiger keeps the long view of the cycle. He knows that the present dissolution is a phase and that phases end. This knowledge shapes every practical decision."
+      <cite>— Julius Evola, Ride the Tiger</cite>
+    </div>
+
+    <p>The horizon of the cycle is the perspective that prevents both despair and short-term opportunism. The age appears absolute to those who live only inside it. To the differentiated individual the age is a late phase of a larger movement whose previous phases are known and whose future phase is not yet determined. That knowledge does not remove the pressure of the present. It changes the weight given to the pressure.</p>
+
+    <p>Decisions made under the long view differ from decisions made under the immediate horizon. The man who sees only the next years will optimize for survival or for advantage within the existing structures. The man who sees the cycle will accept certain costs and refuse certain gains because they compromise the type that must be preserved across the transition. The difference is often invisible to the surrounding culture. It is decisive for the man himself.</p>
+
+    <p>This perspective is not optimism. Optimism expects a favorable turn within a human lifetime. The long view of the cycle makes no such promise. It simply recognizes that the forces of dissolution are not the final word of history. What follows them may be a further descent or a new crystallization of higher forms. The differentiated individual prepares for either possibility by remaining the type capable of either.</p>
+
+    <p>Young men are trained by the age to live inside short horizons. Careers, consumption cycles, political seasons, and the endless novelty of the informational environment all reinforce the short view. Recovering the longer horizon is therefore an act of resistance against the natural tendency of the time. It is also one of the conditions for riding the tiger without being thrown by every acceleration of the current.</p>
+
+    <div class="day-nav">
+      <a href="day-89.html">← Day 89</a>
+      <a href="day-91.html">Day 91 →</a>
+    </div>
+
+    <div class="footer">
+      Day 90 of 100 · Riding the Tiger
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>
