@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 195 — Interior Distance Under Residual Conditions</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-195.html" class="active">Day 195</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-194.html">← Day 194</a>
+      <a href="day-196.html">Day 196 →</a>
+    </div>
+
+    <h2>Day 195 — Interior Distance Under Residual Conditions</h2>
+
+    <div class="quote">
+      "Interior distance is the capacity to participate in the world of dissolution without allowing that world to determine the measure by which one lives."
+      <cite>— Julius Evola, Ride the Tiger</cite>
+    </div>
+
+    <p>Interior distance is the residual form of the hierarchical principle. In a traditional order the distance between ranks was external and visible. Under residual conditions the distance must be maintained inside the man himself. He lives among the forces of the age. He uses what the age provides. He does not allow those forces to rewrite the standard by which he judges himself and his actions.</p>
+
+    <p>The maintenance of this distance requires constant vigilance. The age works continuously to close every gap between the individual and the collective current. It presents participation as belonging and belonging as the only remaining form of meaning. The differentiated man refuses that equation. He participates where necessary. He never confuses participation with the surrender of the interior measure.</p>
+
+    <p>Young men feel the pressure most sharply in the domains of work, speech, and association. The demand to speak in the language of the age, to adopt its values as one own, and to treat its horizons as final is constant. Interior distance answers that demand with a quiet and unbroken refusal. The man keeps his center. He allows the age its surface operations. He does not grant it the right to define what is higher.</p>
+
+    <p>Interior distance is not isolation for its own sake. It is the condition that makes residual action possible. Without it the man is carried by the current he claims to observe. With it he can move inside the residual field while remaining oriented by something the residual field cannot supply. That orientation is the permanent measure. The distance protects it.</p>
+
+    <div class="day-nav">
+      <a href="day-194.html">← Day 194</a>
+      <a href="day-196.html">Day 196 →</a>
+    </div>
+
+    <div class="footer">
+      Day 195 · Deeper Material
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>
