@@ -1,1 +1,371 @@
-PLACEHOLDER
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Julius Evola Daily — A Daily Reader for Young Men</title>
+  <meta name="description" content="A 365-day reader drawn from Julius Evola's Revolt Against the Modern World and Ride the Tiger. Written for young men who want a clearer standard than the one the age offers.">
+  <meta name="keywords" content="Julius Evola, Tradition, Ride the Tiger, Revolt Against the Modern World, daily reader, differentiated individual, Traditionalism, hierarchy, young men">
+  <meta name="author" content="Julius Evola Daily">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Julius Evola Daily — A Daily Reader for Young Men">
+  <meta property="og:description" content="A 365-day reader drawn from Julius Evola's core works. Orientation, diagnosis, and the stance required to remain upright in a late age.">
+  <meta property="og:image" content="cover.jpg">
+  <meta property="og:url" content="https://sentiment001.github.io/juliusevola/">
+  <meta property="og:site_name" content="Julius Evola Daily">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Julius Evola Daily — A Daily Reader for Young Men">
+  <meta name="twitter:description" content="A 365-day reader drawn from Julius Evola's core works. Orientation, diagnosis, and the stance required to remain upright in a late age.">
+  <meta name="twitter:image" content="cover.jpg">
+
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .month-nav {
+      margin: 2.5rem 0 2rem;
+    }
+    .month-nav label {
+      display: block;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-bottom: 0.6rem;
+    }
+    .month-select {
+      width: 100%;
+      max-width: 320px;
+      padding: 0.7rem 1rem;
+      font-size: 1rem;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      color: var(--text);
+      border-radius: 4px;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%238B1A1A' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      cursor: pointer;
+    }
+    .month-select:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+    .month-title {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      color: var(--accent);
+    }
+    .day-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem 2.5rem;
+      margin-top: 0.5rem;
+    }
+    .day-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .day-list li {
+      margin-bottom: 0.7rem;
+    }
+    .day-list a {
+      font-size: 1.02rem;
+    }
+    .coming {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    @media (max-width: 600px) {
+      .day-columns {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html" class="active">Home</a>
+          <a href="day-01.html">Start Day 1</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="landing-intro">
+      <p>A daily reader drawn from the core of Julius Evola's work. Written for young men who feel the narrowness of the age they were born into and want a clearer standard.</p>
+      <p>Main sources: <em>Revolt Against the Modern World</em> and <em>Ride the Tiger</em>.</p>
+    </div>
+
+    <div class="month-nav">
+      <label for="monthSelect">Month</label>
+      <select id="monthSelect" class="month-select">
+        <option value="1">January (Day 1 – Day 31)</option>
+        <option value="2">February (Day 32 – Day 59)</option>
+        <option value="3">March (Day 60 – Day 90)</option>
+        <option value="4">April (Day 91 – Day 120)</option>
+        <option value="5">May (Day 121 – Day 151)</option>
+        <option value="6">June (Day 152 – Day 181)</option>
+        <option value="7">July (Day 182 – Day 212)</option>
+        <option value="8">August (Day 213 – Day 243)</option>
+        <option value="9">September (Day 244 – Day 273)</option>
+        <option value="10">October (Day 274 – Day 304)</option>
+        <option value="11">November (Day 305 – Day 334)</option>
+        <option value="12">December (Day 335 – Day 365)</option>
+      </select>
+    </div>
+
+    <div id="monthContent"></div>
+
+    <div class="footer">
+      Primary sources: Revolt Against the Modern World · Ride the Tiger · Men Among the Ruins
+    </div>
+  </div>
+
+  <script>
+    const realDays = {
+      1: { title: "What Tradition Means", link: "day-01.html" },
+      2: { title: "Vertical and Horizontal", link: "day-02.html" },
+      3: { title: "Quality and Quantity", link: "day-03.html" },
+      4: { title: "The Lost Center", link: "day-04.html" },
+      5: { title: "Tradition and Traditionalism", link: "day-05.html" },
+      6: { title: "Higher and Lower Ways of Being", link: "day-06.html" },
+      7: { title: "The Type of Man Required", link: "day-07.html" },
+      8: { title: "Myth as Higher Knowledge", link: "day-08.html" },
+      9: { title: "The Condition of the Age", link: "day-09.html" },
+      10: { title: "Why This Matters", link: "day-10.html" },
+      11: { title: "The Need for a Center", link: "day-11.html" },
+      12: { title: "Race of the Spirit", link: "day-12.html" },
+      13: { title: "Solar and Telluric", link: "day-13.html" },
+      14: { title: "Action and the Higher Measure", link: "day-14.html" },
+      15: { title: "The Threshold", link: "day-15.html" },
+      16: { title: "The Myth of Progress", link: "day-16.html" },
+      17: { title: "Quantity Over Quality", link: "day-17.html" },
+      18: { title: "The Dissolution of Forms", link: "day-18.html" },
+      19: { title: "Individualism and the Mass", link: "day-19.html" },
+      20: { title: "The Reign of the Economy", link: "day-20.html" },
+      21: { title: "Democracy and the Leveling Process", link: "day-21.html" },
+      22: { title: "The Loss of the Sacred", link: "day-22.html" },
+      23: { title: "Technology and the New Environment", link: "day-23.html" },
+      24: { title: "Softness and the Decline of Virility", link: "day-24.html" },
+      25: { title: "Nihilism as the Air of the Age", link: "day-25.html" },
+      26: { title: "The Modern Intellectual", link: "day-26.html" },
+      27: { title: "Rootlessness", link: "day-27.html" },
+      28: { title: "The Cult of Novelty", link: "day-28.html" },
+      29: { title: "Equality as Leveling", link: "day-29.html" },
+      30: { title: "The Break with the Past", link: "day-30.html" },
+      31: { title: "Materialism as the Ruling Metaphysics", link: "day-31.html" },
+      32: { title: "The End of True Authority", link: "day-32.html" },
+      33: { title: "Sensation and the Horizontal Man", link: "day-33.html" },
+      34: { title: "The Dark Age", link: "day-34.html" },
+      35: { title: "The Terrain", link: "day-35.html" },
+      36: { title: "The Hierarchical Principle", link: "day-36.html" },
+      37: { title: "Rank and Function", link: "day-37.html" },
+      38: { title: "The Warrior and the King", link: "day-38.html" },
+      39: { title: "Sacred Authority", link: "day-39.html" },
+      40: { title: "Empire as Form", link: "day-40.html" },
+      41: { title: "The Solar Principle", link: "day-41.html" },
+      42: { title: "Initiation and the Path", link: "day-42.html" },
+      43: { title: "The Two Natures of Man", link: "day-43.html" },
+      44: { title: "The Axis and the Pole", link: "day-44.html" },
+      45: { title: "The Northern Origin", link: "day-45.html" },
+      46: { title: "The Race of the Spirit", link: "day-46.html" },
+      47: { title: "Form and the Limit", link: "day-47.html" },
+      48: { title: "The Contemplative and the Active", link: "day-48.html" },
+      49: { title: "Tradition as Living Force", link: "day-49.html" },
+      50: { title: "The Center and the Periphery", link: "day-50.html" },
+      51: { title: "The Principle of Superiority", link: "day-51.html" },
+      52: { title: "Organic Hierarchy", link: "day-52.html" },
+      53: { title: "The Spiritual Foundation of Power", link: "day-53.html" },
+      54: { title: "Order Against Chaos", link: "day-54.html" },
+      55: { title: "The Traditional Man", link: "day-55.html" },
+      56: { title: "The Differentiated Individual", link: "day-56.html" },
+      57: { title: "Interior Distance", link: "day-57.html" },
+      58: { title: "Living Without Belonging", link: "day-58.html" },
+      59: { title: "The Absolute Individual", link: "day-59.html" },
+      60: { title: "Action Under a Higher Measure", link: "day-60.html" },
+      61: { title: "Refusal of Collapse", link: "day-61.html" },
+      62: { title: "Refusal of Theatrical Rebellion", link: "day-62.html" },
+      63: { title: "Inner Hierarchy", link: "day-63.html" },
+      64: { title: "Solitude", link: "day-64.html" },
+      65: { title: "Style", link: "day-65.html" },
+      66: { title: "Remaining Standing", link: "day-66.html" },
+      67: { title: "Detachment", link: "day-67.html" },
+      68: { title: "The Terrain of Dissolution", link: "day-68.html" },
+      69: { title: "Clarity", link: "day-69.html" },
+      70: { title: "The Long View", link: "day-70.html" },
+      71: { title: "The Unmoved Center", link: "day-71.html" },
+      72: { title: "Interior Sovereignty", link: "day-72.html" },
+      73: { title: "The Higher Continuity", link: "day-73.html" },
+      74: { title: "Defined From Within", link: "day-74.html" },
+      75: { title: "Alone and Standing", link: "day-75.html" },
+      76: { title: "Riding the Tiger", link: "day-76.html" },
+      77: { title: "The Forces of Dissolution", link: "day-77.html" },
+      78: { title: "Moving With the Current", link: "day-78.html" },
+      79: { title: "Without Being Dissolved", link: "day-79.html" },
+      80: { title: "The Active Stance", link: "day-80.html" },
+      81: { title: "Beyond Futile Opposition", link: "day-81.html" },
+      82: { title: "Energies of the Age", link: "day-82.html" },
+      83: { title: "Detachment in Motion", link: "day-83.html" },
+      84: { title: "Clarity Under Pressure", link: "day-84.html" },
+      85: { title: "What Remains Possible", link: "day-85.html" },
+      86: { title: "The Practical Test", link: "day-86.html" },
+      87: { title: "Instruments of the Age", link: "day-87.html" },
+      88: { title: "The Limit of Participation", link: "day-88.html" },
+      89: { title: "Freedom Inside the Current", link: "day-89.html" },
+      90: { title: "The Horizon of the Cycle", link: "day-90.html" },
+      91: { title: "Independence from Results", link: "day-91.html" },
+      92: { title: "The Permanent Measure", link: "day-92.html" },
+      93: { title: "Orientation Under Acceleration", link: "day-93.html" },
+      94: { title: "Readiness for What Follows", link: "day-94.html" },
+      95: { title: "The Victory of the Type", link: "day-95.html" },
+      96: { title: "The Rider's Discipline", link: "day-96.html" },
+      97: { title: "Energies Without Surrender", link: "day-97.html" },
+      98: { title: "Detachment as Strength", link: "day-98.html" },
+      99: { title: "At the Close of a Cycle", link: "day-99.html" },
+      100: { title: "The Task That Remains", link: "day-100.html" },
+      101: { title: "The Body", link: "day-101.html" },
+      102: { title: "Work", link: "day-102.html" },
+      103: { title: "Speech", link: "day-103.html" },
+      104: { title: "Desire", link: "day-104.html" },
+      105: { title: "Friendship", link: "day-105.html" },
+      106: { title: "Time", link: "day-106.html" },
+      107: { title: "Action Under Pressure", link: "day-107.html" },
+      108: { title: "The Ordinary Day", link: "day-108.html" },
+      109: { title: "Appetite", link: "day-109.html" },
+      110: { title: "Physical Discipline", link: "day-110.html" },
+      111: { title: "Presence", link: "day-111.html" },
+      112: { title: "Money", link: "day-112.html" },
+      113: { title: "Conflict", link: "day-113.html" },
+      114: { title: "Practiced Solitude", link: "day-114.html" },
+      115: { title: "Consistency", link: "day-115.html" },
+      116: { title: "Sleep", link: "day-116.html" },
+      117: { title: "Attention", link: "day-117.html" },
+      118: { title: "The Small Decision", link: "day-118.html" },
+      119: { title: "The Morning", link: "day-119.html" },
+      120: { title: "Fatigue", link: "day-120.html" },
+      121: { title: "The Gaze", link: "day-121.html" },
+      122: { title: "Silence", link: "day-122.html" },
+      123: { title: "Reading", link: "day-123.html" },
+      124: { title: "Bearing", link: "day-124.html" },
+      125: { title: "Endurance", link: "day-125.html" },
+      126: { title: "The Evening", link: "day-126.html" },
+      127: { title: "Decision in Weakness", link: "day-127.html" },
+      128: { title: "The Unnecessary", link: "day-128.html" },
+      129: { title: "Habit", link: "day-129.html" },
+      130: { title: "The Applied Measure", link: "day-130.html" },
+      131: { title: "Residual Possibilities", link: "day-131.html" },
+      132: { title: "Interior Orientation", link: "day-132.html" },
+      133: { title: "Standing Without Support", link: "day-133.html" },
+      134: { title: "Continuity of the Type", link: "day-134.html" },
+      135: { title: "Without Horizon", link: "day-135.html" },
+      136: { title: "Refusal of False Centers", link: "day-136.html" },
+      137: { title: "Clarity of Type", link: "day-137.html" },
+      138: { title: "Forces Beyond Direct Opposition", link: "day-138.html" },
+      139: { title: "Action From the Center", link: "day-139.html" },
+      140: { title: "What Cannot Be Restored", link: "day-140.html" },
+      141: { title: "The Residual Hierarchy", link: "day-141.html" },
+      142: { title: "Orientation Under Dissolution", link: "day-142.html" },
+      143: { title: "The Man Who Does Not Wait", link: "day-143.html" },
+      144: { title: "Interior Hierarchy Under Pressure", link: "day-144.html" },
+      145: { title: "Detachment and Presence", link: "day-145.html" },
+      146: { title: "What the Age Cannot Touch", link: "day-146.html" },
+      147: { title: "The Man Who Remains", link: "day-147.html" },
+      148: { title: "Preparation Without Expectation", link: "day-148.html" },
+      149: { title: "The Residual Axis", link: "day-149.html" },
+      150: { title: "Sovereignty Without Recognition", link: "day-150.html" },
+      151: { title: "The Unrestored Order", link: "day-151.html" },
+      152: { title: "Interior Form", link: "day-152.html" },
+      153: { title: "The Cycle's Demand", link: "day-153.html" },
+      154: { title: "What the Type Retains", link: "day-154.html" },
+      155: { title: "Action in the Interval", link: "day-155.html" },
+      156: { title: "The Measure That Does Not Wait", link: "day-156.html" },
+      157: { title: "Detachment From the Collective Horizon", link: "day-157.html" },
+      158: { title: "Clarity as Residual Force", link: "day-158.html" },
+      159: { title: "The Man of the Residual Path", link: "day-159.html" },
+      160: { title: "Forces That Do Not Require Belief", link: "day-160.html" },
+      161: { title: "Continuity Without Continuity of Forms", link: "day-161.html" },
+      162: { title: "The Vertical in the Horizontal Age", link: "day-162.html" },
+      163: { title: "Standing as the Residual Act", link: "day-163.html" }
+    };
+
+    const monthRanges = {
+      1: [1, 31],
+      2: [32, 59],
+      3: [60, 90],
+      4: [91, 120],
+      5: [121, 151],
+      6: [152, 181],
+      7: [182, 212],
+      8: [213, 243],
+      9: [244, 273],
+      10: [274, 304],
+      11: [305, 334],
+      12: [335, 365]
+    };
+
+    const monthNames = {
+      1: "January", 2: "February", 3: "March", 4: "April",
+      5: "May", 6: "June", 7: "July", 8: "August",
+      9: "September", 10: "October", 11: "November", 12: "December"
+    };
+
+    function renderMonth(m) {
+      const [start, end] = monthRanges[m];
+      const mid = Math.floor((start + end) / 2);
+      function listHtml(from, to) {
+        let html = `<ul class="day-list">`;
+        for (let d = from; d <= to; d++) {
+          if (realDays[d]) {
+            html += `<li><a href="${realDays[d].link}">Day ${d} — ${realDays[d].title}</a></li>`;
+          } else {
+            html += `<li><a href="day.html?d=${d}" class="coming">Day ${d} — Coming soon</a></li>`;
+          }
+        }
+        html += `</ul>`;
+        return html;
+      }
+      const html = `
+        <div class="month-title">${monthNames[m]} (Day ${start} – Day ${end})</div>
+        <div class="day-columns">
+          <div>${listHtml(start, mid)}</div>
+          <div>${listHtml(mid + 1, end)}</div>
+        </div>`;
+      document.getElementById('monthContent').innerHTML = html;
+    }
+
+    const select = document.getElementById('monthSelect');
+    select.addEventListener('change', () => renderMonth(select.value));
+    renderMonth(1);
+
+    const toggle = document.getElementById('themeToggle');
+    const htmlEl = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      htmlEl.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (htmlEl.getAttribute('data-theme') === 'dark') {
+        htmlEl.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        htmlEl.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>
