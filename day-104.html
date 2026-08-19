@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 104 — Desire</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-104.html" class="active">Day 104</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-103.html">← Day 103</a>
+      <a href="day-105.html">Day 105 →</a>
+    </div>
+
+    <h2>Day 104 — Desire</h2>
+
+    <div class="quote">
+      "In an age that has turned the erotic into a continuous current of dissolution, the differentiated individual must reclaim absolute sovereignty over desire. Without that sovereignty every other form of interior order remains provisional."
+      <cite>— Julius Evola, Ride the Tiger</cite>
+    </div>
+
+    <p>Desire is the field where the age most successfully recruits the young man. It presents the continuous pursuit of sensation as health, as freedom, as the natural condition of a man who has left restraint behind. The differentiated individual sees the same process at work that he has already recognized in speech, in work, and in the body. The force itself is not rejected. The claim that the force must rule is rejected without compromise.</p>
+
+    <p>Mastery here means the capacity to hold the impulse under the permanent measure. The man who rearranges his time, his attention, and his energy according to the fluctuations of desire has already accepted the horizontal standard in a decisive domain. The age will name this mastery repression or neurosis. That naming is part of the pressure. The higher type does not argue with the diagnosis. He continues the work of establishing the interior hierarchy over the appetites that the surrounding culture has decided must remain sovereign.</p>
+
+    <p>The practical test is daily and concrete. Examine where desire dictates the use of the evening, the quality of sleep, the direction of thought when the will is not actively engaged. Those are the places where the type is either being formed or being dissolved. Continuous stimulation weakens the capacity for long concentration and for the kind of endurance that pressure requires. The man who intends to remain standing cannot leave this domain to the habits the age normalizes.</p>
+
+    <p>Begin the application. Withhold what does not answer to the higher form. The first effect will register as loss. That registration proves only that the previous pattern had taken root. Replace the pattern with one that answers to the same measure already applied to the body and to speech. The work is slow. The demand is absolute. Desire ordered by a higher principle becomes an instrument. Desire left to itself becomes one more agent of the leveling process.</p>
+
+    <div class="day-nav">
+      <a href="day-103.html">← Day 103</a>
+      <a href="day-105.html">Day 105 →</a>
+    </div>
+
+    <div class="footer">
+      Day 104 of 130 · Intensification / Application
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>
