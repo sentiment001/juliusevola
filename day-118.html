@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 118 — The Small Decision</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-118.html" class="active">Day 118</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-117.html">← Day 117</a>
+      <a href="day-119.html">Day 119 →</a>
+    </div>
+
+    <h2>Day 118 — The Small Decision</h2>
+
+    <div class="quote">
+      "The higher type is formed by the accumulation of small decisions made according to the permanent measure. The large gesture that is not prepared by those decisions remains theatrical."
+      <cite>— Julius Evola, Ride the Tiger</cite>
+    </div>
+
+    <p>The small decision is the elementary unit of formation. Every day presents dozens of them: the decision to rise according to the established hour, to refuse the unnecessary stimulus, to complete the physical work, to withhold the casual word, to protect the interval of solitude. Each decision is minor in isolation. The sequence of them determines the type. The age trains the young man to wait for the significant moment. The differentiated individual treats the ordinary decision as the significant moment.</p>
+
+    <p>The practical demand is the refusal to treat any decision as too small to answer to the higher measure. The man who reserves the permanent standard for the large occasions and allows the small ones to drift has already accepted intermittence. Intermittence is the preferred mode of dissolution because it permits the appearance of orientation while the substance continues to erode. Consistency in the small is the only reliable path to consistency under pressure.</p>
+
+    <p>Young men are taught to measure themselves by the dramatic choice and to dismiss the daily texture of decisions as unimportant. The higher type reverses the valuation. The dramatic choice is usually the product of the daily texture that preceded it. The man who has ordered the small decisions arrives at the large one already formed. The man who has neglected them arrives unprepared and then improvises according to the lower nature.</p>
+
+    <p>Examine the small decisions of a single day. Note the points at which the higher measure was applied and the points at which it was set aside. The pattern that emerges is the exact map of the work that remains. Close the gaps without the need for a new resolution or a special occasion. The resolution is the next small decision made according to the same standard. That is the entire method of intensification.</p>
+
+    <div class="day-nav">
+      <a href="day-117.html">← Day 117</a>
+      <a href="day-119.html">Day 119 →</a>
+    </div>
+
+    <div class="footer">
+      Day 118 of 130 · Intensification / Application
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>
