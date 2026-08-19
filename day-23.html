@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 23 — Technology and the New Environment</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-23.html" class="active">Day 23</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-22.html">← Day 22</a>
+      <a href="day-24.html">Day 24 →</a>
+    </div>
+
+    <h2>Day 23 — Technology and the New Environment</h2>
+
+    <div class="quote">
+      "Modern technology is not a neutral instrument. It is the expression of a particular orientation of the spirit, one that seeks the domination of nature and of man through purely quantitative and mechanical means."
+      <cite>— Julius Evola, Men Among the Ruins</cite>
+    </div>
+
+    <p>Technology is usually presented as a set of tools that can be used for good or ill according to the intentions of the user. This view is incomplete. The technological environment itself reshapes the man who lives inside it. Speed, constant connectivity, the reduction of distance, and the replacement of direct experience with mediated images all work on the nervous system and on the capacity for sustained attention and interior silence.</p>
+
+    <p>Evola recognized that the modern technical apparatus is the outer form of a deeper will: the will to reduce the world to controllable quantities and to eliminate every residual element of the unpredictable and the sacred. The machine is not merely useful. It embodies a metaphysics of pure becoming and pure power without higher reference. Living continuously inside that metaphysics changes the type of man who is possible.</p>
+
+    <p>The young man of today is formed from childhood by devices that train him to expect immediate response, continuous stimulation, and the ability to exit any difficulty by switching screens. The habits of mind required for a vertical life—patience, capacity for solitude, resistance to distraction—are systematically undermined. Recognizing this is not a call to reject every technical means. It is a call to see the environment as formative and therefore as something that must be resisted from within.</p>
+
+    <p>Mastery begins with selective distance. The man who can use the tools of the age without letting them rewrite his inner tempo and his standards of presence has already begun to differentiate himself from the type the environment is designed to produce. That differentiation is daily work, not a one-time decision.</p>
+
+    <div class="day-nav">
+      <a href="day-22.html">← Day 22</a>
+      <a href="day-24.html">Day 24 →</a>
+    </div>
+
+    <div class="footer">
+      Day 23 of 35 · Diagnosis of the Modern World
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>
