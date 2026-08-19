@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 124 — Bearing</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-124.html" class="active">Day 124</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-123.html">← Day 123</a>
+      <a href="day-125.html">Day 125 →</a>
+    </div>
+
+    <h2>Day 124 — Bearing</h2>
+
+    <div class="quote">
+      "The body carries the visible sign of the interior order or of its absence. Bearing is the first language the higher type speaks without words."
+      <cite>— Julius Evola, Men Among the Ruins</cite>
+    </div>
+
+    <p>Bearing is the total posture of the man in space. It includes the alignment of the spine, the placement of the shoulders, the carriage of the head, and the way the weight is held. Most young men have never placed this domain under deliberate command. The body adopts the shapes required by furniture, by screens, and by the general softness of the environment. The differentiated individual recovers the body as an expression of the same measure that governs the rest of the type.</p>
+
+    <p>The age produces a characteristic bearing: collapsed, protective, or casually disordered. That bearing is the external form of a man who has accepted the horizontal as the only available plane. The higher type refuses that form. He holds the body upright without stiffness, present without display. The correction is not aesthetic. It is the refusal to allow the physical instrument to contradict the interior standard.</p>
+
+    <p>Young men often treat posture as a matter of appearance or of physical health alone. Both concerns are secondary. The primary concern is whether the body remains under the same higher measure that is applied to speech, to desire, and to action. When the body is left to its own inertia it becomes another site of dissolution. When it is ordered, it supports every other application.</p>
+
+    <p>Correct the bearing in ordinary moments. Standing, walking, sitting. Do not wait for a special setting. The man whose body answers to the permanent measure carries that answer into every room he enters. The correction is continuous and quiet. Over time it becomes the natural form of the type.</p>
+
+    <div class="day-nav">
+      <a href="day-123.html">← Day 123</a>
+      <a href="day-125.html">Day 125 →</a>
+    </div>
+
+    <div class="footer">
+      Day 124 of 130 · Intensification / Application
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>
