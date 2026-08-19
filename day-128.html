@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 128 — The Unnecessary</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-128.html" class="active">Day 128</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-127.html">← Day 127</a>
+      <a href="day-129.html">Day 129 →</a>
+    </div>
+
+    <h2>Day 128 — The Unnecessary</h2>
+
+    <div class="quote">
+      "The accumulation of the unnecessary is one of the principal means by which the age dissolves the capacity for a higher form of life."
+      <cite>— Julius Evola, Revolt Against the Modern World</cite>
+    </div>
+
+    <p>The unnecessary is everything that does not serve the permanent measure and yet continues to occupy time, attention, energy, or space. It includes objects, habits, conversations, digital channels, and obligations that have never been examined under the higher standard. The differentiated individual periodically clears this accumulation. He does so without the drama of a total purge and without the sentimentality that treats every possession or connection as essential.</p>
+
+    <p>The age multiplies the unnecessary as a matter of course. Every new convenience, every new connection, every new stream of information adds a claim on the man. Most of those claims are accepted by default. The result is a life that is full and yet empty of the capacity for vertical orientation. The higher type refuses the default. He keeps only what supports the type he is forming. Everything else is allowed to fall away.</p>
+
+    <p>Young men are trained to fear the loss of the unnecessary as a form of deprivation. The higher type experiences the clearing as a recovery of force. Each removed claim returns a portion of attention and energy to the center. The process is continuous rather than final. New unnecessary material appears with every week. The refusal must be repeated.</p>
+
+    <p>Examine the current load of the unnecessary. Remove what can be removed without damage to real responsibilities. Protect the recovered space from immediate reoccupation. The man who has reduced the unnecessary to a minimum moves with greater freedom inside the same external conditions. That freedom is a practical condition of the differentiated life.</p>
+
+    <div class="day-nav">
+      <a href="day-127.html">← Day 127</a>
+      <a href="day-129.html">Day 129 →</a>
+    </div>
+
+    <div class="footer">
+      Day 128 of 130 · Intensification / Application
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>
