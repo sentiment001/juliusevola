@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 53 — The Spiritual Foundation of Power</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-53.html" class="active">Day 53</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-52.html">← Day 52</a>
+      <a href="day-54.html">Day 54 →</a>
+    </div>
+
+    <h2>Day 53 — The Spiritual Foundation of Power</h2>
+
+    <div class="quote">
+      "True power is never merely material or political. It rests on a spiritual foundation. When that foundation is lost, power becomes a technical and temporary arrangement and eventually collapses into pure force or pure administration."
+      <cite>— Julius Evola, Revolt Against the Modern World</cite>
+    </div>
+
+    <p>In the Traditional world power was legitimate only when it was connected to a higher order. The ruler was the embodiment or the representative of a principle that transcended the human. That connection gave power its authority and its right to demand obedience. Without the connection, power was regarded as usurpation even if it succeeded by force of arms.</p>
+
+    <p>The modern world has reduced power to effectiveness. A regime is considered legitimate if it can maintain order, deliver prosperity, or win the consent of a majority. These criteria are purely horizontal. They leave power without any absolute foundation. As a result every modern form of power remains open to continuous challenge and to the slow erosion of meaning.</p>
+
+    <p>The young man who understands the spiritual foundation of power will not waste himself in the contests that occupy the surface of the age. He will recognize that the higher problem is the recovery of a principle that can again justify command and obedience. That recovery cannot begin in the institutions that have already lost the principle. It begins in the individual who refuses to treat power as a purely technical or purely political fact.</p>
+
+    <p>Such a man develops a different relation to authority. He can respect genuine authority where it still appears, even if it is rare and limited. He can withhold respect from the forms of power that rest only on number, on money, or on the capacity to coerce. The distinction is exacting. It requires constant clarity. Clarity of this kind is already a form of spiritual power in a world that has forgotten what the word once meant.</p>
+
+    <div class="day-nav">
+      <a href="day-52.html">← Day 52</a>
+      <a href="day-54.html">Day 54 →</a>
+    </div>
+
+    <div class="footer">
+      Day 53 of 55 · The Traditional Order
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>
