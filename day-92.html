@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 92 — The Permanent Measure</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-92.html" class="active">Day 92</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-91.html">← Day 91</a>
+      <a href="day-93.html">Day 93 →</a>
+    </div>
+
+    <h2>Day 92 — The Permanent Measure</h2>
+
+    <div class="quote">
+      "In the midst of dissolving forms the differentiated individual holds to a measure that does not dissolve. That measure is the only fixed point from which the tiger can be ridden."
+      <cite>— Julius Evola, Ride the Tiger</cite>
+    </div>
+
+    <p>Everything around the man is subject to change and to the acceleration of change. Institutions, values, languages of legitimacy, even the basic categories of experience are revised according to the pressures of the age. Against this fluidity the permanent measure stands as the condition of any real orientation. Without it the man is carried by successive waves of the current and calls the successive positions freedom.</p>
+
+    <p>The permanent measure is not a set of fixed opinions. It is the vertical standard of quality, of rank, of the higher and the lower, of the solar orientation that has been examined from the beginning of this sequence. It is the same standard that structured Traditional orders. In a late age it can no longer structure the collective. It can still structure the individual who is capable of receiving it.</p>
+
+    <p>Holding the measure requires constant vigilance. The age does not attack it only from the outside. It works through fatigue, through the desire for belonging, through the subtle invitation to redefine the higher in terms that the current finds acceptable. The man who allows those redefinitions has already lost the fixed point. The tiger then rides him.</p>
+
+    <p>The practical life of the differentiated type is therefore organized around the defense and the exercise of this measure. Daily decisions are referred to it. Larger commitments are tested against it. When the measure is clear the man knows what he can afford to take up and what he must refuse. Clarity of the measure is the foundation of every other capacity required for the stance of the rider.</p>
+
+    <div class="day-nav">
+      <a href="day-91.html">← Day 91</a>
+      <a href="day-93.html">Day 93 →</a>
+    </div>
+
+    <div class="footer">
+      Day 92 of 100 · Riding the Tiger
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>
