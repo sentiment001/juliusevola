@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 41 — The Solar Principle</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-41.html" class="active">Day 41</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-40.html">← Day 40</a>
+      <a href="day-42.html">Day 42 →</a>
+    </div>
+
+    <h2>Day 41 — The Solar Principle</h2>
+
+    <div class="quote">
+      "The solar principle is the principle of pure light, of the Olympian and celestial, of the virile and the regal. It stands opposed to every form of telluric and nocturnal force that seeks to dissolve form and hierarchy into the undifferentiated."
+      <cite>— Julius Evola, Revolt Against the Modern World</cite>
+    </div>
+
+    <p>The solar principle names a specific quality of being. It is the quality of clarity, of distance, of command from a higher center. In the Traditional view this principle appears in the figure of the solar king, in the Olympian gods, and in every form of authority that does not draw its strength from the soil, the blood, or the collective emotion of the mass. It is vertical by nature. It does not rise from below. It descends or it remains above.</p>
+
+    <p>The telluric principle is its opposite. Telluric forces are those of the earth, of the maternal, of the chaotic and the formless. They tend toward fusion, toward the loss of clear rank, toward the dissolution of the individual into the collective or the elemental. Modernity has favored the telluric under many names. Equality, feeling, the cult of the body, the primacy of the economic and the biological all pull in that direction.</p>
+
+    <p>The young man who begins to sense the difference will notice it first in himself. There are moments when he acts from a clear, detached center. There are moments when he is pulled by appetite, by resentment, by the need to merge with a group. The solar attitude is the deliberate cultivation of the first and the refusal of the second as a ruling force. It is not a matter of temperament alone. It is a matter of orientation.</p>
+
+    <p>To hold the solar principle in a telluric age is to accept a certain isolation. The age will call that isolation arrogance or coldness. The man who understands the principle will not answer the charge. He will continue to measure himself by the standard of light and form rather than by the standard of warmth and belonging. That decision is already an act of rank.</p>
+
+    <div class="day-nav">
+      <a href="day-40.html">← Day 40</a>
+      <a href="day-42.html">Day 42 →</a>
+    </div>
+
+    <div class="footer">
+      Day 41 of 55 · The Traditional Order
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>
