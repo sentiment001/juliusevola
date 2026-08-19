@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 32 — The End of True Authority</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-32.html" class="active">Day 32</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-31.html">← Day 31</a>
+      <a href="day-33.html">Day 33 →</a>
+    </div>
+
+    <h2>Day 32 — The End of True Authority</h2>
+
+    <div class="quote">
+      "True authority is the radiation of a higher principle. When that principle is rejected, what remains is only power, influence, and the management of consent."
+      <cite>— Julius Evola, Men Among the Ruins</cite>
+    </div>
+
+    <p>Authority in the Traditional sense was never merely the capacity to compel obedience. It was the visible presence of a principle that stood above the individual and the collectivity. The king, the warrior chief, the priest, or the head of a lineage carried an authority that was qualitative. It derived from a contact with something higher and therefore demanded a free recognition rather than a calculation of force.</p>
+
+    <p>The modern process has replaced this form of authority with technical power and with the continuous negotiation of consent. Leaders are managers. Their legitimacy is measured by approval ratings, by economic performance, or by the ability to maintain social peace. The higher dimension has disappeared from the political and social vocabulary.</p>
+
+    <p>The young man who still feels the need for a genuine authority will find that the age offers him only substitutes. He is told to trust the expert, the majority, or the charismatic personality of the moment. None of these can satisfy the demand for a principle that is not itself subject to revision.</p>
+
+    <p>The recovery of the sense of true authority begins in the individual. The man who can recognize a higher standard and bind himself to it has already restored, in his own person, the condition that the age has abolished. From that interior restoration a different relation to external authority becomes possible.</p>
+
+    <div class="day-nav">
+      <a href="day-31.html">← Day 31</a>
+      <a href="day-33.html">Day 33 →</a>
+    </div>
+
+    <div class="footer">
+      Day 32 of 35 · Diagnosis of the Modern World
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>

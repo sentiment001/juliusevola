@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 33 — Sensation and the Horizontal Man</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-33.html" class="active">Day 33</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-32.html">← Day 32</a>
+      <a href="day-34.html">Day 34 →</a>
+    </div>
+
+    <h2>Day 33 — Sensation and the Horizontal Man</h2>
+
+    <div class="quote">
+      "The modern man lives for sensation. His spirit feeds only on experiences, stimuli, and the continuous movement from one impression to the next. Stability and Being appear to him as forms of death."
+      <cite>— Julius Evola, Revolt Against the Modern World</cite>
+    </div>
+
+    <p>The horizontal man is defined by his orientation toward the surface of life. He seeks intensity through successive sensations, through the accumulation of experiences, and through the avoidance of any state that requires stillness or renunciation. The deeper dimensions of the self remain unexplored because they demand a different kind of attention and a different kind of courage.</p>
+
+    <p>This type is the natural product of an age that has lost the vertical. Without a higher measure, the only remaining criterion of a full life is the quantity and variety of what one has felt and consumed. The result is a progressive exhaustion of the capacity for genuine interior experience. The more the horizontal man pursues sensation, the less he is able to be present to anything that is not immediately stimulating.</p>
+
+    <p>Young men are trained into this pattern from early adolescence. The environment supplies endless novelty and continuous low-level stimulation. The habits of deep attention, of prolonged solitude, and of the acceptance of necessary hardship are rarely formed. The man who wishes to become something other than the horizontal type must deliberately cultivate the opposite capacities.</p>
+
+    <p>The first step is the recovery of the ability to remain with oneself without the need for external stimulus. That capacity is the beginning of a different relation to time, to the body, and to the world. It is also the condition for any further differentiation.</p>
+
+    <div class="day-nav">
+      <a href="day-32.html">← Day 32</a>
+      <a href="day-34.html">Day 34 →</a>
+    </div>
+
+    <div class="footer">
+      Day 33 of 35 · Diagnosis of the Modern World
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>
