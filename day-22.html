@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 22 — The Loss of the Sacred</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="day-22.html" class="active">Day 22</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div class="day-nav">
+      <a href="day-21.html">← Day 21</a>
+      <a href="day-23.html">Day 23 →</a>
+    </div>
+
+    <h2>Day 22 — The Loss of the Sacred</h2>
+
+    <div class="quote">
+      "When the sacred is no longer the center, everything becomes secular, and the secular becomes the only reality. The world is then reduced to a field of forces without higher meaning."
+      <cite>— Julius Evola, Revolt Against the Modern World</cite>
+    </div>
+
+    <p>The sacred is the presence of a higher order within the visible world. In Traditional civilizations it structured time, space, law, and the inner life of men. Rites, festivals, and hierarchical forms made the invisible principle tangible. Life was lived under a vertical measure.</p>
+
+    <p>The modern process has emptied that dimension. What remains of religion is often reduced to private sentiment or social ethics. Public life proceeds as if no higher reality exists. The result is a world that is fully horizontal: efficient, productive, and stripped of any reference that could limit or orient the purely human.</p>
+
+    <p>A young man formed in this environment rarely experiences the sacred as a living force. He may encounter its residue in inherited language or aesthetic preference, yet the operative reality is the secular field. Desires, ambitions, and fears operate without a higher court of appeal. The absence is so complete that it is no longer felt as absence.</p>
+
+    <p>Diagnosis begins by noticing the flatness. The recovery of a vertical orientation does not require the restoration of every past rite. It requires the refusal to accept the secular as the final horizon. A man who still senses that something essential is missing has already begun to step outside the closed circle of the age.</p>
+
+    <div class="day-nav">
+      <a href="day-21.html">← Day 21</a>
+      <a href="day-23.html">Day 23 →</a>
+    </div>
+
+    <div class="footer">
+      Day 22 of 35 · Diagnosis of the Modern World
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>
