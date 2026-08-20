@@ -1,1 +1,371 @@
-PLACEHOLDER
+/* Light / Day mode (default) */
+:root {
+  --bg: #F7F3ED;
+  --text: #1a1a1a;
+  --muted: #5c5c5c;
+  --accent: #8B1A1A;
+  --quote-bg: #F0EBE3;
+  --border: #e0d9cf;
+  --header-bg: #F7F3ED;
+}
+
+[data-theme="dark"] {
+  --bg: #0f0f0f;
+  --text: #e8e6e3;
+  --muted: #a0a0a0;
+  --accent: #c45c5c;
+  --quote-bg: #1a1a1a;
+  --border: #2a2a2a;
+  --header-bg: #0f0f0f;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Georgia, "Times New Roman", serif;
+  line-height: 1.75;
+  font-size: 18px;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.container {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 4rem;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 3rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.header-left h1 {
+  font-size: 1.55rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+nav {
+  margin-top: 0.6rem;
+  font-size: 0.95rem;
+}
+
+nav a {
+  margin-right: 1.25rem;
+  color: var(--muted);
+}
+
+nav a:hover,
+nav a.active {
+  color: var(--accent);
+}
+
+.theme-toggle {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  padding: 0.4rem 0.75rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.theme-toggle:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.day-nav {
+  display: flex;
+  justify-content: space-between;
+  margin: 2.5rem 0 1rem;
+  font-size: 0.9rem;
+}
+
+.quote {
+  background: var(--quote-bg);
+  border-left: 3px solid var(--accent);
+  padding: 1.25rem 1.5rem;
+  margin: 2rem 0 2.5rem;
+  font-size: 1.05rem;
+  line-height: 1.65;
+  font-style: italic;
+}
+
+.quote cite {
+  display: block;
+  margin-top: 0.9rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+  font-style: normal;
+}
+
+h2 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+
+p {
+  margin-bottom: 1.4rem;
+}
+
+.footer {
+  margin-top: 4rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.landing-intro {
+  margin: 2rem 0 3rem;
+}
+
+.day-list {
+  list-style: none;
+}
+
+.day-list li {
+  margin-bottom: 0.8rem;
+}
+
+.day-list a {
+  font-size: 1.05rem;
+}
+
+/* —— Day actions (Listen / Share / Report) —— */
+/* Placed under the top day-nav for early visibility on phone */
+.action-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0.75rem 0 1.75rem;
+  padding: 0;
+  border: none;
+}
+
+.action-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  padding: 0.55rem 0.95rem;
+  font-size: 0.88rem;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  font-family: inherit;
+  min-height: 44px; /* touch target */
+  min-width: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+}
+
+.action-btn:hover,
+.action-btn:focus {
+  border-color: var(--accent);
+  color: var(--accent);
+  outline: none;
+}
+
+.action-btn.active {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 8%, transparent);
+}
+
+.action-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Report modal */
+.report-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 1000;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 1rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+.report-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.report-modal {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  width: 100%;
+  max-width: 420px;
+  padding: 1.5rem;
+  max-height: 90vh;
+  overflow-y: auto;
+  transform: translateY(20px);
+  transition: transform 0.2s ease;
+}
+
+.report-overlay.open .report-modal {
+  transform: translateY(0);
+}
+
+@media (min-width: 600px) {
+  .report-overlay {
+    align-items: center;
+  }
+}
+
+.report-modal h3 {
+  font-size: 1.15rem;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+.report-modal p.note {
+  font-size: 0.88rem;
+  color: var(--muted);
+  margin-bottom: 1.25rem;
+  line-height: 1.5;
+}
+
+.report-modal label {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 0.35rem;
+}
+
+.report-modal input,
+.report-modal textarea {
+  width: 100%;
+  padding: 0.65rem 0.75rem;
+  font-size: 1rem;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  border-radius: 4px;
+  font-family: inherit;
+  margin-bottom: 1rem;
+  resize: vertical;
+}
+
+.report-modal input:focus,
+.report-modal textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.report-modal textarea {
+  min-height: 110px;
+}
+
+.report-actions {
+  display: flex;
+  gap: 0.6rem;
+  justify-content: flex-end;
+  margin-top: 0.5rem;
+}
+
+.report-actions button {
+  padding: 0.55rem 1rem;
+  font-size: 0.9rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: inherit;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  min-height: 44px;
+}
+
+.report-actions .submit {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
+.report-actions .submit:hover {
+  opacity: 0.9;
+}
+
+.report-actions .cancel:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* Share status */
+.share-status {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-top: 0.75rem;
+  min-height: 1.2em;
+}
+
+/* Graphic footer — pure SVG, works on every form factor with no external files */
+.graphic-footer {
+  margin-top: 3.5rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+
+.footer-emblem-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.85rem;
+}
+
+.footer-emblem {
+  width: 48px;
+  height: 56px;
+  color: var(--accent);
+  opacity: 0.85;
+}
+
+.footer-meta {
+  font-size: 0.9rem;
+  color: var(--muted);
+  letter-spacing: 0.02em;
+}
+
+@media (max-width: 600px) {
+  .footer-emblem {
+    width: 40px;
+    height: 48px;
+  }
+  .footer-meta {
+    font-size: 0.85rem;
+  }
+}
