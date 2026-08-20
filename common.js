@@ -323,19 +323,35 @@
     if (e.key === 'Escape' && overlay.classList.contains('open')) closeReport();
   });
 
-  // ---------- Graphic footer (random between two Evola-inspired images) ----------
+  // ---------- Graphic footer (site-level, pure SVG — no external image files) ----------
   const footerEl = document.querySelector('.footer');
   if (footerEl) {
-    // Deterministic per day so the same day is consistent, different days vary
+    // Deterministic by day number so each day is consistent
     const useSolar = (parseInt(dayNum, 10) % 2) === 0;
-    const imgSrc = useSolar ? 'footer-solar.jpg' : 'footer-peak.jpg';
     const originalText = footerEl.textContent.trim();
 
     footerEl.classList.add('graphic-footer');
+    footerEl.classList.add(useSolar ? 'footer-solar' : 'footer-peak');
+
+    const solarSVG = `
+      <svg class="footer-emblem" viewBox="0 0 120 140" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="60" cy="28" r="14" fill="none" stroke="currentColor" stroke-width="1.5"/>
+        <line x1="60" y1="42" x2="60" y2="118" stroke="currentColor" stroke-width="1.5"/>
+        <line x1="52" y1="70" x2="68" y2="70" stroke="currentColor" stroke-width="1"/>
+        <line x1="54" y1="90" x2="66" y2="90" stroke="currentColor" stroke-width="1"/>
+        <polygon points="60,118 54,128 66,128" fill="currentColor"/>
+      </svg>`;
+
+    const peakSVG = `
+      <svg class="footer-emblem" viewBox="0 0 120 140" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M20 120 L60 30 L100 120 Z" fill="none" stroke="currentColor" stroke-width="1.5"/>
+        <line x1="60" y1="30" x2="60" y2="10" stroke="currentColor" stroke-width="1.5"/>
+        <circle cx="60" cy="8" r="4" fill="currentColor"/>
+      </svg>`;
+
     footerEl.innerHTML = `
-      <div class="footer-image-wrap">
-        <img src="${imgSrc}" alt="" loading="lazy" width="1168" height="784"
-             onerror="this.style.display='none';this.parentElement.classList.add('no-image');">
+      <div class="footer-emblem-wrap">
+        ${useSolar ? solarSVG : peakSVG}
       </div>
       <div class="footer-meta">${originalText}</div>
     `;
