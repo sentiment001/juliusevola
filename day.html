@@ -1,1 +1,78 @@
-PLACEHOLDER
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day</title>
+  <script>
+    try {
+      if (localStorage.getItem('theme') === 'dark')
+        document.documentElement.setAttribute('data-theme', 'dark');
+    } catch (e) {}
+  </script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <h2 id="dayTitle">Day</h2>
+
+    <div class="quote">
+      This day is still being written.
+      <cite>— Placeholder</cite>
+    </div>
+
+    <p>The full reflection for this day has not been completed yet. The structure of the year is in place. Content is being added in focused batches while protecting the standard set by Days 1–10.</p>
+
+    <p>Return to the home page and choose another day, or continue from Day 1.</p>
+
+    <div class="day-nav" style="margin-top: 2.5rem;">
+      <a href="index.html">← Back to months</a>
+      <a href="day-01.html">Start Day 1 →</a>
+    </div>
+
+    <div class="footer">
+      Content in progress
+    </div>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const n = parseInt(params.get('d'), 10);
+    if (!Number.isInteger(n) || n < 1 || n > 365) {
+      location.replace('index.html');
+    } else {
+      document.getElementById('dayTitle').textContent = `Day ${n}`;
+      document.title = `Day ${n} — Julius Evola Daily`;
+    }
+
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Day';
+    }
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        toggle.textContent = 'Night';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = 'Day';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>
