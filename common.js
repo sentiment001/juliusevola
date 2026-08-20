@@ -334,7 +334,8 @@
     footerEl.classList.add('graphic-footer');
     footerEl.innerHTML = `
       <div class="footer-image-wrap">
-        <img src="${imgSrc}" alt="" loading="lazy" width="1168" height="784">
+        <img src="${imgSrc}" alt="" loading="lazy" width="1168" height="784"
+             onerror="this.style.display='none';this.parentElement.classList.add('no-image');">
       </div>
       <div class="footer-meta">${originalText}</div>
     `;
