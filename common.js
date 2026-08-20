@@ -322,4 +322,21 @@
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && overlay.classList.contains('open')) closeReport();
   });
+
+  // ---------- Graphic footer (random between two Evola-inspired images) ----------
+  const footerEl = document.querySelector('.footer');
+  if (footerEl) {
+    // Deterministic per day so the same day is consistent, different days vary
+    const useSolar = (parseInt(dayNum, 10) % 2) === 0;
+    const imgSrc = useSolar ? 'footer-solar.jpg' : 'footer-peak.jpg';
+    const originalText = footerEl.textContent.trim();
+
+    footerEl.classList.add('graphic-footer');
+    footerEl.innerHTML = `
+      <div class="footer-image-wrap">
+        <img src="${imgSrc}" alt="" loading="lazy" width="1168" height="784">
+      </div>
+      <div class="footer-meta">${originalText}</div>
+    `;
+  }
 })();

@@ -332,3 +332,41 @@ p {
   margin-top: 0.75rem;
   min-height: 1.2em;
 }
+
+/* Graphic footer */
+.graphic-footer {
+  margin-top: 3.5rem;
+  padding-top: 0;
+  border-top: none;
+  text-align: center;
+}
+
+.footer-image-wrap {
+  width: 100%;
+  max-width: 680px;
+  margin: 0 auto 1.25rem;
+  overflow: hidden;
+  border-radius: 2px;
+  line-height: 0;
+}
+
+.footer-image-wrap img {
+  width: 100%;
+  height: auto;
+  max-height: 200px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.footer-meta {
+  font-size: 0.85rem;
+  color: var(--muted);
+  padding-top: 0.5rem;
+}
+
+@media (max-width: 600px) {
+  .footer-image-wrap img {
+    max-height: 140px;
+  }
+}
