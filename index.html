@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <script>try{var t=localStorage.getItem("theme");if(t==="dark"){document.documentElement.setAttribute("data-theme","dark");}}catch(e){}</script>
+  <meta name="theme-color" id="themeColor" content="#F7F3ED">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Julius Evola Daily — A Daily Reader for Young Men</title>
   <meta name="description" content="A 365-day reader drawn from Julius Evola's Revolt Against the Modern World and Ride the Tiger. Written for young men who want a clearer standard than the one the age offers.">
@@ -11,14 +13,18 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="Julius Evola Daily — A Daily Reader for Young Men">
   <meta property="og:description" content="A 365-day reader drawn from Julius Evola's core works. Orientation, diagnosis, and the stance required to remain upright in a late age.">
-  <meta property="og:image" content="cover.jpg">
+  <meta property="og:url" content="https://sentiment001.github.io/juliusevola/">
+  <meta property="og:image" content="https://sentiment001.github.io/juliusevola/cover.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:site_name" content="Julius Evola Daily">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Julius Evola Daily — A Daily Reader for Young Men">
   <meta name="twitter:description" content="A 365-day reader drawn from Julius Evola's core works. Orientation, diagnosis, and the stance required to remain upright in a late age.">
-  <meta name="twitter:image" content="cover.jpg">
+  <meta name="twitter:image" content="https://sentiment001.github.io/juliusevola/cover.jpg">
 
+  <link rel="canonical" href="https://sentiment001.github.io/juliusevola/">
   <link rel="stylesheet" href="style.css">
   <style>
     .month-nav {
@@ -122,7 +128,7 @@
       </select>
     </div>
 
-    <div id="monthContent"></div>
+    <div id="monthContent" aria-live="polite"></div>
 
     <div class="footer">
       Primary sources: Revolt Against the Modern World · Ride the Tiger · Men Among the Ruins
@@ -374,27 +380,15 @@
     }
 
     const select = document.getElementById('monthSelect');
-    select.addEventListener('change', () => renderMonth(select.value));
-    renderMonth(1);
-
-    const toggle = document.getElementById('themeToggle');
-    const htmlEl = document.documentElement;
-    const saved = localStorage.getItem('theme');
-    if (saved === 'dark') {
-      htmlEl.setAttribute('data-theme', 'dark');
-      toggle.textContent = 'Day';
-    }
-    toggle.addEventListener('click', () => {
-      if (htmlEl.getAttribute('data-theme') === 'dark') {
-        htmlEl.removeAttribute('data-theme');
-        toggle.textContent = 'Night';
-        localStorage.setItem('theme', 'light');
-      } else {
-        htmlEl.setAttribute('data-theme', 'dark');
-        toggle.textContent = 'Day';
-        localStorage.setItem('theme', 'dark');
-      }
+    select.addEventListener('change', () => {
+      renderMonth(select.value);
+      history.replaceState(null, '', '?m=' + select.value);
     });
+    const startMonth = new URLSearchParams(location.search).get('m');
+    if (startMonth && monthRanges[startMonth]) select.value = startMonth;
+    renderMonth(select.value);
+
   </script>
+  <script src="theme.js" defer></script>
 </body>
 </html>

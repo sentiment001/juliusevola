@@ -113,6 +113,9 @@
   if (window.speechSynthesis) {
     speechSynthesis.onvoiceschanged = () => {};
   }
+  window.addEventListener('pagehide', () => {
+    if (window.speechSynthesis) speechSynthesis.cancel();
+  });
 
   // ---------- Share quote as image ----------
   function wrapText(ctx, text, maxWidth) {
@@ -217,7 +220,9 @@
     const a = document.createElement('a');
     a.href = url;
     a.download = filename;
+    document.body.appendChild(a);
     a.click();
+    a.remove();
     setTimeout(() => URL.revokeObjectURL(url), 4000);
   }
 
@@ -250,7 +255,7 @@
         const status = document.createElement('div');
         status.className = 'share-status';
         status.textContent = 'Image downloaded. Attach it to the tweet that just opened.';
-        bar.appendChild(status);
+        bar.insertAdjacentElement('afterend', status);
         setTimeout(() => status.remove(), 6000);
       }
     } catch (err) {
@@ -288,7 +293,9 @@
 
   reportBtn.addEventListener('click', () => {
     overlay.classList.add('open');
-    document.getElementById('reportText').focus();
+    if (!window.matchMedia('(pointer: coarse)').matches) {
+      document.getElementById('reportText').focus();
+    }
   });
 
   document.getElementById('reportCancel').addEventListener('click', closeReport);

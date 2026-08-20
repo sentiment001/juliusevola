@@ -2,14 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="theme-color" id="themeColor" content="#F7F3ED">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Day</title>
-  <script>
-    try {
-      if (localStorage.getItem('theme') === 'dark')
-        document.documentElement.setAttribute('data-theme', 'dark');
-    } catch (e) {}
-  </script>
+  <meta name="robots" content="noindex">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -46,33 +42,16 @@
   </div>
 
   <script>
-    const params = new URLSearchParams(window.location.search);
-    const n = parseInt(params.get('d'), 10);
-    if (!Number.isInteger(n) || n < 1 || n > 365) {
-      location.replace('index.html');
-    } else {
-      document.getElementById('dayTitle').textContent = `Day ${n}`;
-      document.title = `Day ${n} — Julius Evola Daily`;
-    }
-
-    const toggle = document.getElementById('themeToggle');
-    const html = document.documentElement;
-    const saved = localStorage.getItem('theme');
-    if (saved === 'dark') {
-      html.setAttribute('data-theme', 'dark');
-      toggle.textContent = 'Day';
-    }
-    toggle.addEventListener('click', () => {
-      if (html.getAttribute('data-theme') === 'dark') {
-        html.removeAttribute('data-theme');
-        toggle.textContent = 'Night';
-        localStorage.setItem('theme', 'light');
-      } else {
-        html.setAttribute('data-theme', 'dark');
-        toggle.textContent = 'Day';
-        localStorage.setItem('theme', 'dark');
+    (function () {
+      var n = parseInt(new URLSearchParams(window.location.search).get('d'), 10);
+      if (!Number.isInteger(n) || n < 1 || n > 365) {
+        location.replace('index.html');
+        return;
       }
-    });
+      document.getElementById('dayTitle').textContent = 'Day ' + n;
+      document.title = 'Day ' + n + ' \u2014 Julius Evola Daily';
+    })();
   </script>
+  <script src="theme.js" defer></script>
 </body>
 </html>
