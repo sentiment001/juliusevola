@@ -2,6 +2,19 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <script>try{var t=localStorage.getItem("theme");if(t==="dark"){document.documentElement.setAttribute("data-theme","dark");}}catch(e){}</script>
+  <meta name="theme-color" id="themeColor" content="#F7F3ED">
+  <meta name="description" content="Day 10 — Why This Matters. None of these ideas are offered as intellectual decoration. They matter because the alternative is to be fully shaped by an age that has lost the...">
+  <link rel="canonical" href="https://sentiment001.github.io/juliusevola/day-10.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Day 10 — Why This Matters">
+  <meta property="og:description" content="Day 10 — Why This Matters. None of these ideas are offered as intellectual decoration. They matter because the alternative is to be fully shaped by an age that has lost the...">
+  <meta property="og:url" content="https://sentiment001.github.io/juliusevola/day-10.html">
+  <meta property="og:image" content="https://sentiment001.github.io/juliusevola/cover.jpg">
+  <meta property="og:site_name" content="Julius Evola Daily">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Day 10 — Why This Matters">
+  <meta name="twitter:image" content="https://sentiment001.github.io/juliusevola/cover.jpg">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Day 10 — Why This Matters</title>
   <link rel="stylesheet" href="style.css">
@@ -21,7 +34,7 @@
 
     <div class="day-nav">
       <a href="day-09.html">← Day 9</a>
-      <span></span>
+      <a href="day-11.html">Day 11 &rarr;</a>
     </div>
 
     <h2>Day 10 — Why This Matters</h2>
@@ -41,33 +54,15 @@
 
     <div class="day-nav">
       <a href="day-09.html">← Day 9</a>
-      <span></span>
+      <a href="day-11.html">Day 11 &rarr;</a>
     </div>
 
     <div class="footer">
-      Day 10 of 10 · Orientation complete
+      Day 10 of 365 · Orientation complete
     </div>
   </div>
 
-  <script>
-    const toggle = document.getElementById('themeToggle');
-    const html = document.documentElement;
-    const saved = localStorage.getItem('theme');
-    if (saved === 'dark') {
-      html.setAttribute('data-theme', 'dark');
-      toggle.textContent = 'Day';
-    }
-    toggle.addEventListener('click', () => {
-      if (html.getAttribute('data-theme') === 'dark') {
-        html.removeAttribute('data-theme');
-        toggle.textContent = 'Night';
-        localStorage.setItem('theme', 'light');
-      } else {
-        html.setAttribute('data-theme', 'dark');
-        toggle.textContent = 'Day';
-        localStorage.setItem('theme', 'dark');
-      }
-    });
-  </script>
+  <script src="theme.js" defer></script>
+  <script src="common.js" defer></script>
 </body>
 </html>

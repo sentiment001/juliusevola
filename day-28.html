@@ -2,6 +2,19 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <script>try{var t=localStorage.getItem("theme");if(t==="dark"){document.documentElement.setAttribute("data-theme","dark");}}catch(e){}</script>
+  <meta name="theme-color" id="themeColor" content="#F7F3ED">
+  <meta name="description" content="Day 28 — The Cult of Novelty. The cult of novelty is the practical expression of the myth of progress applied to everyday life. Every season of fashion, every technological update,...">
+  <link rel="canonical" href="https://sentiment001.github.io/juliusevola/day-28.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Day 28 — The Cult of Novelty">
+  <meta property="og:description" content="Day 28 — The Cult of Novelty. The cult of novelty is the practical expression of the myth of progress applied to everyday life. Every season of fashion, every technological update,...">
+  <meta property="og:url" content="https://sentiment001.github.io/juliusevola/day-28.html">
+  <meta property="og:image" content="https://sentiment001.github.io/juliusevola/cover.jpg">
+  <meta property="og:site_name" content="Julius Evola Daily">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Day 28 — The Cult of Novelty">
+  <meta name="twitter:image" content="https://sentiment001.github.io/juliusevola/cover.jpg">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Day 28 — The Cult of Novelty</title>
   <link rel="stylesheet" href="style.css">
@@ -45,29 +58,11 @@
     </div>
 
     <div class="footer">
-      Day 28 of 35 · Diagnosis of the Modern World
+      Day 28 of 365 · Diagnosis of the Modern World
     </div>
   </div>
 
-  <script>
-    const toggle = document.getElementById('themeToggle');
-    const html = document.documentElement;
-    const saved = localStorage.getItem('theme');
-    if (saved === 'dark') {
-      html.setAttribute('data-theme', 'dark');
-      toggle.textContent = 'Day';
-    }
-    toggle.addEventListener('click', () => {
-      if (html.getAttribute('data-theme') === 'dark') {
-        html.removeAttribute('data-theme');
-        toggle.textContent = 'Night';
-        localStorage.setItem('theme', 'light');
-      } else {
-        html.setAttribute('data-theme', 'dark');
-        toggle.textContent = 'Day';
-        localStorage.setItem('theme', 'dark');
-      }
-    });
-  </script>
+  <script src="theme.js" defer></script>
+  <script src="common.js" defer></script>
 </body>
 </html>
