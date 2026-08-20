@@ -158,7 +158,6 @@ p {
 }
 
 /* —— Day actions (Listen / Share / Report) —— */
-/* Placed under the top day-nav for early visibility on phone */
 .action-bar {
   display: flex;
   flex-wrap: wrap;
@@ -178,7 +177,7 @@ p {
   border-radius: 4px;
   transition: all 0.2s ease;
   font-family: inherit;
-  min-height: 44px; /* touch target */
+  min-height: 44px;
   min-width: 44px;
   display: inline-flex;
   align-items: center;
@@ -325,7 +324,6 @@ p {
   color: var(--accent);
 }
 
-/* Share status */
 .share-status {
   font-size: 0.85rem;
   color: var(--muted);
@@ -333,7 +331,6 @@ p {
   min-height: 1.2em;
 }
 
-/* Graphic footer — pure SVG, works on every form factor with no external files */
 .graphic-footer {
   margin-top: 3.5rem;
   padding-top: 1.75rem;
@@ -367,5 +364,34 @@ p {
   }
   .footer-meta {
     font-size: 0.85rem;
+  }
+}
+
+/* Accessibility & polish */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+a:focus-visible,
+button:focus-visible,
+.month-select:focus-visible,
+.action-btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 17px;
+  }
+  .container {
+    padding: 1.5rem 1rem 3rem;
+  }
+  header {
+    flex-direction: column;
+    gap: 1rem;
   }
 }
