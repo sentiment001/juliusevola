@@ -30,7 +30,7 @@
   var LANGS = [
     { code: 'en', label: 'English', dir: '', days: null },
     { code: 'de', label: 'Deutsch', dir: 'de', days: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15] },
-    { code: 'it', label: 'Italiano', dir: 'it', days: [] }
+    { code: 'it', label: 'Italiano', dir: 'it', days: [1,2,3,4,5,6,7,8,9,10] }
   ];
 
   function isDark() {
