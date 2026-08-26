@@ -28,8 +28,9 @@
     '</svg>';
 
   var LANGS = [
-    { code: 'en', label: 'English', available: true },
-    { code: 'de', label: 'Deutsch', available: true, deDays: [1,2,3,4,5,6,7,8,9,10] }
+    { code: 'en', label: 'English', dir: '', days: null },
+    { code: 'de', label: 'Deutsch', dir: 'de', days: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15] },
+    { code: 'it', label: 'Italiano', dir: 'it', days: [] }
   ];
 
   function isDark() {
@@ -39,22 +40,18 @@
   function ensureHeaderRight() {
     var header = document.querySelector('header');
     if (!header) return null;
-
     var right = header.querySelector('.header-right');
     if (!right) {
       right = document.createElement('div');
       right.className = 'header-right';
       header.appendChild(right);
     }
-
     var existingToggle = header.querySelector('#themeToggle');
     if (existingToggle && existingToggle.parentNode !== right) {
       right.appendChild(existingToggle);
     }
-
     var staticLang = right.querySelector('a.lang-toggle');
     if (staticLang) staticLang.remove();
-
     return right;
   }
 
@@ -68,10 +65,12 @@
 
   function pathInfo() {
     var path = location.pathname || '';
-    var isDe = /\/de(?:\/|$)/.test(path);
+    var lang = 'en';
+    if (/\/de(?:\/|$)/.test(path)) lang = 'de';
+    else if (/\/it(?:\/|$)/.test(path)) lang = 'it';
     var m = path.match(/day-(\d+)\.html/i);
     var dayNum = m ? parseInt(m[1], 10) : null;
-    return { isDe: isDe, dayNum: dayNum, path: path };
+    return { lang: lang, dayNum: dayNum, path: path };
   }
 
   function dayFile(n) {
@@ -79,36 +78,31 @@
   }
 
   function hrefForLang(code, info) {
+    var up = info.lang === 'en' ? '' : '../';
     if (!info.dayNum) {
-      if (code === 'en') return info.isDe ? '../index.html' : 'index.html';
-      if (code === 'de') return info.isDe ? 'day-01.html' : 'de/day-01.html';
-      return null;
+      if (code === 'en') return up + 'index.html';
+      return up + code + '/day-01.html';
     }
     var file = dayFile(info.dayNum);
-    if (code === 'en') return info.isDe ? '../' + file : file;
-    if (code === 'de') return info.isDe ? file : 'de/' + file;
-    return null;
+    if (code === info.lang) return file;
+    if (code === 'en') return '../' + file;
+    if (info.lang === 'en') return code + '/' + file;
+    return '../' + code + '/' + file;
   }
 
   function langAvailable(lang, info) {
-    if (!lang.available) return false;
     if (lang.code === 'en') return true;
-    if (lang.code === 'de') {
-      if (!info.dayNum) return true;
-      return lang.deDays && lang.deDays.indexOf(info.dayNum) !== -1;
-    }
-    return false;
+    if (!lang.days || !lang.days.length) return false;
+    if (!info.dayNum) return lang.days.indexOf(1) !== -1;
+    return lang.days.indexOf(info.dayNum) !== -1;
   }
 
   function buildLangControl(right) {
     if (!right || right.querySelector('.lang-menu')) return;
-
     var info = pathInfo();
-    var current = info.isDe ? 'de' : 'en';
-
+    var current = info.lang;
     var wrap = document.createElement('div');
     wrap.className = 'lang-menu';
-
     var btn = document.createElement('button');
     btn.type = 'button';
     btn.className = 'lang-btn';
@@ -116,12 +110,10 @@
     btn.setAttribute('aria-expanded', 'false');
     btn.setAttribute('aria-label', 'Language');
     btn.innerHTML = '<span class="lang-code">' + current.toUpperCase() + '</span><span class="lang-caret" aria-hidden="true">▾</span>';
-
     var list = document.createElement('div');
     list.className = 'lang-dropdown';
     list.setAttribute('role', 'listbox');
     list.hidden = true;
-
     LANGS.forEach(function (lang) {
       var available = langAvailable(lang, info);
       var isCurrent = lang.code === current;
@@ -130,41 +122,29 @@
       item.setAttribute('role', 'option');
       item.setAttribute('aria-selected', isCurrent ? 'true' : 'false');
       item.textContent = lang.label;
-      if (available && !isCurrent) {
-        item.href = hrefForLang(lang.code, info);
-      }
-      if (!available) {
-        item.title = 'Not yet available';
-      }
+      if (available && !isCurrent) item.href = hrefForLang(lang.code, info);
+      if (!available) item.title = 'Not yet available';
       list.appendChild(item);
     });
-
     function close() {
       list.hidden = true;
       btn.setAttribute('aria-expanded', 'false');
       wrap.classList.remove('open');
     }
-
     function open() {
       list.hidden = false;
       btn.setAttribute('aria-expanded', 'true');
       wrap.classList.add('open');
     }
-
     btn.addEventListener('click', function (e) {
       e.stopPropagation();
       if (list.hidden) open();
       else close();
     });
-
-    document.addEventListener('click', function () {
-      close();
-    });
-
+    document.addEventListener('click', close);
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape') close();
     });
-
     wrap.appendChild(btn);
     wrap.appendChild(list);
     right.insertBefore(wrap, right.firstChild);
@@ -172,7 +152,6 @@
 
   var right = ensureHeaderRight();
   var toggle = document.getElementById('themeToggle');
-
   if (toggle) {
     toggle.classList.add('theme-toggle');
     paintTheme(toggle);
@@ -187,6 +166,5 @@
       paintTheme(toggle);
     });
   }
-
   if (right) buildLangControl(right);
 })();
