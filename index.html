@@ -468,7 +468,22 @@
       330: { title: "The Man Who Carries the Measure", link: "day-330.html" },
       331: { title: "Force of the Permanent Center", link: "day-331.html" },
       332: { title: "Residual Continuity of Orientation", link: "day-332.html" },
-      333: { title: "The Higher Type as Residual Reality", link: "day-333.html" }
+      333: { title: "The Higher Type as Residual Reality", link: "day-333.html" },
+      334: { title: "The Interval as Living Terrain", link: "day-334.html" },
+      335: { title: "Detachment as Residual Power", link: "day-335.html" },
+      336: { title: "The Peak Without a Range", link: "day-336.html" },
+      337: { title: "Ascent as Interior Act", link: "day-337.html" },
+      338: { title: "The Polar Stance", link: "day-338.html" },
+      339: { title: "Coldness of the Center", link: "day-339.html" },
+      340: { title: "The Warrior Without an Army", link: "day-340.html" },
+      341: { title: "Interior Empire", link: "day-341.html" },
+      342: { title: "Refusal of the Horizontal Measure", link: "day-342.html" },
+      343: { title: "The Sacred Without Temple", link: "day-343.html" },
+      344: { title: "Quality as Residual Law", link: "day-344.html" },
+      345: { title: "The Long View in a Short Age", link: "day-345.html" },
+      346: { title: "Silence of the Higher Type", link: "day-346.html" },
+      347: { title: "The Task After the Forms", link: "day-347.html" },
+      348: { title: "Remaining After the Cycle", link: "day-348.html" }
     };
 
     const monthRanges = {
@@ -496,20 +511,20 @@
       const [start, end] = monthRanges[m];
       const mid = Math.floor((start + end) / 2);
       function listHtml(from, to) {
-        let html = `<ul class="day-list">`;
+        let html = `<ul class=\"day-list\">`;
         for (let d = from; d <= to; d++) {
           if (realDays[d]) {
-            html += `<li><a href="${realDays[d].link}">Day ${d} — ${realDays[d].title}</a></li>`;
+            html += `<li><a href=\"${realDays[d].link}\">Day ${d} — ${realDays[d].title}</a></li>`;
           } else {
-            html += `<li><a href="day.html?d=${d}" class="coming">Day ${d} — Coming soon</a></li>`;
+            html += `<li><a href=\"day.html?d=${d}\" class=\"coming\">Day ${d} — Coming soon</a></li>`;
           }
         }
         html += `</ul>`;
         return html;
       }
       const html = `
-        <div class="month-title">${monthNames[m]} (Day ${start} – Day ${end})</div>
-        <div class="day-columns">
+        <div class=\"month-title\">${monthNames[m]} (Day ${start} – Day ${end})</div>
+        <div class=\"day-columns\">
           <div>${listHtml(start, mid)}</div>
           <div>${listHtml(mid + 1, end)}</div>
         </div>`;
