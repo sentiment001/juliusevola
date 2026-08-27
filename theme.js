@@ -66,9 +66,9 @@
   function pathInfo() {
     var path = location.pathname || '';
     var lang = 'en';
-    if (/\\/de(?:\\/|$)/.test(path)) lang = 'de';
-    else if (/\\/it(?:\\/|$)/.test(path)) lang = 'it';
-    var m = path.match(/day-(\\d+)\\.html/i);
+    if (/\/de(?:\/|$)/.test(path)) lang = 'de';
+    else if (/\/it(?:\/|$)/.test(path)) lang = 'it';
+    var m = path.match(/day-(\d+)\.html/i);
     var dayNum = m ? parseInt(m[1], 10) : null;
     return { lang: lang, dayNum: dayNum, path: path };
   }
@@ -109,7 +109,7 @@
     btn.setAttribute('aria-haspopup', 'listbox');
     btn.setAttribute('aria-expanded', 'false');
     btn.setAttribute('aria-label', 'Language');
-    btn.innerHTML = '<span class="lang-code">' + current.toUpperCase() + '</span><span class="lang-caret" aria-hidden="true">▾</span>';
+    btn.innerHTML = '<span class="lang-code">' + current.toUpperCase() + '</span><span class="lang-caret" aria-hidden="true">\u25be</span>';
     var list = document.createElement('div');
     list.className = 'lang-dropdown';
     list.setAttribute('role', 'listbox');
