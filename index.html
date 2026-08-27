@@ -87,9 +87,16 @@
       document.getElementById('monthContent').innerHTML =
         '<div class="month-title">' + monthNames[m] + ' (Day ' + start + ' \u2013 Day ' + end + ')</div>' +
         '<div class="day-columns"><div>' + listHtml(start, mid) + '</div><div>' + listHtml(mid + 1, end) + '</div></div>';
+      if (window.onMonthRendered) window.onMonthRendered();
     }
     const select = document.getElementById('monthSelect');
-    select.addEventListener('change', () => { renderMonth(select.value); history.replaceState(null, '', '?m=' + select.value); });
+    function rememberMonthQuery(m) {
+      const params = new URLSearchParams(location.search);
+      params.set('m', m);
+      const q = params.toString();
+      history.replaceState(null, '', q ? ('?' + q) : location.pathname);
+    }
+    select.addEventListener('change', () => { renderMonth(select.value); rememberMonthQuery(select.value); });
     const startMonth = new URLSearchParams(location.search).get('m');
     if (startMonth && monthRanges[startMonth]) select.value = startMonth;
     renderMonth(select.value);

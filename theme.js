@@ -3,6 +3,7 @@
 
   var root = document.documentElement;
   var meta = document.getElementById('themeColor');
+  var LANG_KEY = 'lang';
 
   var ICON_SOLAR =
     '<svg class="theme-icon" viewBox="0 0 24 24" aria-hidden="true">' +
@@ -27,11 +28,36 @@
     '<line x1="9.5" y1="15.5" x2="14.5" y2="15.5" stroke="currentColor" stroke-width="1.05" stroke-linecap="round"/>' +
     '</svg>';
 
+  function dayRange(n) {
+    var out = [];
+    for (var i = 1; i <= n; i++) out.push(i);
+    return out;
+  }
+
   var LANGS = [
-    { code: 'en', label: 'English', dir: '', days: null },
-    { code: 'de', label: 'Deutsch', dir: 'de', days: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25] },
-    { code: 'it', label: 'Italiano', dir: 'it', days: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20] }
+    { code: 'en', label: 'English', dir: '', days: null, rangeLabel: '' },
+    { code: 'de', label: 'Deutsch', dir: 'de', days: dayRange(25), rangeLabel: 'Tage 1\u201325' },
+    { code: 'it', label: 'Italiano', dir: 'it', days: dayRange(20), rangeLabel: 'Giorni 1\u201320' }
   ];
+
+  function langByCode(code) {
+    for (var i = 0; i < LANGS.length; i++) {
+      if (LANGS[i].code === code) return LANGS[i];
+    }
+    return LANGS[0];
+  }
+
+  function saveLang(code) {
+    try { localStorage.setItem(LANG_KEY, code); } catch (e) {}
+  }
+
+  function storedLang() {
+    try {
+      var s = localStorage.getItem(LANG_KEY);
+      if (s && langByCode(s).code === s) return s;
+    } catch (e) {}
+    return null;
+  }
 
   function isDark() {
     return root.getAttribute('data-theme') === 'dark';
@@ -77,12 +103,30 @@
     return 'day-' + (n < 10 ? '0' : '') + n + '.html';
   }
 
+  function queryLang() {
+    try {
+      var q = new URLSearchParams(location.search).get('lang');
+      if (q && langByCode(q).code === q) return q;
+    } catch (e) {}
+    return null;
+  }
+
+  function menuLang(info) {
+    if (info.dayNum) return info.lang;
+    return queryLang() || storedLang() || 'en';
+  }
+
+  function homeHref(code) {
+    var params = new URLSearchParams(location.search);
+    if (code === 'en') params.delete('lang');
+    else params.set('lang', code);
+    var q = params.toString();
+    return 'index.html' + (q ? '?' + q : '');
+  }
+
   function hrefForLang(code, info) {
     var up = info.lang === 'en' ? '' : '../';
-    if (!info.dayNum) {
-      if (code === 'en') return up + 'index.html';
-      return up + code + '/day-01.html';
-    }
+    if (!info.dayNum) return up + homeHref(code);
     var file = dayFile(info.dayNum);
     if (code === info.lang) return file;
     if (code === 'en') return '../' + file;
@@ -93,14 +137,51 @@
   function langAvailable(lang, info) {
     if (lang.code === 'en') return true;
     if (!lang.days || !lang.days.length) return false;
-    if (!info.dayNum) return lang.days.indexOf(1) !== -1;
+    if (!info.dayNum) return true;
     return lang.days.indexOf(info.dayNum) !== -1;
+  }
+
+  function optionLabel(lang, info, available) {
+    if (available || !lang.rangeLabel) return lang.label;
+    return lang.label + ' \u00b7 ' + lang.rangeLabel;
+  }
+
+  function applyHomeLang() {
+    var box = document.getElementById('monthContent');
+    if (!box) return;
+    var code = queryLang() || storedLang() || 'en';
+    var spec = langByCode(code);
+    saveLang(spec.code);
+    var prefix = spec.dir ? spec.dir + '/' : '';
+    var links = box.querySelectorAll('a[href]');
+    for (var i = 0; i < links.length; i++) {
+      var a = links[i];
+      var raw = a.getAttribute('href') || '';
+      var m = raw.match(/(?:^|\/)(day-\d+\.html)$/i);
+      if (!m) continue;
+      var file = m[1];
+      var num = parseInt(file.replace(/\D/g, ''), 10);
+      if (spec.dir && spec.days && spec.days.indexOf(num) !== -1) {
+        a.setAttribute('href', prefix + file);
+      } else {
+        a.setAttribute('href', file);
+      }
+    }
+    var start = document.querySelector('header nav a[href*="day-01"]');
+    if (start) {
+      if (spec.dir && spec.days && spec.days.indexOf(1) !== -1) {
+        start.setAttribute('href', prefix + 'day-01.html');
+      } else {
+        start.setAttribute('href', 'day-01.html');
+      }
+    }
   }
 
   function buildLangControl(right) {
     if (!right || right.querySelector('.lang-menu')) return;
     var info = pathInfo();
-    var current = info.lang;
+    var current = menuLang(info);
+    if (info.dayNum) saveLang(info.lang);
     var wrap = document.createElement('div');
     wrap.className = 'lang-menu';
     var btn = document.createElement('button');
@@ -114,6 +195,7 @@
     list.className = 'lang-dropdown';
     list.setAttribute('role', 'listbox');
     list.hidden = true;
+    list.style.minWidth = '168px';
     LANGS.forEach(function (lang) {
       var available = langAvailable(lang, info);
       var isCurrent = lang.code === current;
@@ -121,9 +203,12 @@
       item.className = 'lang-option' + (isCurrent ? ' is-current' : '') + (!available ? ' is-disabled' : '');
       item.setAttribute('role', 'option');
       item.setAttribute('aria-selected', isCurrent ? 'true' : 'false');
-      item.textContent = lang.label;
-      if (available && !isCurrent) item.href = hrefForLang(lang.code, info);
-      if (!available) item.title = 'Not yet available';
+      item.textContent = optionLabel(lang, info, available);
+      if (available && !isCurrent) {
+        item.href = hrefForLang(lang.code, info);
+        item.addEventListener('click', function () { saveLang(lang.code); });
+      }
+      if (!available) item.title = lang.rangeLabel ? ('Available for ' + lang.rangeLabel) : 'Not yet available';
       list.appendChild(item);
     });
     function close() {
@@ -167,4 +252,6 @@
     });
   }
   if (right) buildLangControl(right);
+  window.onMonthRendered = applyHomeLang;
+  applyHomeLang();
 })();
