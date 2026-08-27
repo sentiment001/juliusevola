@@ -29,8 +29,8 @@
 
   var LANGS = [
     { code: 'en', label: 'English', dir: '', days: null },
-    { code: 'de', label: 'Deutsch', dir: 'de', days: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15] },
-    { code: 'it', label: 'Italiano', dir: 'it', days: [1,2,3,4,5,6,7,8,9,10] }
+    { code: 'de', label: 'Deutsch', dir: 'de', days: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20] },
+    { code: 'it', label: 'Italiano', dir: 'it', days: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15] }
   ];
 
   function isDark() {
@@ -66,9 +66,9 @@
   function pathInfo() {
     var path = location.pathname || '';
     var lang = 'en';
-    if (/\/de(?:\/|$)/.test(path)) lang = 'de';
-    else if (/\/it(?:\/|$)/.test(path)) lang = 'it';
-    var m = path.match(/day-(\d+)\.html/i);
+    if (/\\/de(?:\\/|$)/.test(path)) lang = 'de';
+    else if (/\\/it(?:\\/|$)/.test(path)) lang = 'it';
+    var m = path.match(/day-(\\d+)\\.html/i);
     var dayNum = m ? parseInt(m[1], 10) : null;
     return { lang: lang, dayNum: dayNum, path: path };
   }
