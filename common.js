@@ -402,7 +402,39 @@
   const footerEl = document.querySelector('.footer');
   if (footerEl) {
     const useSolar = (parseInt(dayNum, 10) % 2) === 0;
-    const originalText = footerEl.textContent.trim();
+    var originalText = footerEl.textContent.trim();
+    originalText = originalText
+      .replace(/^(Day \d+) · /, '$1 of 365 · ')
+      .replace(/^(Tag \d+) · /, '$1 von 365 · ')
+      .replace(/^(Giorno \d+) · /, '$1 di 365 · ');
+    var PHASE = {
+      de: {
+        'Orientation': 'Orientierung',
+        'Orientation complete': 'Orientierung abgeschlossen',
+        'Diagnosis of the Modern World': 'Diagnose der modernen Welt',
+        'The Traditional Order': 'Die traditionale Ordnung',
+        'The Differentiated Individual': 'Der differenzierte Mensch',
+        'Riding the Tiger': 'Den Tiger reiten',
+        'Intensification / Application': 'Intensivierung / Anwendung',
+        'Deeper Material': 'Tieferes Material'
+      },
+      it: {
+        'Orientation': 'Orientamento',
+        'Orientation complete': 'Orientamento compiuto',
+        'Diagnosis of the Modern World': 'Diagnosi del mondo moderno',
+        'The Traditional Order': "L'ordine tradizionale",
+        'The Differentiated Individual': "L'individuo differenziato",
+        'Riding the Tiger': 'Cavalcare la tigre',
+        'Intensification / Application': 'Intensificazione / Applicazione',
+        'Deeper Material': 'Materiale più profondo'
+      }
+    };
+    if (PHASE[lang]) {
+      originalText = originalText.replace(/·\s*(.+)$/, function (_, phase) {
+        var mapped = PHASE[lang][phase.trim()];
+        return '· ' + (mapped || phase.trim());
+      });
+    }
 
     footerEl.classList.add('graphic-footer');
     footerEl.classList.add(useSolar ? 'footer-solar' : 'footer-peak');
