@@ -6,13 +6,101 @@
 (function () {
   'use strict';
 
-  // Only run on day pages
-  const h2 = document.querySelector('h2');
-  if (!h2 || !h2.textContent.match(/^Day \d+/)) return;
+  function pageLang() {
+    var htmlLang = (document.documentElement.getAttribute('lang') || '').toLowerCase();
+    if (htmlLang.indexOf('de') === 0) return 'de';
+    if (htmlLang.indexOf('it') === 0) return 'it';
+    var path = location.pathname || '';
+    if (/\/de(?:\/|$)/.test(path)) return 'de';
+    if (/\/it(?:\/|$)/.test(path)) return 'it';
+    return 'en';
+  }
 
-  const dayMatch = h2.textContent.match(/^Day (\d+)\s*—\s*(.+)$/);
-  const dayNum = dayMatch ? dayMatch[1] : '?';
-  const dayTitle = dayMatch ? dayMatch[2].trim() : h2.textContent;
+  var STR = {
+    en: {
+      dayWord: 'Day',
+      listen: 'Listen',
+      stop: 'Stop',
+      listenAria: 'Listen to this day',
+      share: 'Share quote',
+      shareAria: 'Share quote as image',
+      report: 'Report inaccuracy',
+      reportAria: 'Report inaccuracy',
+      noSpeech: 'Speech is not supported in this browser.',
+      preparing: 'Preparing…',
+      shareNote: 'Image downloaded. Attach it to the tweet that just opened.',
+      shareFail: 'Could not prepare the image. Try again or use the page link.',
+      reportTitle: 'Report inaccuracy',
+      reportNote: 'Use this only for factual or interpretive errors in the text. The report becomes a public GitHub issue on the project repository.',
+      reportContact: 'Name or email (optional)',
+      reportContactPh: 'Optional',
+      reportText: 'What needs correction?',
+      reportTextPh: 'Quote the passage and state the problem clearly.',
+      cancel: 'Cancel',
+      openReport: 'Open report',
+      issuePrefix: 'Inaccuracy'
+    },
+    de: {
+      dayWord: 'Tag',
+      listen: 'Hören',
+      stop: 'Stopp',
+      listenAria: 'Diesen Tag vorlesen',
+      share: 'Zitat teilen',
+      shareAria: 'Zitat als Bild teilen',
+      report: 'Fehler melden',
+      reportAria: 'Ungenauigkeit melden',
+      noSpeech: 'Sprachausgabe wird in diesem Browser nicht unterstützt.',
+      preparing: 'Wird vorbereitet…',
+      shareNote: 'Bild heruntergeladen. Dem soeben geöffneten Beitrag anhängen.',
+      shareFail: 'Das Bild konnte nicht erzeugt werden. Erneut versuchen oder den Seitenlink verwenden.',
+      reportTitle: 'Ungenauigkeit melden',
+      reportNote: 'Nur für sachliche oder interpretative Fehler im Text. Die Meldung wird zu einem öffentlichen GitHub-Issue im Projektarchiv.',
+      reportContact: 'Name oder E-Mail (optional)',
+      reportContactPh: 'Optional',
+      reportText: 'Was ist zu korrigieren?',
+      reportTextPh: 'Die Stelle zitieren und den Fehler klar benennen.',
+      cancel: 'Abbrechen',
+      openReport: 'Meldung öffnen',
+      issuePrefix: 'Ungenauigkeit'
+    },
+    it: {
+      dayWord: 'Giorno',
+      listen: 'Ascolta',
+      stop: 'Stop',
+      listenAria: 'Ascolta questo giorno',
+      share: 'Condividi citazione',
+      shareAria: 'Condividi la citazione come immagine',
+      report: 'Segnala inesattezza',
+      reportAria: 'Segnala un\'inesattezza',
+      noSpeech: 'La sintesi vocale non è supportata in questo browser.',
+      preparing: 'Preparazione…',
+      shareNote: 'Immagine scaricata. Allega il file al post appena aperto.',
+      shareFail: 'Impossibile preparare l\'immagine. Riprova o usa il link della pagina.',
+      reportTitle: 'Segnala inesattezza',
+      reportNote: 'Usare solo per errori di fatto o di interpretazione nel testo. La segnalazione diventa un issue pubblico su GitHub nel deposito del progetto.',
+      reportContact: 'Nome o email (facoltativo)',
+      reportContactPh: 'Facoltativo',
+      reportText: 'Che cosa va corretto?',
+      reportTextPh: 'Cita il passo e indica il problema con chiarezza.',
+      cancel: 'Annulla',
+      openReport: 'Apri segnalazione',
+      issuePrefix: 'Inesattezza'
+    }
+  };
+
+  const lang = pageLang();
+  const t = STR[lang] || STR.en;
+
+  // Only run on day pages (EN Day / DE Tag / IT Giorno)
+  const h2 = document.querySelector('h2');
+  const pathDay = (location.pathname || '').match(/day-(\d+)\.html/i);
+  if (!h2 && !pathDay) return;
+  if (h2 && !h2.textContent.match(/^(Day|Tag|Giorno)\s+\d+/) && !pathDay) return;
+
+  const dayMatch = h2 ? h2.textContent.match(/^(Day|Tag|Giorno)\s+(\d+)\s+[\u2014\u2013-]\s+(.+)$/) : null;
+  const dayNum = dayMatch ? dayMatch[2] : (pathDay ? String(parseInt(pathDay[1], 10)) : '?');
+  const dayTitle = dayMatch ? dayMatch[3].trim() : (h2 ? h2.textContent : '');
+  const dayLabel = t.dayWord + ' ' + dayNum;
 
   // ---------- Extract content ----------
   function getQuoteParts() {
@@ -25,7 +113,7 @@
       citeText = cite.textContent.trim();
       cite.remove();
     }
-    const text = clone.textContent.trim().replace(/^["“]|["”]$/g, '').trim();
+    const text = clone.textContent.trim().replace(/^["\u201c]|["\u201d]$/g, '').trim();
     return { text, cite: citeText };
   }
 
@@ -46,11 +134,10 @@
   const bar = document.createElement('div');
   bar.className = 'action-bar';
   bar.innerHTML = `
-    <button type="button" class="action-btn" id="listenBtn" aria-label="Listen to this day">Listen</button>
-    <button type="button" class="action-btn" id="shareBtn" aria-label="Share quote as image">Share quote</button>
-    <button type="button" class="action-btn" id="reportBtn" aria-label="Report inaccuracy">Report inaccuracy</button>
+    <button type="button" class="action-btn" id="listenBtn" aria-label="${t.listenAria}">${t.listen}</button>
+    <button type="button" class="action-btn" id="shareBtn" aria-label="${t.shareAria}">${t.share}</button>
+    <button type="button" class="action-btn" id="reportBtn" aria-label="${t.reportAria}">${t.report}</button>
   `;
-  // Place immediately after the first day-nav so controls are visible without scrolling on phone
   const topNav = document.querySelector('.day-nav');
   if (topNav && topNav.parentNode) {
     topNav.parentNode.insertBefore(bar, topNav.nextSibling);
@@ -64,7 +151,6 @@
   const shareBtn = document.getElementById('shareBtn');
   const reportBtn = document.getElementById('reportBtn');
 
-  // ---------- Listen (SpeechSynthesis) ----------
   let speaking = false;
   let utterance = null;
 
@@ -73,13 +159,13 @@
       window.speechSynthesis.cancel();
     }
     speaking = false;
-    listenBtn.textContent = 'Listen';
+    listenBtn.textContent = t.listen;
     listenBtn.classList.remove('active');
   }
 
   listenBtn.addEventListener('click', () => {
     if (!window.speechSynthesis) {
-      alert('Speech is not supported in this browser.');
+      alert(t.noSpeech);
       return;
     }
     if (speaking) {
@@ -89,27 +175,28 @@
 
     const { text: quoteText, cite } = getQuoteParts();
     const body = getBodyText();
-    const full = [quoteText, cite ? cite.replace(/^—\s*/, '') : '', body].filter(Boolean).join('. ');
+    const full = [quoteText, cite ? cite.replace(/^[\u2014]\s*/, '') : '', body].filter(Boolean).join('. ');
 
     utterance = new SpeechSynthesisUtterance(full);
     utterance.rate = 0.95;
     utterance.pitch = 1;
-    // Prefer a clear English voice when available
     const voices = speechSynthesis.getVoices();
-    const preferred = voices.find(v => /en-(US|GB)/.test(v.lang) && /Google|Samantha|Daniel|Alex|Microsoft/.test(v.name))
-                   || voices.find(v => v.lang.startsWith('en'));
+    const langPrefix = lang === 'de' ? 'de' : lang === 'it' ? 'it' : 'en';
+    const preferred = voices.find(v => v.lang && v.lang.toLowerCase().indexOf(langPrefix) === 0 && /Google|Samantha|Daniel|Alex|Microsoft|Anna|Helena|Markus|Elsa|Alice|Luca/.test(v.name))
+                   || voices.find(v => v.lang && v.lang.toLowerCase().indexOf(langPrefix) === 0)
+                   || voices.find(v => v.lang && v.lang.toLowerCase().indexOf('en') === 0);
     if (preferred) utterance.voice = preferred;
+    utterance.lang = langPrefix === 'de' ? 'de-DE' : langPrefix === 'it' ? 'it-IT' : 'en-US';
 
     utterance.onend = () => stopSpeaking();
     utterance.onerror = () => stopSpeaking();
 
     speaking = true;
-    listenBtn.textContent = 'Stop';
+    listenBtn.textContent = t.stop;
     listenBtn.classList.add('active');
     speechSynthesis.speak(utterance);
   });
 
-  // Some browsers load voices asynchronously
   if (window.speechSynthesis) {
     speechSynthesis.onvoiceschanged = () => {};
   }
@@ -117,7 +204,6 @@
     if (window.speechSynthesis) speechSynthesis.cancel();
   });
 
-  // ---------- Share quote as image ----------
   function wrapText(ctx, text, maxWidth) {
     const words = text.split(/\s+/);
     const lines = [];
@@ -140,53 +226,43 @@
     const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
 
     const W = 1200;
-    const pad = 72;                 // equal top and bottom margin
+    const pad = 72;
     const maxTextW = W - pad * 2;
     const lineH = 58;
-
-    // Literal quotation marks around the quote
     const quoteText = `“${text}”`;
 
     const canvas = document.createElement('canvas');
     const ctx = canvas.getContext('2d');
 
-    // Measure wrapped lines
     ctx.font = 'italic 42px Georgia, "Times New Roman", serif';
     const lines = wrapText(ctx, quoteText, maxTextW);
 
-    // Layout constants
     const headerBaseline = 28;
-    const gapAfterHeader = 40;   // from header baseline to first quote baseline
-    const gapBeforeCite = 36;    // from last quote baseline to cite baseline
-    const gapBeforeUrl = 44;     // from cite baseline to URL baseline
+    const gapAfterHeader = 40;
+    const gapBeforeCite = 36;
+    const gapBeforeUrl = 44;
 
-    // Simulate the final URL baseline so canvas height matches exactly
-    // (avoids overlap / clipping and keeps top/bottom padding equal)
     let simY = pad + headerBaseline + gapAfterHeader;
     if (lines.length > 0) {
-      simY += (lines.length - 1) * lineH;  // last quote baseline
+      simY += (lines.length - 1) * lineH;
     }
-    simY += gapBeforeCite;                 // cite baseline
-    simY += gapBeforeUrl;                  // URL baseline
-    const H = simY + pad;                  // equal bottom padding
+    simY += gapBeforeCite;
+    simY += gapBeforeUrl;
+    const H = simY + pad;
 
     canvas.width = W;
     canvas.height = H;
 
-    // Background
     ctx.fillStyle = isDark ? '#0f0f0f' : '#F7F3ED';
     ctx.fillRect(0, 0, W, H);
 
-    // Left accent bar
     ctx.fillStyle = isDark ? '#c45c5c' : '#8B1A1A';
     ctx.fillRect(0, 0, 12, H);
 
-    // Day label
     ctx.fillStyle = isDark ? '#a0a0a0' : '#5c5c5c';
     ctx.font = '28px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif';
-    ctx.fillText(`Day ${dayNum} — Julius Evola Daily`, pad, pad + headerBaseline);
+    ctx.fillText(`${dayLabel} — Julius Evola Daily`, pad, pad + headerBaseline);
 
-    // Quote lines (with curly quotes)
     ctx.fillStyle = isDark ? '#e8e6e3' : '#1a1a1a';
     ctx.font = 'italic 42px Georgia, "Times New Roman", serif';
     let y = pad + headerBaseline + gapAfterHeader;
@@ -195,15 +271,14 @@
       if (i < lines.length - 1) y += lineH;
     });
 
-    // Cite
     y += gapBeforeCite;
     ctx.fillStyle = isDark ? '#a0a0a0' : '#5c5c5c';
     ctx.font = '26px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif';
     ctx.fillText(cite || '— Julius Evola', pad, y);
 
-    // Full page URL, bottom right
-    const dayFile = Number(dayNum) < 10 ? `day-0${dayNum}.html` : `day-${dayNum}.html`;
-    const pageUrl = `https://sentiment001.github.io/juliusevola/${dayFile}`;
+    const dayFile = 'day-' + String(dayNum).padStart(2, '0') + '.html';
+    const langDir = lang === 'en' ? '' : lang + '/';
+    const pageUrl = `https://sentiment001.github.io/juliusevola/${langDir}${dayFile}`;
     y += gapBeforeUrl;
     ctx.font = '20px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif';
     ctx.fillStyle = isDark ? '#666' : '#999';
@@ -228,7 +303,7 @@
 
   shareBtn.addEventListener('click', async () => {
     shareBtn.disabled = true;
-    shareBtn.textContent = 'Preparing…';
+    shareBtn.textContent = t.preparing;
 
     try {
       const blob = await generateQuoteImage();
@@ -237,51 +312,46 @@
 
       const pageUrl = window.location.href.split('?')[0];
       const quoteSnippet = getQuoteParts().text;
-      const tweetText = `Day ${dayNum} — ${dayTitle}\n\n“${quoteSnippet.slice(0, 180)}${quoteSnippet.length > 180 ? '…' : ''}”\n\n${pageUrl}`;
+      const tweetText = `${dayLabel} — ${dayTitle}\n\n“${quoteSnippet.slice(0, 180)}${quoteSnippet.length > 180 ? '…' : ''}”\n\n${pageUrl}`;
 
-      // Prefer native share with file when available (mobile primarily)
       if (navigator.canShare && navigator.canShare({ files: [file] })) {
         await navigator.share({
           files: [file],
           text: tweetText,
-          title: `Day ${dayNum} — ${dayTitle}`
+          title: `${dayLabel} — ${dayTitle}`
         });
       } else {
-        // Fallback: download image + open X intent with text
         downloadBlob(blob, filename);
         const intent = `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweetText)}`;
         window.open(intent, '_blank', 'noopener');
-        // Brief note
         const status = document.createElement('div');
         status.className = 'share-status';
-        status.textContent = 'Image downloaded. Attach it to the tweet that just opened.';
+        status.textContent = t.shareNote;
         bar.insertAdjacentElement('afterend', status);
         setTimeout(() => status.remove(), 6000);
       }
     } catch (err) {
       console.error(err);
-      alert('Could not prepare the image. Try again or use the page link.');
+      alert(t.shareFail);
     } finally {
       shareBtn.disabled = false;
-      shareBtn.textContent = 'Share quote';
+      shareBtn.textContent = t.share;
     }
   });
 
-  // ---------- Report inaccuracy ----------
-  // Stored as GitHub Issues (visible in the repository)
   const overlay = document.createElement('div');
   overlay.className = 'report-overlay';
   overlay.innerHTML = `
     <div class="report-modal" role="dialog" aria-labelledby="reportTitle">
-      <h3 id="reportTitle">Report inaccuracy</h3>
-      <p class="note">Use this only for factual or interpretive errors in the text. The report becomes a public GitHub issue on the project repository.</p>
-      <label for="reportContact">Name or email (optional)</label>
-      <input type="text" id="reportContact" placeholder="Optional" autocomplete="off">
-      <label for="reportText">What needs correction?</label>
-      <textarea id="reportText" required placeholder="Quote the passage and state the problem clearly."></textarea>
+      <h3 id="reportTitle">${t.reportTitle}</h3>
+      <p class="note">${t.reportNote}</p>
+      <label for="reportContact">${t.reportContact}</label>
+      <input type="text" id="reportContact" placeholder="${t.reportContactPh}" autocomplete="off">
+      <label for="reportText">${t.reportText}</label>
+      <textarea id="reportText" required placeholder="${t.reportTextPh}"></textarea>
       <div class="report-actions">
-        <button type="button" class="cancel" id="reportCancel">Cancel</button>
-        <button type="button" class="submit" id="reportSubmit">Open report</button>
+        <button type="button" class="cancel" id="reportCancel">${t.cancel}</button>
+        <button type="button" class="submit" id="reportSubmit">${t.openReport}</button>
       </div>
     </div>
   `;
@@ -311,8 +381,8 @@
       return;
     }
 
-    const title = `Inaccuracy: Day ${dayNum} — ${dayTitle}`;
-    let body = `**Day ${dayNum} — ${dayTitle}**\n\n`;
+    const title = `${t.issuePrefix}: ${dayLabel} — ${dayTitle}`;
+    let body = `**${dayLabel} — ${dayTitle}**\n\n`;
     body += `**Reported text / issue:**\n${text}\n\n`;
     if (contact) body += `**Contact:** ${contact}\n\n`;
     body += `**Page:** ${window.location.href.split('?')[0]}\n`;
@@ -325,15 +395,12 @@
     document.getElementById('reportContact').value = '';
   });
 
-  // Escape key closes modal
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && overlay.classList.contains('open')) closeReport();
   });
 
-  // ---------- Graphic footer (site-level, pure SVG — no external image files) ----------
   const footerEl = document.querySelector('.footer');
   if (footerEl) {
-    // Deterministic by day number so each day is consistent
     const useSolar = (parseInt(dayNum, 10) % 2) === 0;
     const originalText = footerEl.textContent.trim();
 
