@@ -406,15 +406,13 @@ button:focus-visible,
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  background-color: var(--bg);
+  background-image: none;
 }
 
 .month-select option {
   background: var(--bg);
   color: var(--text);
-}
-
-[data-theme="dark"] .month-select {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23c45c5c' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
 }
 
 .day-list a.coming {
