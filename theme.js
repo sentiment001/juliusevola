@@ -37,7 +37,7 @@
   var LANGS = [
     { code: 'en', label: 'English', dir: '', days: null, rangeLabel: '' },
     { code: 'de', label: 'Deutsch', dir: 'de', days: dayRange(95), rangeLabel: 'Tage 1\u201395' },
-    { code: 'it', label: 'Italiano', dir: 'it', days: dayRange(30), rangeLabel: 'Giorni 1\u201330' }
+    { code: 'it', label: 'Italiano', dir: 'it', days: dayRange(35), rangeLabel: 'Giorni 1\u201335' }
   ];
 
   function langByCode(code) {
