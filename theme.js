@@ -1,6 +1,15 @@
 (function () {
   'use strict';
 
+  (function loadAhrefs() {
+    if (document.querySelector('script[src="https://analytics.ahrefs.com/analytics.js"]')) return;
+    var s = document.createElement('script');
+    s.src = 'https://analytics.ahrefs.com/analytics.js';
+    s.setAttribute('data-key', 'i+iGzsDv6SR08jhhRgLUkg');
+    s.async = true;
+    document.head.appendChild(s);
+  })();
+
   var root = document.documentElement;
   var meta = document.getElementById('themeColor');
   var LANG_KEY = 'lang';
