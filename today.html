@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>try{var t=localStorage.getItem("theme");if(t==="dark"){document.documentElement.setAttribute("data-theme","dark");}}catch(e){}</script>
+  <meta name="theme-color" id="themeColor" content="#F7F3ED">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Today — Julius Evola Daily</title>
+  <meta name="description" content="Today's page of Julius Evola Daily.">
+  <meta name="robots" content="noindex">
+  <link rel="canonical" href="https://evoladaily.com/today.html">
+  <link rel="stylesheet" href="style.css">
+  <script>
+    (function () {
+      function pad(n) { return n < 10 ? '0' + n : String(n); }
+      function dayOfYearToronto() {
+        var parts = new Intl.DateTimeFormat('en-CA', {
+          timeZone: 'America/Toronto',
+          year: 'numeric',
+          month: 'numeric',
+          day: 'numeric'
+        }).formatToParts(new Date());
+        var y, m, d;
+        for (var i = 0; i < parts.length; i++) {
+          if (parts[i].type === 'year') y = parseInt(parts[i].value, 10);
+          if (parts[i].type === 'month') m = parseInt(parts[i].value, 10);
+          if (parts[i].type === 'day') d = parseInt(parts[i].value, 10);
+        }
+        var start = Date.UTC(y, 0, 1);
+        var cur = Date.UTC(y, m - 1, d);
+        var n = Math.floor((cur - start) / 86400000) + 1;
+        if (n < 1) n = 1;
+        if (n > 365) n = 365;
+        return n;
+      }
+      var n = dayOfYearToronto();
+      var lang = 'en';
+      try {
+        var stored = localStorage.getItem('lang');
+        if (stored === 'de' || stored === 'it') lang = stored;
+      } catch (e) {}
+      var prefix = '';
+      if (lang === 'de' && n <= 135) prefix = 'de/';
+      else if (lang === 'it' && n <= 65) prefix = 'it/';
+      var dest = prefix + 'day-' + pad(n) + '.html';
+      window.__todayDest = dest;
+      location.replace(dest);
+    })();
+  </script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="today.html" class="active">Today</a>
+        </nav>
+      </div>
+    </header>
+    <h2>Today</h2>
+    <p>Opening today's page.</p>
+    <div class="day-nav">
+      <a href="index.html">Home</a>
+      <a id="todayFallback" href="day-01.html">Continue</a>
+    </div>
+  </div>
+  <script>
+    if (window.__todayDest) {
+      var a = document.getElementById('todayFallback');
+      if (a) a.href = window.__todayDest;
+    }
+  </script>
+</body>
+</html>
