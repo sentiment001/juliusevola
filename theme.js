@@ -1,6 +1,14 @@
 (function () {
   'use strict';
 
+  (function redirectGithubHost() {
+    var host = location.hostname;
+    if (host !== 'sentiment001.github.io') return;
+    var path = location.pathname.replace(/^\/juliusevola\/?/, '/');
+    if (path === '') path = '/';
+    location.replace('https://evoladaily.com' + path + location.search + location.hash);
+  })();
+
   (function loadAhrefs() {
     if (document.querySelector('script[src="https://analytics.ahrefs.com/analytics.js"]')) return;
     var s = document.createElement('script');

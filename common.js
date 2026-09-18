@@ -278,7 +278,7 @@
 
     const dayFile = 'day-' + String(dayNum).padStart(2, '0') + '.html';
     const langDir = lang === 'en' ? '' : lang + '/';
-    const pageUrl = `https://sentiment001.github.io/juliusevola/${langDir}${dayFile}`;
+    const pageUrl = `https://evoladaily.com/${langDir}${dayFile}`;
     y += gapBeforeUrl;
     ctx.font = '20px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif';
     ctx.fillStyle = isDark ? '#666' : '#999';

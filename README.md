@@ -26,6 +26,6 @@ A 365-day reader for young men, drawn primarily from Julius Evola’s *Revolt Ag
 
 Open `index.html` locally or visit the GitHub Pages site:
 
-**https://sentiment001.github.io/juliusevola/**
+**https://evoladaily.com/**
 
 Primary sources: *Revolt Against the Modern World*, *Ride the Tiger*, *Men Among the Ruins*, *Meditations on the Peaks*.

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://sentiment001.github.io/juliusevola/sitemap.xml
+Sitemap: https://evoladaily.com/sitemap.xml
