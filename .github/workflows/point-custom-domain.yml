@@ -1,0 +1,112 @@
+name: Point site at evoladaily.com
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/point-custom-domain.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  rewrite:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Rewrite host, sitemap, CNAME, 404, and GitHub-host redirect
+        run: |
+          python3 << 'PY'
+          from pathlib import Path
+
+          OLD = "https://sentiment001.github.io/juliusevola"
+          NEW = "https://evoladaily.com"
+          root = Path(".")
+
+          changed = 0
+          for p in root.rglob("*"):
+              if not p.is_file():
+                  continue
+              if p.parts[0] in {".git", ".github"}:
+                  continue
+              if p.suffix.lower() in {".jpg", ".png", ".webp", ".gif", ".ico"}:
+                  continue
+              try:
+                  text = p.read_text(encoding="utf-8")
+              except Exception:
+                  continue
+              if OLD in text:
+                  p.write_text(text.replace(OLD, NEW), encoding="utf-8")
+                  changed += 1
+          print("url-rewritten", changed)
+
+          p404 = root / "404.html"
+          if p404.exists():
+              t = p404.read_text(encoding="utf-8")
+              t = t.replace("/juliusevola/index.html", "index.html")
+              t = t.replace("/juliusevola/day-01.html", "day-01.html")
+              p404.write_text(t, encoding="utf-8")
+
+          robots = root / "robots.txt"
+          robots.write_text("User-agent: *\nAllow: /\n\nSitemap: https://evoladaily.com/sitemap.xml\n", encoding="utf-8")
+
+          (root / "CNAME").write_text("evoladaily.com\n", encoding="utf-8")
+
+          theme = root / "theme.js"
+          ts = theme.read_text(encoding="utf-8")
+          if "redirectGithubHost" not in ts:
+              needle = "(function () {\n  'use strict';\n\n  (function loadAhrefs() {"
+              insert = "(function () {\n  'use strict';\n\n  (function redirectGithubHost() {\n    var host = location.hostname;\n    if (host !== 'sentiment001.github.io') return;\n    var path = location.pathname.replace(/^\\/juliusevola\\/?/, '/');\n    if (path === '') path = '/';\n    location.replace('https://evoladaily.com' + path + location.search + location.hash);\n  })();\n\n  (function loadAhrefs() {"
+              if needle not in ts:
+                  raise SystemExit("theme.js insert point missing")
+              theme.write_text(ts.replace(needle, insert, 1), encoding="utf-8")
+              print("theme.js redirect inserted")
+          else:
+              print("theme.js redirect already present")
+
+          urls = ["https://evoladaily.com/"]
+          for i in range(1, 366):
+              urls.append(f"https://evoladaily.com/day-{i:02d}.html")
+          de = sorted((root / "de").glob("day-*.html"), key=lambda x: int(x.stem.split("-")[1]))
+          it = sorted((root / "it").glob("day-*.html"), key=lambda x: int(x.stem.split("-")[1]))
+          for p in de:
+              urls.append(f"https://evoladaily.com/de/{p.name}")
+          for p in it:
+              urls.append(f"https://evoladaily.com/it/{p.name}")
+          lines = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
+          for i, u in enumerate(urls):
+              pri = "1.0" if i == 0 else "0.8"
+              lines.append(f"  <url><loc>{u}</loc><changefreq>monthly</changefreq><priority>{pri}</priority></url>")
+          lines.append("</urlset>")
+          (root / "sitemap.xml").write_text("\n".join(lines) + "\n", encoding="utf-8")
+          print("sitemap", len(urls), "de", len(de), "it", len(it))
+
+          left = []
+          for p in root.rglob("*"):
+              if not p.is_file() or p.parts[0] in {".git", ".github"}:
+                  continue
+              if p.suffix.lower() in {".jpg", ".png", ".webp", ".gif", ".ico"}:
+                  continue
+              try:
+                  t = p.read_text(encoding="utf-8")
+              except Exception:
+                  continue
+              if "https://sentiment001.github.io" in t:
+                  left.append(str(p))
+          if left:
+              raise SystemExit("leftover github.io in: " + ", ".join(left[:20]))
+          print("no leftover github.io hosts")
+          PY
+
+      - name: Commit and push
+        run: |
+          git config user.name "sentiment001"
+          git config user.email "mash@hirecmo.io"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Point canonicals, sitemap, and share URLs at evoladaily.com"
+            git push
+          fi
