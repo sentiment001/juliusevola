@@ -45,7 +45,7 @@
 
   var LANGS = [
     { code: 'en', label: 'English', dir: '', days: null, rangeLabel: '' },
-    { code: 'de', label: 'Deutsch', dir: 'de', days: dayRange(130), rangeLabel: 'Tage 1\u2013130' },
+    { code: 'de', label: 'Deutsch', dir: 'de', days: dayRange(135), rangeLabel: 'Tage 1\u2013135' },
     { code: 'it', label: 'Italiano', dir: 'it', days: dayRange(65), rangeLabel: 'Giorni 1\u201365' }
   ];
 
@@ -93,8 +93,8 @@
   function paintTheme(toggle) {
     if (!toggle) return;
     toggle.innerHTML = isDark() ? ICON_SOLAR : ICON_POLAR;
-    toggle.setAttribute('aria-label', isDark() ? 'Switch to day mode' : 'Switch to night mode');
     toggle.title = isDark() ? 'Day' : 'Night';
+    toggle.setAttribute('aria-label', isDark() ? 'Switch to day mode' : 'Switch to night mode');
     if (meta) meta.setAttribute('content', isDark() ? '#0f0f0f' : '#F7F3ED');
   }
 
