@@ -1,0 +1,83 @@
+name: Daily Buffer post
+
+on:
+  workflow_dispatch:
+  schedule:
+    # 09:15 America/Toronto while EDT (UTC-4). After the first Sunday in November this is 08:15.
+    - cron: "15 13 * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-buffer-post
+  cancel-in-progress: false
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install fonts and Pillow
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq fonts-liberation fonts-dejavu-core
+          python3 -m pip install --quiet Pillow
+
+      - name: Build quote card
+        env:
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+          FORCE_RUN: "0"
+        run: |
+          python3 - << 'PY'
+          import os, sys
+          from datetime import datetime
+          from zoneinfo import ZoneInfo
+          from pathlib import Path
+          sys.path.insert(0, "scripts")
+          import post_daily_quote as q
+          now = datetime.now(ZoneInfo("America/Toronto"))
+          today = now.date()
+          if today < q.START_ON:
+              print(f"skip until {q.START_ON.isoformat()} (today {today.isoformat()})")
+              Path(os.environ["GITHUB_ENV"]).write_text("SKIP_POST=1\n", encoding="utf-8")
+              raise SystemExit(0)
+          if not os.environ.get("BUFFER_API_KEY", "").strip():
+              raise SystemExit("BUFFER_API_KEY secret is missing")
+          doy = int(now.strftime("%j"))
+          page_url = f"{q.SITE}/day-{doy:02d}.html"
+          html = q.fetch(page_url)
+          title, quote, cite = q.parse_page(html)
+          if not quote:
+              raise SystemExit(f"no quote on {page_url}")
+          q.draw_card(doy, quote, cite, page_url, Path("quotes/today.png"))
+          Path(os.environ["GITHUB_ENV"]).write_text(
+              f"DOY={doy}\nPAGE_URL={page_url}\nTITLE={title}\nSKIP_POST=0\n",
+              encoding="utf-8",
+          )
+          PY
+
+      - name: Commit today's card
+        if: env.SKIP_POST != '1'
+        run: |
+          git config user.name "sentiment001"
+          git config user.email "mash@hirecmo.io"
+          mkdir -p quotes
+          git add quotes/today.png
+          if git diff --cached --quiet; then
+            echo "card unchanged"
+          else
+            git commit -m "Update daily quote card"
+            git push
+          fi
+
+      - name: Publish to Buffer
+        if: env.SKIP_POST != '1'
+        env:
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+        run: |
+          SHA=$(git rev-parse HEAD)
+          export QUOTE_IMAGE_URL="https://raw.githubusercontent.com/sentiment001/juliusevola/${SHA}/quotes/today.png"
+          echo "image $QUOTE_IMAGE_URL"
+          python3 scripts/post_daily_quote.py
