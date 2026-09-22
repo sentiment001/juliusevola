@@ -232,8 +232,7 @@ def main() -> None:
     title, quote, cite = parse_page(html)
     if not quote:
         die(f"no quote on {page_url}")
-    short = title or f"Day {doy}"
-    tweet = f"Julius Evola tweet of the day.\n\n{short}\n{page_url}"
+    tweet = "Julius Evola tweet of the day."
     dest = Path("quotes/today.png")
     draw_card(doy, quote, cite, page_url, dest)
     image_url = os.environ.get("QUOTE_IMAGE_URL", "").strip() or None
