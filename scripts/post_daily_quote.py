@@ -32,6 +32,7 @@ INK = (26, 26, 26)
 MUTED = (92, 92, 92)
 URL_C = (120, 120, 120)
 BAR_C = (139, 26, 26)
+TWEET = "Julius Evola quote of the day."
 
 
 def die(msg: str, code: int = 1) -> None:
@@ -232,11 +233,10 @@ def main() -> None:
     title, quote, cite = parse_page(html)
     if not quote:
         die(f"no quote on {page_url}")
-    tweet = "Julius Evola tweet of the day."
     dest = Path("quotes/today.png")
     draw_card(doy, quote, cite, page_url, dest)
     image_url = os.environ.get("QUOTE_IMAGE_URL", "").strip() or None
-    buffer_post(token, tweet, image_url)
+    buffer_post(token, TWEET, image_url)
 
 
 if __name__ == "__main__":
