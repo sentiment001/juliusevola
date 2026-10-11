@@ -72,7 +72,7 @@ jobs:
       - name: Publish to Buffer
         if: env.SKIP_POST != '1'
         env:
-          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+          BUFFER_API_KEY: ${{ secrets.BUFFERXGROK }}
         run: |
           SHA=$(git rev-parse HEAD)
           export QUOTE_IMAGE_URL="https://raw.githubusercontent.com/sentiment001/juliusevola/${SHA}/quotes/today.png"
