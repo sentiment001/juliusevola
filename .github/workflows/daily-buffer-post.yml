@@ -27,7 +27,6 @@ jobs:
 
       - name: Build quote card
         env:
-          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
           FORCE_RUN: "0"
         run: |
           python3 - << 'PY'
@@ -43,8 +42,6 @@ jobs:
               print(f"skip until {q.START_ON.isoformat()} (today {today.isoformat()})")
               Path(os.environ["GITHUB_ENV"]).write_text("SKIP_POST=1\n", encoding="utf-8")
               raise SystemExit(0)
-          if not os.environ.get("BUFFER_API_KEY", "").strip():
-              raise SystemExit("BUFFER_API_KEY secret is missing")
           doy = int(now.strftime("%j"))
           page_url = f"{q.SITE}/day-{doy:02d}.html"
           html = q.fetch(page_url)
