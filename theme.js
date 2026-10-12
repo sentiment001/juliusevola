@@ -111,7 +111,7 @@
     var lang = 'en';
     if (/\/de(?:\/|$)/.test(path)) lang = 'de';
     else if (/\/it(?:\/|$)/.test(path)) lang = 'it';
-    var m = path.match(/day-(\d+)\.html/i);
+    var m = path.match(/day-(\d+)(?:\.html)?/i);
     var dayNum = m ? parseInt(m[1], 10) : null;
     return { lang: lang, dayNum: dayNum, path: path };
   }
@@ -195,7 +195,9 @@
   }
 
   function buildLangControl(right) {
-    if (!right || right.querySelector('.lang-menu')) return;
+    if (!right) return;
+    var existing = right.querySelector('.lang-menu');
+    if (existing) existing.remove();
     var info = pathInfo();
     var current = menuLang(info);
     if (info.dayNum) saveLang(info.lang);
