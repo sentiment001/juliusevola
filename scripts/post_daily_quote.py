@@ -21,6 +21,7 @@ START_ON = date(2026, 10, 1)
 SITE = "https://evoladaily.com"
 BUFFER_ENDPOINT = "https://api.buffer.com"
 UA = {"User-Agent": "EvolaDaily-BufferBot/1.0"}
+LAST_POSTED = Path("quotes/last_posted.txt")
 
 W = 1080
 PAD_X = 80
@@ -218,6 +219,20 @@ def buffer_post(token: str, text: str, image_url: str | None) -> None:
     print("posted", post.get("id"), post.get("status"))
 
 
+def already_posted(doy: int) -> bool:
+    if not LAST_POSTED.exists():
+        return False
+    try:
+        return LAST_POSTED.read_text(encoding="utf-8").strip() == str(doy)
+    except Exception:
+        return False
+
+
+def mark_posted(doy: int) -> None:
+    LAST_POSTED.parent.mkdir(parents=True, exist_ok=True)
+    LAST_POSTED.write_text(str(doy) + "\n", encoding="utf-8")
+
+
 def main() -> None:
     now = datetime.now(TZ)
     today = now.date()
@@ -228,6 +243,9 @@ def main() -> None:
     if not token:
         die("BUFFER_API_KEY is missing")
     doy = int(now.strftime("%j"))
+    if already_posted(doy):
+        print(f"already posted day {doy}; skipping")
+        return
     page_url = f"{SITE}/day-{doy:02d}.html"
     html = fetch(page_url)
     title, quote, cite = parse_page(html)
@@ -237,6 +255,7 @@ def main() -> None:
     draw_card(doy, quote, cite, page_url, dest)
     image_url = os.environ.get("QUOTE_IMAGE_URL", "").strip() or None
     buffer_post(token, TWEET, image_url)
+    mark_posted(doy)
 
 
 if __name__ == "__main__":
