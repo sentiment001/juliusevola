@@ -43,6 +43,10 @@ jobs:
               Path(os.environ["GITHUB_ENV"]).write_text("SKIP_POST=1\n", encoding="utf-8")
               raise SystemExit(0)
           doy = int(now.strftime("%j"))
+          if q.already_posted(doy):
+              print(f"already posted day {doy}; skipping")
+              Path(os.environ["GITHUB_ENV"]).write_text("SKIP_POST=1\n", encoding="utf-8")
+              raise SystemExit(0)
           page_url = f"{q.SITE}/day-{doy:02d}.html"
           html = q.fetch(page_url)
           title, quote, cite = q.parse_page(html)
@@ -78,3 +82,16 @@ jobs:
           export QUOTE_IMAGE_URL="https://raw.githubusercontent.com/sentiment001/juliusevola/${SHA}/quotes/today.png"
           echo "image $QUOTE_IMAGE_URL"
           python3 scripts/post_daily_quote.py
+
+      - name: Commit last-posted marker
+        if: env.SKIP_POST != '1' && success()
+        run: |
+          git config user.name "sentiment001"
+          git config user.email "mash@hirecmo.io"
+          git add quotes/last_posted.txt
+          if git diff --cached --quiet; then
+            echo "marker unchanged"
+          else
+            git commit -m "Mark daily quote posted"
+            git push
+          fi
