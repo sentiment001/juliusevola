@@ -53,7 +53,7 @@
 
   var LANGS = [
     { code: 'en', label: 'English', dir: '', days: null, rangeLabel: '' },
-    { code: 'de', label: 'Deutsch', dir: 'de', days: dayRange(270), rangeLabel: 'Tage 1\u2013270' },
+    { code: 'de', label: 'Deutsch', dir: 'de', days: dayRange(365), rangeLabel: 'Tage 1\u2013365' },
     { code: 'it', label: 'Italiano', dir: 'it', days: dayRange(215), rangeLabel: 'Giorni 1\u2013215' }
   ];
 
