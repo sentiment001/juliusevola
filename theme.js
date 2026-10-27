@@ -117,7 +117,7 @@
   }
 
   function dayFile(n) {
-    return 'day-' + (n < 10 ? '0' : '') + n + '.html';
+    return 'day-' + (n < 10 ? '0' : '') + n;
   }
 
   function queryLang() {
@@ -174,7 +174,7 @@
     for (var i = 0; i < links.length; i++) {
       var a = links[i];
       var raw = a.getAttribute('href') || '';
-      var m = raw.match(/(?:^|\/)(day-\d+\.html)$/i);
+      var m = raw.match(/(?:^|\/)(day-\d+)(?:\.html)?$/i);
       if (!m) continue;
       var file = m[1];
       var num = parseInt(file.replace(/\D/g, ''), 10);
@@ -187,9 +187,9 @@
     var start = document.querySelector('header nav a[href*="day-01"]');
     if (start) {
       if (spec.dir && spec.days && spec.days.indexOf(1) !== -1) {
-        start.setAttribute('href', prefix + 'day-01.html');
+        start.setAttribute('href', prefix + 'day-01');
       } else {
-        start.setAttribute('href', 'day-01.html');
+        start.setAttribute('href', 'day-01');
       }
     }
   }

@@ -92,7 +92,7 @@
   const t = STR[lang] || STR.en;
 
   const h2 = document.querySelector('h2');
-  const pathDay = (location.pathname || '').match(/day-(\d+)\.html/i);
+  const pathDay = (location.pathname || '').match(/day-(\d+)(?:\.html)?/i);
   if (!h2 && !pathDay) return;
   if (h2 && !h2.textContent.match(/^(Day|Tag|Giorno)\s+\d+/) && !pathDay) return;
 
@@ -332,7 +332,7 @@
       y += citeH;
     }
 
-    const dayFile = 'day-' + String(dayNum).padStart(2, '0') + '.html';
+    const dayFile = 'day-' + String(dayNum).padStart(2, '0');
     const langDir = lang === 'en' ? '' : lang + '/';
     const pageUrl = 'https://evoladaily.com/' + langDir + dayFile;
     ctx.font = urlFont;
