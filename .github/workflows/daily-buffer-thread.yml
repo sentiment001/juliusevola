@@ -1,0 +1,40 @@
+name: Daily Buffer thread
+
+on:
+  workflow_dispatch:
+  schedule:
+    # ~15:00 America/Toronto (EST). Adjust if needed; fires once per day.
+    - cron: "0 20 * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-buffer-thread
+  cancel-in-progress: false
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Post body-text thread
+        env:
+          BUFFER_API_KEY: ${{ secrets.BUFFERXGROK }}
+          FORCE_RUN: "0"
+        run: |
+          python3 scripts/post_daily_thread.py
+
+      - name: Commit last-thread marker
+        if: success()
+        run: |
+          git config user.name "sentiment001"
+          git config user.email "mash@hirecmo.io"
+          git add quotes/last_thread.txt || true
+          if git diff --cached --quiet; then
+            echo "marker unchanged"
+          else
+            git commit -m "Mark daily thread posted" || echo "nothing to commit"
+            git push || true
+          fi
