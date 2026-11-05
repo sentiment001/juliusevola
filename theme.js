@@ -98,6 +98,21 @@
     return right;
   }
 
+  function ensureSheetsLink() {
+    var nav = document.querySelector('header nav');
+    if (!nav) return;
+    if (nav.querySelector('a[href="sheets"], a[href="sheets.html"]')) return;
+    var sheets = document.createElement('a');
+    sheets.href = 'sheets';
+    sheets.textContent = 'Sheets';
+    var today = nav.querySelector('a[href="today"], a[href="today.html"]');
+    if (today && today.nextSibling) {
+      nav.insertBefore(sheets, today.nextSibling);
+    } else {
+      nav.appendChild(sheets);
+    }
+  }
+
   function paintTheme(toggle) {
     if (!toggle) return;
     toggle.innerHTML = isDark() ? ICON_SOLAR : ICON_POLAR;
@@ -271,6 +286,7 @@
     });
   }
   if (right) buildLangControl(right);
+  ensureSheetsLink();
   window.onMonthRendered = applyHomeLang;
   applyHomeLang();
 })();
