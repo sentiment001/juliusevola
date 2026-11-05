@@ -38,10 +38,8 @@
         var stored = localStorage.getItem('lang');
         if (stored === 'de' || stored === 'it') lang = stored;
       } catch (e) {}
-      var prefix = '';
-      if (lang === 'de' && n <= 135) prefix = 'de/';
-      else if (lang === 'it' && n <= 65) prefix = 'it/';
-      var dest = prefix + 'day-' + pad(n) + '.html';
+      var prefix = (lang === 'de' || lang === 'it') ? lang + '/' : '';
+      var dest = '/' + prefix + 'day-' + pad(n);
       window.__todayDest = dest;
       location.replace(dest);
     })();
@@ -53,16 +51,16 @@
       <div class="header-left">
         <h1>Julius Evola Daily</h1>
         <nav>
-          <a href="index.html">Home</a>
-          <a href="today" class="active">Today</a>
+          <a href="/">Home</a>
+          <a href="/today" class="active">Today</a>
         </nav>
       </div>
     </header>
     <h2>Today</h2>
     <p>Opening today's page.</p>
     <div class="day-nav">
-      <a href="index.html">Home</a>
-      <a id="todayFallback" href="day-01">Continue</a>
+      <a href="/">Home</a>
+      <a id="todayFallback" href="/day-01">Continue</a>
     </div>
   </div>
   <script>
@@ -71,5 +69,6 @@
       if (a) a.href = window.__todayDest;
     }
   </script>
+  <script src="theme.js" defer></script>
 </body>
 </html>
