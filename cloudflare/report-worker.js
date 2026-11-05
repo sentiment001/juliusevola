@@ -1,24 +1,40 @@
 /**
  * Cloudflare Worker: receive report and create GitHub Issue
- * Deploy this Worker and route report.evoladaily.com (or /api/report) to it.
- * Set secret: GITHUB_TOKEN with repo:issues permission (fine-grained or classic).
+ * Deploy this Worker and route report.evoladaily.com to it.
+ * Set secret: GITHUB_TOKEN with repo:issues permission.
  * Optional: GITHUB_REPO = "sentiment001/juliusevola"
  */
 
+const ALLOWED_ORIGINS = [
+  'https://evoladaily.com',
+  'https://www.evoladaily.com'
+];
+
 export default {
   async fetch(request, env) {
+    const origin = request.headers.get('Origin') || '';
+    const isAllowed = ALLOWED_ORIGINS.includes(origin);
+
     if (request.method === 'OPTIONS') {
+      if (!isAllowed) {
+        return new Response(null, { status: 403 });
+      }
       return new Response(null, {
         headers: {
-          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Origin': origin,
           'Access-Control-Allow-Methods': 'POST, OPTIONS',
           'Access-Control-Allow-Headers': 'Content-Type',
+          'Access-Control-Max-Age': '86400',
         },
       });
     }
 
     if (request.method !== 'POST') {
       return new Response('Method not allowed', { status: 405 });
+    }
+
+    if (!isAllowed) {
+      return new Response('Unauthorized origin', { status: 403 });
     }
 
     let data;
@@ -66,7 +82,7 @@ export default {
     return new Response(JSON.stringify({ ok: true }), {
       headers: {
         'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Origin': origin,
       },
     });
   },
