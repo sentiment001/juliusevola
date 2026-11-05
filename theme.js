@@ -165,8 +165,8 @@
   function hrefForLang(code, info) {
     if (info.dayNum) {
       var file = dayFile(info.dayNum);
-      if (code === 'en') return '/' + file;
-      return '/' + code + '/' + file;
+      var base = (code === 'en') ? '/' + file : '/' + code + '/' + file;
+      return base + (location.search || '') + (location.hash || '');
     }
     var params = new URLSearchParams(location.search);
     if (code === 'en') params.delete('lang');
