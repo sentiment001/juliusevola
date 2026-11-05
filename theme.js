@@ -136,6 +136,23 @@
     }
   }
 
+  function ensureBooksLink() {
+    var nav = document.querySelector('header nav');
+    if (!nav) return;
+    if (nav.querySelector('a[href="books"], a[href="books.html"], a[href$="/books"], a[href$="/books.html"]')) return;
+    var books = document.createElement('a');
+    books.href = rootPrefix() + 'books.html';
+    books.textContent = 'Books';
+    var begin = nav.querySelector('a[href="begin"], a[href="begin.html"], a[href$="/begin"], a[href$="/begin.html"]');
+    if (begin && begin.nextSibling) {
+      nav.insertBefore(books, begin.nextSibling);
+    } else if (begin) {
+      nav.appendChild(books);
+    } else {
+      nav.appendChild(books);
+    }
+  }
+
   function paintTheme(toggle) {
     if (!toggle) return;
     toggle.innerHTML = isDark() ? ICON_SOLAR : ICON_POLAR;
@@ -303,6 +320,7 @@
   if (right) buildLangControl(right);
   ensureSheetsLink();
   ensureBeginLink();
+  ensureBooksLink();
   window.onMonthRendered = applyHomeLang;
   applyHomeLang();
 })();
