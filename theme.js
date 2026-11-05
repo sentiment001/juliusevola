@@ -199,14 +199,6 @@
         a.setAttribute('href', file);
       }
     }
-    var start = document.querySelector('header nav a[href*="day-01"]');
-    if (start) {
-      if (spec.dir && spec.days && spec.days.indexOf(1) !== -1) {
-        start.setAttribute('href', prefix + 'day-01');
-      } else {
-        start.setAttribute('href', 'day-01');
-      }
-    }
   }
 
   function buildLangControl(right) {
