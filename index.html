@@ -69,26 +69,46 @@
     <div class="footer">Primary sources: Revolt Against the Modern World · Ride the Tiger · Men Among the Ruins</div>
   </div>
   <script src="realDays.js"></script>
+  <script src="titles.js"></script>
   <script>
     const monthRanges = {1:[1,31],2:[32,59],3:[60,90],4:[91,120],5:[121,151],6:[152,181],7:[182,212],8:[213,243],9:[244,273],10:[274,304],11:[305,334],12:[335,365]};
-    const monthNames = {1:"January",2:"February",3:"March",4:"April",5:"May",6:"June",7:"July",8:"August",9:"September",10:"October",11:"November",12:"December"};
+    const monthNames = {
+      en: {1:"January",2:"February",3:"March",4:"April",5:"May",6:"June",7:"July",8:"August",9:"September",10:"October",11:"November",12:"December"},
+      de: {1:"Januar",2:"Februar",3:"März",4:"April",5:"Mai",6:"Juni",7:"Juli",8:"August",9:"September",10:"Oktober",11:"November",12:"Dezember"},
+      it: {1:"Gennaio",2:"Febbraio",3:"Marzo",4:"Aprile",5:"Maggio",6:"Giugno",7:"Luglio",8:"Agosto",9:"Settembre",10:"Ottobre",11:"Novembre",12:"Dicembre"}
+    };
+    const dayWord = { en: "Day", de: "Tag", it: "Giorno" };
+    function currentLang() {
+      try {
+        var q = new URLSearchParams(location.search).get('lang');
+        if (q === 'de' || q === 'it') return q;
+        var s = localStorage.getItem('lang');
+        if (s === 'de' || s === 'it') return s;
+      } catch (e) {}
+      return 'en';
+    }
     function renderMonth(m) {
+      const lang = currentLang();
+      const names = monthNames[lang] || monthNames.en;
+      const dw = dayWord[lang] || dayWord.en;
+      const titles = lang === 'de' ? titlesDE : lang === 'it' ? titlesIT : null;
       const [start, end] = monthRanges[m];
       const mid = Math.floor((start + end) / 2);
       function listHtml(from, to) {
         let html = '<ul class="day-list">';
         for (let d = from; d <= to; d++) {
           if (realDays[d]) {
-            html += '<li><a href="' + realDays[d].link + '">Day ' + d + ' \u2014 ' + realDays[d].title + '</a></li>';
+            var title = titles ? titles[d - 1] : realDays[d].title;
+            html += '<li><a href="' + realDays[d].link + '">' + dw + ' ' + d + ' \u2014 ' + title + '</a></li>';
           } else {
-            html += '<li><a href="day.html?d=' + d + '" class="coming">Day ' + d + ' \u2014 Coming soon</a></li>';
+            html += '<li><a href="day.html?d=' + d + '" class="coming">' + dw + ' ' + d + ' \u2014 Coming soon</a></li>';
           }
         }
         html += '</ul>';
         return html;
       }
       document.getElementById('monthContent').innerHTML =
-        '<div class="month-title">' + monthNames[m] + ' (Day ' + start + ' \u2013 Day ' + end + ')</div>' +
+        '<div class="month-title">' + names[m] + ' (' + dw + ' ' + start + ' \u2013 ' + dw + ' ' + end + ')</div>' +
         '<div class="day-columns"><div>' + listHtml(start, mid) + '</div><div>' + listHtml(mid + 1, end) + '</div></div>';
       if (window.onMonthRendered) window.onMonthRendered();
     }
