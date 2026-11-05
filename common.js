@@ -171,7 +171,7 @@
     const full = [quoteParts.text, quoteParts.cite ? quoteParts.cite.replace(/^[\u2014]\s*/, '') : '', body].filter(Boolean).join('. ');
 
     utterance = new SpeechSynthesisUtterance(full);
-    window.currentUtterance = utterance; // prevent iOS WebKit GC
+    window.currentUtterance = utterance;
     utterance.rate = 0.95;
     utterance.pitch = 1;
     const voices = speechSynthesis.getVoices();
@@ -460,6 +460,9 @@
     if (e.key === 'Escape' && overlay.classList.contains('open')) closeReport();
   });
 
+  var EMBLEM_PEAK = '<svg class="footer-emblem" viewBox="0 0 120 140" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20 120 L60 30 L100 120 Z" fill="none" stroke="currentColor" stroke-width="1.5"></path><line x1="60" y1="30" x2="60" y2="10" stroke="currentColor" stroke-width="1.5"></line><circle cx="60" cy="8" r="4" fill="currentColor"></circle></svg>';
+  var EMBLEM_SOLAR = '<svg class="footer-emblem" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="12" cy="12" r="3.1" fill="none" stroke="currentColor" stroke-width="1.35"/><path fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" d="M12 1.8c.35 1.15-.15 2.15-.95 2.7M12 1.8c-.35 1.15.15 2.15.95 2.7M22.2 12c-1.15.35-2.15-.15-2.7-.95M22.2 12c-1.15-.35-2.15.15-2.7.95M12 22.2c.35-1.15-.15-2.15-.95-2.7M12 22.2c-.35-1.15.15-2.15.95-2.7M1.8 12c1.15.35 2.15-.15 2.7-.95M1.8 12c1.15-.35 2.15.15 2.7.95"/></svg>';
+
   const footerEl = document.querySelector('.footer');
   if (footerEl) {
     var originalText = footerEl.textContent.trim();
@@ -467,7 +470,10 @@
       .replace(/^(Day \d+) · /, '$1 of 365 · ')
       .replace(/^(Tag \d+) · /, '$1 von 365 · ')
       .replace(/^(Giorno \d+) · /, '$1 di 365 · ');
-    // phase localization continues as before
-    footerEl.innerHTML = '<div class="footer-main">' + originalText + '</div>';
+    var n = parseInt(dayNum, 10);
+    var isOdd = !isNaN(n) && (n % 2 === 1);
+    var emblem = isOdd ? EMBLEM_PEAK : EMBLEM_SOLAR;
+    footerEl.className = 'footer graphic-footer ' + (isOdd ? 'footer-peak' : 'footer-solar');
+    footerEl.innerHTML = '<div class="footer-emblem-wrap">' + emblem + '</div><div class="footer-meta">' + originalText + '</div>';
   }
 })();
