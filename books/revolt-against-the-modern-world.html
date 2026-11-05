@@ -1,1 +1,191 @@
-PLACEHOLDER_TO_BE_REPLACED
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<script>try{var t=localStorage.getItem("theme");if(t==="dark"){document.documentElement.setAttribute("data-theme","dark");}}catch(e){}</script>
+<meta name="theme-color" id="themeColor" content="#F7F3ED">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Revolt Against the Modern World — Books</title>
+<link rel="stylesheet" href="../style.css">
+<style>
+html, body { height:100%; margin:0; }
+.page { display:flex; flex-direction:column; height:100vh; }
+.header-wrap { flex-shrink:0; }
+.layout { display:flex; flex:1; min-height:0; }
+.sidebar { width:300px; border-right:1px solid var(--border); background:var(--bg); overflow-y:auto; flex-shrink:0; }
+.sidebar-header { padding:1.25rem; border-bottom:1px solid var(--border); }
+.sidebar-header h1 { font-size:1.1rem; font-weight:600; margin-bottom:0.2rem; }
+.sidebar-header .sub { font-size:0.75rem; color:var(--muted); }
+.part { padding:0.6rem 1.25rem 0.2rem; font-size:0.72rem; letter-spacing:0.06em; text-transform:uppercase; color:var(--muted); font-weight:600; }
+.chapters { list-style:none; padding:0.2rem 0 1rem; }
+.chapters a { display:block; padding:0.65rem 1.25rem; color:var(--text); text-decoration:none; font-size:0.9rem; border-left:3px solid transparent; cursor:pointer; line-height:1.3; }
+.chapters a:hover { background:color-mix(in srgb, var(--text) 5%, transparent); }
+.chapters a.active { border-left-color:var(--accent); background:color-mix(in srgb, var(--accent) 8%, transparent); color:var(--accent); font-weight:500; }
+.reader { flex:1; overflow-y:auto; min-width:0; }
+.reader-inner { max-width:760px; margin:0 auto; padding:2.25rem 2rem 3.5rem; }
+.empty { color:var(--muted); font-style:italic; margin-top:1.5rem; }
+@media (max-width:800px) {
+  .layout { flex-direction:column; }
+  .sidebar { width:100%; border-right:none; border-bottom:1px solid var(--border); max-height:40vh; }
+  .reader { flex:1; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="header-wrap">
+    <header style="padding:0.85rem 1.5rem 0.75rem; border-bottom:1px solid var(--border);">
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="../index.html">Home</a>
+          <a href="../today">Today</a>
+          <a href="../sheets">Sheets</a>
+          <a href="../begin">Where to begin</a>
+          <a href="../books.html">Books</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+  </div>
+
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <h1>Revolt Against the Modern World</h1>
+        <div class="sub">Accessible chapter renderings</div>
+      </div>
+      <div class="part">Part One · The World of Tradition</div>
+      <ul class="chapters" id="chapterList">
+        <li><a data-ch="1" class="active">1. The Beginning</a></li>
+        <li><a data-ch="2">2. Regality</a></li>
+        <li><a data-ch="3">3. Polar Symbolism; the Lord of Peace and Justice</a></li>
+        <li><a data-ch="4">4. The Law, the State, the Empire</a></li>
+        <li><a data-ch="5">5. The Mystery of the Rite</a></li>
+        <li><a data-ch="6">6. On the Primordial Nature of the Patriciate</a></li>
+        <li><a data-ch="7">7. Spiritual Virility</a></li>
+        <li><a data-ch="8">8. The Two Paths in the Afterlife</a></li>
+        <li><a data-ch="9">9. Life and Death of Civilizations</a></li>
+        <li><a data-ch="10">10. Initiation and Consecration</a></li>
+        <li><a data-ch="11">11. On the Hierarchical Relationship Between Royalty and Priesthood</a></li>
+        <li><a data-ch="12">12. Universality and Centralism</a></li>
+        <li><a data-ch="13">13. The Soul of Chivalry</a></li>
+        <li><a data-ch="14">14. The Doctrine of the Castes</a></li>
+        <li><a data-ch="15">15. Professional Associations and the Arts; Slavery</a></li>
+        <li><a data-ch="16">16. Bipartition of the Traditional Spirit; Asceticism</a></li>
+        <li><a data-ch="17">17. The Greater and the Lesser Holy War</a></li>
+        <li><a data-ch="18">18. Games and Victory</a></li>
+        <li><a data-ch="19">19. Space, Time, the Earth</a></li>
+        <li><a data-ch="20">20. Man and Woman</a></li>
+        <li><a data-ch="21">21. The Decline of Superior Races</a></li>
+      </ul>
+      <div class="part">Part Two · Genesis and Face of the Modern World</div>
+      <ul class="chapters">
+        <li><a data-ch="intro">Introduction</a></li>
+        <li><a data-ch="22">22. The Doctrine of the Four Ages</a></li>
+        <li><a data-ch="23">23. The Golden Age</a></li>
+        <li><a data-ch="24">24. The Pole and the Hyperborean Region</a></li>
+        <li><a data-ch="25">25. The Northern-Atlantic Cycle</a></li>
+        <li><a data-ch="26">26. North and South</a></li>
+        <li><a data-ch="27">27. The Civilization of the Mother</a></li>
+        <li><a data-ch="28">28. The Cycles of Decadence and the Heroic Cycle</a></li>
+        <li><a data-ch="29">29. Tradition and Antitradition</a></li>
+        <li><a data-ch="30">30. The Heroic-Uranian Western Cycle</a></li>
+        <li><a data-ch="31">31. Syncope of the Western Tradition</a></li>
+        <li><a data-ch="32">32. The Revival of the Empire and the Ghibelline Middle Ages</a></li>
+        <li><a data-ch="33">33. Decline of the Medieval World and the Birth of Nations</a></li>
+        <li><a data-ch="34">34. Unrealism and Individualism</a></li>
+        <li><a data-ch="35">35. The Regression of the Castes</a></li>
+        <li><a data-ch="36">36. Nationalism and Collectivism</a></li>
+        <li><a data-ch="37">37. The End of the Cycle</a></li>
+      </ul>
+      <div class="part">Closing</div>
+      <ul class="chapters">
+        <li><a data-ch="conclusion">Conclusion</a></li>
+        <li><a data-ch="appendix">Appendix: On the Dark Age</a></li>
+      </ul>
+    </aside>
+    <main class="reader">
+      <div class="reader-inner" id="readerInner"></div>
+    </main>
+  </div>
+</div>
+<script src="../theme.js" defer></script>
+<script>
+const titles = {
+  "1": "The Beginning",
+  "2": "Regality",
+  "3": "Polar Symbolism; the Lord of Peace and Justice",
+  "4": "The Law, the State, the Empire",
+  "5": "The Mystery of the Rite",
+  "6": "On the Primordial Nature of the Patriciate",
+  "7": "Spiritual Virility",
+  "8": "The Two Paths in the Afterlife",
+  "9": "Life and Death of Civilizations",
+  "10": "Initiation and Consecration",
+  "11": "On the Hierarchical Relationship Between Royalty and Priesthood",
+  "12": "Universality and Centralism",
+  "13": "The Soul of Chivalry",
+  "14": "The Doctrine of the Castes",
+  "15": "Professional Associations and the Arts; Slavery",
+  "16": "Bipartition of the Traditional Spirit; Asceticism",
+  "17": "The Greater and the Lesser Holy War",
+  "18": "Games and Victory",
+  "19": "Space, Time, the Earth",
+  "20": "Man and Woman",
+  "21": "The Decline of Superior Races",
+  "intro": "Introduction",
+  "22": "The Doctrine of the Four Ages",
+  "23": "The Golden Age",
+  "24": "The Pole and the Hyperborean Region",
+  "25": "The Northern-Atlantic Cycle",
+  "26": "North and South",
+  "27": "The Civilization of the Mother",
+  "28": "The Cycles of Decadence and the Heroic Cycle",
+  "29": "Tradition and Antitradition",
+  "30": "The Heroic-Uranian Western Cycle",
+  "31": "Syncope of the Western Tradition",
+  "32": "The Revival of the Empire and the Ghibelline Middle Ages",
+  "33": "Decline of the Medieval World and the Birth of Nations",
+  "34": "Unrealism and Individualism",
+  "35": "The Regression of the Castes",
+  "36": "Nationalism and Collectivism",
+  "37": "The End of the Cycle",
+  "conclusion": "Conclusion",
+  "appendix": "Appendix: On the Dark Age"
+};
+const content = {
+  "1": `<h2>The Beginning</h2>
+<div class="quote">“In order to understand both the spirit of Tradition and its antithesis, modern civilization, it is necessary to begin with the fundamental doctrine of the two natures. According to this doctrine there is a physical order of things and a metaphysical one; there is a mortal nature and an immortal one; there is the superior realm of ‘being’ and the inferior realm of ‘becoming.’ Generally speaking, there is a visible and tangible dimension and, prior to and beyond it, an invisible and intangible dimension that is the support, the source, and the true life of the former.”<cite>— Julius Evola, Revolt Against the Modern World</cite></div>
+<p>The starting point is the doctrine of the two natures. There is a physical order and a metaphysical order. There is a mortal nature and an immortal nature. There is the higher realm of being and the lower realm of becoming. There is what is visible and tangible, and prior to it and beyond it an invisible and intangible dimension that is the support, the source, and the true life of the former. Anywhere in the traditional world, East or West, this was present as an unshakable axis. It was knowledge, not theory. The man of Tradition was aware of a dimension of being wider than what modern men experience and call reality. Today reality is taken as the world of physical bodies located in space and time. Those who admit something beyond the senses are usually led to it by a scientific hypothesis, a speculative idea, or a religious dogma. Their practical and immediate experience remains limited to the physical. This is the real materialism of the age: the fact that ordinary experience no longer reaches non-physical realities. Scientific or philosophical materialisms are secondary. The worst form is not an opinion; it is the restriction of experience itself. Most intellectual revolts against materialist views only strike the outer effects of a deeper restriction that began earlier and in a different historical context.</p>
+<p>Traditional experience went beyond those limits. Among some peoples still called primitive a faint echo of older powers remains. In traditional societies the invisible was as real as, or more real than, the data of the senses. It shaped every aspect of individual and social life. From the traditional perspective, what is now called reality was only one species of a much wider genus. The invisible was not automatically equated with the supernatural. The traditional notion of nature did not mean merely the world of bodies and visible forms that modern secular science studies. It corresponded essentially to part of an invisible reality. The ancients had the sense of a dark netherworld populated by obscure and ambiguous forces of every kind, the demonic soul of nature, the essential substratum of all nature’s forms and energies. This stood opposite the superrational and sidereal brightness of a higher region. Nature also included everything that is merely human, because what is human cannot escape birth and death, impermanence, dependence, and transformation. These belong to the inferior region. By definition, “that which is” has nothing to do with human and temporal affairs. The saying holds: the race of men is one thing, and the race of the gods is quite another. This remains valid even though traditional men once held that reference to the superior domain could lead the integration and purification of the human element toward the non-human dimension. Only the non-human dimension was the essence and the goal of any truly traditional civilization.</p>
+<p>The world of being and the world of becoming affect things, demons, and men. Every hypostatic representation of these two regions, whether expressed in astral, mythological, theological, or religious terms, reminded the traditional man of the existence of the two states. It also stood as a symbol to be resolved into an inner experience, or at least into the foreboding of one. In the Hindu tradition, and especially in Buddhism, the idea of samsara, the current that dominates and carries away every form of the inferior world, refers to life as blind yearning and as an irrational identification with impermanent aggregates. Hellenism saw nature as the embodiment of the eternal state of deprivation of those realities that, having their own principle and cause outside themselves, flow and run away indefinitely. In their becoming they reveal a primordial and radical lack of direction and purpose and a perennial limitation. Matter and becoming express what acts in a being as an obscure necessity, or as an irrepressible indetermination, or as the inability to acquire a perfect form and to possess itself in a law. What the Greeks called ananke and apeiron, the Orientals called adharma. Christian Scholastic theology shared the same ground when it located the root of every unredeemed nature in cupiditas and appetitus. In different ways the man of Tradition found, in the experience of covetous identification that obscures and impairs being, the secret cause of his existential predicament. The incessant becoming and the perennial instability and contingency of the inferior region appeared as the cosmic and symbolical materialization of that predicament.</p>
+<p>The path to the other region, the world of being, what is no longer physical but metaphysical, was the experience of asceticism. Asceticism here consists in mastery over oneself, self-discipline, autonomy, and the leading of a unified life. A unified life is an existence that does not need to be spent in search of other things or other people in order to be complete and justified. The traditional representations of this other region were solar symbols, heavenly regions, beings made of light or fire, islands, and mountain peaks. These were the two natures. Tradition conceived the possibility of being born into either one, and also of going from one birth to another, according to the saying: a man is a mortal god, and a god is an immortal man. The traditional world knew these two great poles of existence and the paths leading from one to the other. It knew the physical world in the totality of its forms, visible or underground, human or subhuman and demonic, and it knew hyperkosmia, a world beyond this world. According to Tradition the former is the fall of the latter, and the latter represents the liberation of the former. Spirituality was held to be something beyond life and death. Mere physical existence, or living, is meaningless unless it approximates the higher world or that which is more than life, and unless one’s highest ambition consists in participating in hyperkosmia and obtaining an active and final liberation from the bond represented by the human condition.</p>
+<p>Every authority is fraudulent, every law is unjust and barbarous, every institution is vain and ephemeral unless they are ordained to the superior principle of Being, derived from above, and oriented upward. The traditional world knew divine kingship. It knew the bridge between the two worlds, which is initiation. It knew the two great ways of approach to the transcendent: heroic action and contemplation. It knew the mediation of rites and faithfulness. It knew the social foundation of traditional law and the caste system. It knew the political earthly symbol of the empire. These are the foundations of the traditional hierarchy and civilization. The victorious anthropocentric civilization of the present age has wiped them out.</p>
+<p>The demand the chapter places on the reader is therefore the recognition that the restriction of experience to the physical is the decisive fact of the age, not a secondary opinion. The two natures are not a theory to be debated; they are the axis. The lower is the domain of becoming, craving, and dependence. The higher is the domain of being. Everything that claims form, authority, or law is measured by whether it is oriented upward or remains closed in the lower. The traditional structures (divine kingship, initiation, heroic action and contemplation, rites, law and caste, the empire) existed only as the concrete ordering of life according to that distinction. Without the distinction itself, those structures are unintelligible and the revolt against the modern world has no ground.</p>`,
+  "2": `<h2>Regality</h2>
+<div class="quote">“Pontifex means ‘builder of bridges,’ or of ‘paths’ (pons, in ancient times, also meant ‘path’) connecting the natural and the supernatural dimensions.”<cite>— Julius Evola, Revolt Against the Modern World</cite></div>
+<p>The regal function is the highest visible form of the higher nature in the order of the world. Traditional civilizations did not treat supreme authority as a political matter. They ignored the idea that the roots of power lie in force, violence, or ordinary human qualities such as intelligence, wisdom, or physical courage. The foundation of the king’s authority was his transcendent and non-human quality. This quality was not an opinion or a title. It was a real presence that those around him recognized and that ordered their lives. The king stood as the concrete point where the higher principle entered the lower world. Without that presence the lower world has no true center and therefore no true order.</p>
+<p>The word pontifex names the function. It means builder of bridges or of paths that connect the natural order to the supernatural order. The king is that bridge. He does not stand for the people in the modern sense. He stands above them as the living path by which the higher influences reach the human domain. His person is the axis. When he holds his place the forces of the higher nature move through the structures of the society. When that place is vacant or occupied by a man who lacks the quality, the structures remain but the orientation is lost. The people then live under forms that no longer carry the higher measure. The king’s accountability is not to numbers or to consent. It is to the higher order itself. The traditional view holds that the king answers to the divine principle and to the natural law that flows from it. Modern ideas reverse this and make the ruler answer to the lower element.</p>
+<p>Solar symbolism marks the character of true regality. The sun is fixed, luminous, and generative. It overcomes darkness by its own nature. The traditional king is solar in the same sense. He has overcome the lower nature in himself and therefore can serve as the fixed point for others. Lunar or merely priestly elements are subordinate. They reflect or mediate; they do not originate the order. The original hierarchy places the regal function above the priestly. The king is not made sacred by a rite performed by priests. The rite confirms and transmits a quality that is already present. Solar kingship appears across traditional civilizations as the visible sign that authority comes from above and remains oriented upward. The king is not a manager of interests. He is the living symbol and the living force of the higher principle in the human world.</p>
+<p>Modern conceptions of authority reverse every point. They locate the source of power in the will of the many, in contract, in force, or in technical competence. Each of these is a lower principle. None of them can supply the bridge. A ruler who holds office by the consent of the lower element or by the management of material forces does not occupy the regal place. His authority is therefore fraudulent in the traditional sense. It may organize men for a time. It cannot orient them toward the higher nature. The traditional world knew that any law, any institution, and any command is empty unless it is derived from the superior principle of Being and oriented upward. Regality is the concrete form of that derivation in the political and social order. Without it the structures of a civilization remain closed in the domain of becoming.</p>
+<p>The demand the chapter places on the reader is the recognition that authority is either from above or it is not authority. The modern alternatives (numbers, force, skill, or consent) are all variants of the lower nature. They can produce administration. They cannot produce order. The traditional king is not an archaic political form. He is the living proof that a man can stand as the bridge between the two natures and thereby give the lower world a true center. To hold this idea is to measure every claim to rule by whether it carries the higher quality or remains closed in the lower. The absence of that quality is the decisive fact of the age, not a secondary defect of its institutions.</p>`
+};
+function load(n) {
+  const title = titles[n] || "Chapter";
+  const body = content[n] || `<h2>${title}</h2><p class="empty">Content for this chapter will be added here.</p>`;
+  document.getElementById("readerInner").innerHTML = body;
+  document.querySelectorAll(".chapters a").forEach(a => a.classList.remove("active"));
+  const active = document.querySelector(`.chapters a[data-ch="${n}"]`);
+  if (active) active.classList.add("active");
+}
+document.querySelectorAll(".chapters a").forEach(a => {
+  a.addEventListener("click", function(e) {
+    e.preventDefault();
+    load(this.getAttribute("data-ch"));
+  });
+});
+load("1");
+</script>
+</body>
+</html>
