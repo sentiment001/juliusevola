@@ -8,7 +8,10 @@
 <title>Revolt Against the Modern World — Books</title>
 <link rel="stylesheet" href="../style.css">
 <style>
-.layout { display:flex; min-height:calc(100vh - 80px); }
+html, body { height:100%; margin:0; }
+.page { display:flex; flex-direction:column; height:100vh; }
+.header-wrap { flex-shrink:0; }
+.layout { display:flex; flex:1; min-height:0; }
 .sidebar { width:300px; border-right:1px solid var(--border); background:var(--bg); overflow-y:auto; flex-shrink:0; }
 .sidebar-header { padding:1.25rem; border-bottom:1px solid var(--border); }
 .sidebar-header h1 { font-size:1.1rem; font-weight:600; margin-bottom:0.2rem; }
@@ -18,30 +21,33 @@
 .chapters a { display:block; padding:0.65rem 1.25rem; color:var(--text); text-decoration:none; font-size:0.9rem; border-left:3px solid transparent; cursor:pointer; line-height:1.3; }
 .chapters a:hover { background:#f0ebe3; }
 .chapters a.active { border-left-color:var(--accent); background:#f0ebe3; color:var(--accent); font-weight:500; }
-.reader { flex:1; overflow-y:auto; }
+.reader { flex:1; overflow-y:auto; min-width:0; }
 .reader-inner { max-width:640px; margin:0 auto; padding:2rem 1.75rem 3rem; }
 .empty { color:var(--muted); font-style:italic; margin-top:1.5rem; }
 @media (max-width:800px) {
   .layout { flex-direction:column; }
   .sidebar { width:100%; border-right:none; border-bottom:1px solid var(--border); max-height:40vh; }
+  .reader { flex:1; }
 }
 </style>
 </head>
 <body>
-<div class="container" style="max-width:none; padding:0;">
-  <header style="max-width:680px; margin:0 auto; padding:2rem 1.25rem 1.5rem;">
-    <div class="header-left">
-      <h1>Julius Evola Daily</h1>
-      <nav>
-        <a href="../index.html">Home</a>
-        <a href="../today">Today</a>
-        <a href="../sheets">Sheets</a>
-        <a href="../begin">Where to begin</a>
-        <a href="../books.html">Books</a>
-      </nav>
-    </div>
-    <button class="theme-toggle" id="themeToggle">Night</button>
-  </header>
+<div class="page">
+  <div class="header-wrap">
+    <header style="max-width:680px; margin:0 auto; padding:1.25rem 1.25rem 1rem;">
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="../index.html">Home</a>
+          <a href="../today">Today</a>
+          <a href="../sheets">Sheets</a>
+          <a href="../begin">Where to begin</a>
+          <a href="../books.html">Books</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+  </div>
 
   <div class="layout">
     <aside class="sidebar">
