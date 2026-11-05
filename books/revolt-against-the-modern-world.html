@@ -31,13 +31,12 @@ html, body { height:100%; margin:0; }
   .page { height:auto; min-height:100%; }
   .layout { flex-direction:column; height:auto; }
   .reader { overflow:visible; flex:none; }
-  header nav a { white-space:nowrap; }
-  header { padding:0.6rem 1rem !important; min-height:48px; align-items:center; }
-  .header-left h1 { font-size:1.15rem; }
-  nav { margin-top:0.25rem; font-size:0.82rem; }
-  nav a { margin-right:0.7rem; }
-  .sidebar { display:none; }
-  .mobile-toc-accordion { display:block; border:1px solid var(--border); border-radius:8px; background:var(--bg); margin:0.75rem 1rem 0.5rem; overflow:hidden; }
+  header { padding:0.5rem 1rem 0.4rem !important; min-height:0 !important; margin-bottom:0; border-bottom:1px solid var(--border); }
+  .header-left h1 { font-size:1.05rem; margin:0; }
+  nav { margin-top:0.2rem; font-size:0.8rem; }
+  nav a { margin-right:0.65rem; white-space:nowrap; }
+  .sidebar { display:none !important; }
+  .mobile-toc-accordion { display:block; border:1px solid var(--border); border-radius:8px; background:var(--bg); margin:0.4rem 1rem 0.6rem; overflow:hidden; }
   .mobile-toc-accordion summary { padding:0.7rem 1rem; font-weight:600; font-size:0.92rem; cursor:pointer; display:flex; justify-content:space-between; align-items:center; list-style:none; }
   .mobile-toc-accordion summary::-webkit-details-marker { display:none; }
   .mobile-toc-accordion summary::after { content:'▾'; font-size:0.75rem; }
