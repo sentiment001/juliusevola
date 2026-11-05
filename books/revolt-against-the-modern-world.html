@@ -177,8 +177,8 @@ const content = {
 <p>The world of being and the world of becoming affect things, demons, and men. Every hypostatic representation of these two regions, whether expressed in astral, mythological, theological, or religious terms, reminded the traditional man of the existence of the two states. It also stood as a symbol to be resolved into an inner experience, or at least into the foreboding of one. In the Hindu tradition, and especially in Buddhism, the idea of samsara, the current that dominates and carries away every form of the inferior world, refers to life as blind yearning and as an irrational identification with impermanent aggregates. Hellenism saw nature as the embodiment of the eternal state of deprivation of those realities that, having their own principle and cause outside themselves, flow and run away indefinitely. In their becoming they reveal a primordial and radical lack of direction and purpose and a perennial limitation. Matter and becoming express what acts in a being as an obscure necessity, or as an irrepressible indetermination, or as the inability to acquire a perfect form and to possess itself in a law. What the Greeks called ananke and apeiron, the Orientals called adharma. Christian Scholastic theology shared the same ground when it located the root of every unredeemed nature in cupiditas and appetitus. In different ways the man of Tradition found, in the experience of covetous identification that obscures and impairs being, the secret cause of his existential predicament. The incessant becoming and the perennial instability and contingency of the inferior region appeared as the cosmic and symbolical materialization of that predicament.</p>
 <p>The path to the other region, the world of being, what is no longer physical but metaphysical, was the experience of asceticism. Asceticism here consists in mastery over oneself, self-discipline, autonomy, and the leading of a unified life. A unified life is an existence that does not need to be spent in search of other things or other people in order to be complete and justified. The traditional representations of this other region were solar symbols, heavenly regions, beings made of light or fire, islands, and mountain peaks. These were the two natures. Tradition conceived the possibility of being born into either one, and also of going from one birth to another, according to the saying: a man is a mortal god, and a god is an immortal man. The traditional world knew these two great poles of existence and the paths leading from one to the other. It knew the physical world in the totality of its forms, visible or underground, human or subhuman and demonic, and it knew hyperkosmia, a world beyond this world. According to Tradition the former is the fall of the latter, and the latter represents the liberation of the former. Spirituality was held to be something beyond life and death. Mere physical existence, or living, is meaningless unless it approximates the higher world or that which is more than life, and unless one’s highest ambition consists in participating in hyperkosmia and obtaining an active and final liberation from the bond represented by the human condition.</p>
 <p>Every authority is fraudulent, every law is unjust and barbarous, every institution is vain and ephemeral unless they are ordained to the superior principle of Being, derived from above, and oriented upward. The traditional world knew divine kingship. It knew the bridge between the two worlds, which is initiation. It knew the two great ways of approach to the transcendent: heroic action and contemplation. It knew the mediation of rites and faithfulness. It knew the social foundation of traditional law and the caste system. It knew the political earthly symbol of the empire. These are the foundations of the traditional hierarchy and civilization. The victorious anthropocentric civilization of the present age has wiped them out.</p>
-<p>The demand the chapter places on the reader is therefore the recognition that the restriction of experience to the physical is the decisive fact of the age, not a secondary opinion. The two natures are not a theory to be debated; they are the axis. The lower is the domain of becoming, craving, and dependence. The higher is the domain of being. Everything that claims form, authority, or law is measured by whether it is oriented upward or remains closed in the lower. The traditional structures (divine kingship, initiation, heroic action and contemplation, rites, law and caste, the empire) existed only as the concrete ordering of life according to that distinction. Without the distinction itself, those structures are unintelligible and the revolt against the modern world has no ground.</p>`
-"2": `<h2>Regality</h2>
+<p>The demand the chapter places on the reader is therefore the recognition that the restriction of experience to the physical is the decisive fact of the age, not a secondary opinion. The two natures are not a theory to be debated; they are the axis. The lower is the domain of becoming, craving, and dependence. The higher is the domain of being. Everything that claims form, authority, or law is measured by whether it is oriented upward or remains closed in the lower. The traditional structures (divine kingship, initiation, heroic action and contemplation, rites, law and caste, the empire) existed only as the concrete ordering of life according to that distinction. Without the distinction itself, those structures are unintelligible and the revolt against the modern world has no ground.</p>`,
+  "2": `<h2>Regality</h2>
 <div class="quote">“Pontifex means ‘builder of bridges,’ or of ‘paths’ (pons, in ancient times, also meant ‘path’) connecting the natural and the supernatural dimensions.”<cite>— Julius Evola, Revolt Against the Modern World</cite></div>
 <p>The regal function is the highest visible form of the higher nature in the order of the world. Traditional civilizations did not treat supreme authority as a political matter. They ignored the idea that the roots of power lie in force, violence, or ordinary human qualities such as intelligence, wisdom, or physical courage. The foundation of the king’s authority was his transcendent and non-human quality. This quality was not an opinion or a title. It was a real presence that those around him recognized and that ordered their lives. The king stood as the concrete point where the higher principle entered the lower world. Without that presence the lower world has no true center and therefore no true order.</p>
 <p>The word pontifex names the function. It means builder of bridges or of paths that connect the natural order to the supernatural order. The king is that bridge. He does not stand for the people in the modern sense. He stands above them as the living path by which the higher influences reach the human domain. His person is the axis. When he holds his place the forces of the higher nature move through the structures of the society. When that place is vacant or occupied by a man who lacks the quality, the structures remain but the orientation is lost. The people then live under forms that no longer carry the higher measure. The king’s accountability is not to numbers or to consent. It is to the higher order itself. The traditional view holds that the king answers to the divine principle and to the natural law that flows from it. Modern ideas reverse this and make the ruler answer to the lower element.</p>
@@ -212,6 +212,20 @@ load("1");
 
 <script>
 (function(){
+  function chapterKeys(){
+    var keys = [];
+    document.querySelectorAll('.sidebar a[data-ch]').forEach(function(a){ keys.push(a.getAttribute('data-ch')); });
+    return keys;
+  }
+  function currentKey(){
+    var active = document.querySelector('.sidebar a.active');
+    return active ? active.getAttribute('data-ch') : '1';
+  }
+  function updateSummary(){
+    var sum = document.querySelector('.mobile-toc-accordion summary span');
+    var active = document.querySelector('.sidebar a.active');
+    if (sum && active) sum.textContent = 'Ch. ' + active.textContent.trim();
+  }
   function enhance(){
     if (window.innerWidth >= 768) return;
     var sidebar = document.querySelector('.sidebar');
@@ -229,21 +243,35 @@ load("1");
     acc.appendChild(clone);
     sidebar.parentNode.insertBefore(acc, sidebar.nextSibling);
     sidebar.dataset.mobileDone = '1';
-    // Bottom dock
+
     var dock = document.createElement('div');
     dock.className = 'mobile-reader-dock';
     dock.innerHTML = '<a href="#" id="dockPrev">← Prev</a><a href="#" id="dockNext">Next →</a>';
     document.body.appendChild(dock);
-    // Wire clicks on cloned links
+
     clone.querySelectorAll('a[data-ch]').forEach(function(a){
       a.addEventListener('click', function(e){
         e.preventDefault();
-        var orig = sidebar.querySelector('a[data-ch="'+a.dataset.ch+'"]');
+        var orig = sidebar.querySelector('a[data-ch="'+a.getAttribute('data-ch')+'"]');
         if (orig) orig.click();
         acc.open = false;
-        sum.querySelector('span').textContent = 'Ch. ' + a.textContent.trim();
+        updateSummary();
       });
     });
+
+    function go(delta){
+      var keys = chapterKeys();
+      var cur = currentKey();
+      var i = keys.indexOf(cur);
+      if (i === -1) return;
+      var next = keys[i + delta];
+      if (!next) return;
+      var orig = sidebar.querySelector('a[data-ch="'+next+'"]');
+      if (orig) orig.click();
+      updateSummary();
+    }
+    document.getElementById('dockPrev').addEventListener('click', function(e){ e.preventDefault(); go(-1); });
+    document.getElementById('dockNext').addEventListener('click', function(e){ e.preventDefault(); go(1); });
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', enhance);
   else enhance();
