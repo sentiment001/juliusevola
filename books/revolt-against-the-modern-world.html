@@ -9,8 +9,8 @@
 <link rel="canonical" href="https://evoladaily.com/books/revolt-against-the-modern-world">
 <link rel="stylesheet" href="/style.css">
 <style>
-html, body { height:100%; margin:0; }
-.page { display:flex; flex-direction:column; min-height:100vh; }
+html, body { height:100%; margin:0; overflow:hidden; }
+.page { display:flex; flex-direction:column; height:100vh; }
 .header-wrap { flex-shrink:0; }
 .layout { display:flex; flex:1; min-height:0; }
 .sidebar { width:300px; border-right:1px solid var(--border); background:var(--bg); overflow-y:auto; flex-shrink:0; }
@@ -27,9 +27,12 @@ html, body { height:100%; margin:0; }
 .empty { color:var(--muted); font-style:italic; margin-top:1.5rem; }
 .mobile-toc-toggle { display:none; width:100%; padding:0.75rem 1rem; background:var(--bg); border:1px solid var(--border); font-weight:600; cursor:pointer; text-align:left; }
 @media (max-width:800px) {
-  .layout { flex-direction:column; }
-  .sidebar { width:100%; border-right:none; border-bottom:1px solid var(--border); }
+  html, body { overflow:auto; height:auto; }
+  .page { height:auto; min-height:100vh; }
+  .layout { flex-direction:column; min-height:auto; }
+  .sidebar { width:100%; border-right:none; border-bottom:1px solid var(--border); max-height:50vh; }
   .sidebar.collapsed { display:none; }
+  .reader { overflow:visible; }
   .mobile-toc-toggle { display:block; }
 }
 </style>
