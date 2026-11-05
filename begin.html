@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>try{var t=localStorage.getItem("theme");if(t==="dark"){document.documentElement.setAttribute("data-theme","dark");}}catch(e){}</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Where to Begin — Julius Evola Daily</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="canonical" href="https://evoladaily.com/begin">
+  <style>
+    .round { margin: 2rem 0 2.5rem; }
+    .round h3 { font-size: 1.15rem; font-weight: 600; margin-bottom: 0.4rem; }
+    .round .prompt { color: var(--muted); margin-bottom: 1.25rem; font-size: 1.02rem; }
+    .options { display: flex; flex-direction: column; gap: 0.6rem; }
+    .option {
+      display: block;
+      text-align: left;
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 0.9rem 1rem;
+      font-size: 1.02rem;
+      line-height: 1.45;
+      border-radius: 4px;
+      cursor: pointer;
+      font-family: inherit;
+      transition: border-color 0.15s ease, color 0.15s ease;
+    }
+    .option:hover, .option:focus { border-color: var(--accent); color: var(--accent); outline: none; }
+    .option.selected { border-color: var(--accent); color: var(--accent); background: color-mix(in srgb, var(--accent) 7%, transparent); }
+    .progress { font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 1.5rem; }
+    .result-days { margin: 1.5rem 0; }
+    .result-days a { display: block; margin-bottom: 0.7rem; font-size: 1.05rem; }
+    .sheet-link { margin-top: 1.75rem; padding-top: 1.25rem; border-top: 1px solid var(--border); }
+    .emblem { width: 36px; height: 42px; color: var(--accent); opacity: 0.8; margin: 0 auto 1rem; display: block; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Julius Evola Daily</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="today">Today</a>
+          <a href="sheets">Sheets</a>
+          <a href="begin" class="active">Where to begin</a>
+        </nav>
+      </div>
+      <button class="theme-toggle" id="themeToggle">Night</button>
+    </header>
+
+    <div id="flow">
+      <div class="progress" id="progress">Round 1 of 3</div>
+      <div class="round" id="round">
+        <h3>What is weighing on you most right now?</h3>
+        <p class="prompt">Choose the pressure that is heaviest. One only.</p>
+        <div class="options" id="options"></div>
+      </div>
+    </div>
+
+    <div id="result" hidden>
+      <svg class="emblem" viewBox="0 0 24 28" aria-hidden="true">
+        <line x1="12" y1="26" x2="12" y2="8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+        <circle cx="12" cy="5" r="2.2" fill="none" stroke="currentColor" stroke-width="1.35"/>
+        <line x1="8" y1="14" x2="16" y2="14" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
+        <line x1="9" y1="18.5" x2="15" y2="18.5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+      </svg>
+      <h2>Three days</h2>
+      <div class="result-days" id="days"></div>
+      <div class="sheet-link" id="sheet"></div>
+      <div class="day-nav" style="margin-top:2.5rem;">
+        <a href="#" id="restart">← Begin again</a>
+        <a href="index.html">Home</a>
+      </div>
+    </div>
+
+    <div class="footer">Where to begin · Julius Evola Daily</div>
+  </div>
+
+  <script src="theme.js" defer></script>
+  <script>
+    const rounds = [
+      {
+        q: "What is weighing on you most right now?",
+        prompt: "Choose the pressure that is heaviest. One only.",
+        options: [
+          "Nothing holds. Days pass and nothing feels solid or worth building on.",
+          "You are softer than you should be. Force is missing when it is needed.",
+          "Everything is measured by money, numbers, or what other people think.",
+          "Rank and lasting form feel gone. Nothing seems to have real authority, and nothing you build stays standing.",
+          "Desire, what comes out of your mouth, or the body itself is where you keep giving way."
+        ]
+      },
+      {
+        q: "Where does it show up first in the day?",
+        prompt: "The place the pressure meets ordinary life.",
+        options: [
+          "The first hour. How the morning starts decides the rest.",
+          "Work. What you do for a living and how you do it.",
+          "What you say. Ordinary conversations and what comes out of your mouth.",
+          "When you are alone. The hours with no one watching.",
+          "The body. Posture, strength, and whether you can still impose order on it."
+        ]
+      },
+      {
+        q: "How are you meeting it at the moment?",
+        prompt: "The stance you are already taking.",
+        options: [
+          "You adjust. The standard moves when the day gets hard.",
+          "You push back hard, but most of the force is spent against the world instead of under a clear measure.",
+          "You have mostly accepted it. This is just how things are now.",
+          "You are still standing, but without a clear line or any continuity from one day to the next.",
+          "You already know the direction. You need the demand made sharper in ordinary life."
+        ]
+      }
+    ];
+
+    const terminals = {
+      "0-3-3": { days: [[1,"What Tradition Means"],[9,"The Lost Center"],[56,"Interior Distance"]], sheet: ["sheet-standing","Remaining Standing"] },
+      "1-4-0": { days: [[28,"Softness and the Decline of Virility"],[76,"Detachment"],[108,"The Ordinary Day"]], sheet: ["sheet-body","The Body"] },
+      "2-1-1": { days: [[22,"The Reign of the Economy"],[101,"Action under Pressure"],[122,"Work"]], sheet: ["sheet-work","Work"] },
+      "3-2-2": { days: [[18,"Dissolution of Forms"],[31,"Rootlessness"],[122,"Speech"]], sheet: ["sheet-speech","Speech"] },
+      "4-0-4": { days: [[119,"The Morning"],[108,"The Ordinary Day"],[125,"Desire"]], sheet: ["sheet-morning","The Morning"] }
+    };
+
+    let step = 0;
+    let picks = [];
+
+    function renderOptions() {
+      const r = rounds[step];
+      document.getElementById("progress").textContent = "Round " + (step+1) + " of 3";
+      document.querySelector("#round h3").textContent = r.q;
+      document.querySelector("#round .prompt").textContent = r.prompt;
+      const box = document.getElementById("options");
+      box.innerHTML = "";
+      r.options.forEach((text, i) => {
+        const btn = document.createElement("button");
+        btn.className = "option";
+        btn.textContent = text;
+        btn.onclick = () => select(i);
+        box.appendChild(btn);
+      });
+    }
+
+    function select(i) {
+      picks[step] = i;
+      step++;
+      if (step < 3) {
+        renderOptions();
+      } else {
+        showResult();
+      }
+    }
+
+    function showResult() {
+      document.getElementById("flow").hidden = true;
+      document.getElementById("result").hidden = false;
+      const key = picks.join("-");
+      const t = terminals[key] || terminals["0-3-3"];
+      const daysEl = document.getElementById("days");
+      daysEl.innerHTML = t.days.map(d => `<a href="day-${String(d[0]).padStart(2,"0")}">Day ${d[0]} — ${d[1]}</a>`).join("");
+      const sheetEl = document.getElementById("sheet");
+      sheetEl.innerHTML = `<p>Most relevant sheet</p><a href="${t.sheet[0]}">${t.sheet[1]}</a>`;
+    }
+
+    document.getElementById("restart").onclick = (e) => {
+      e.preventDefault();
+      step = 0; picks = [];
+      document.getElementById("result").hidden = true;
+      document.getElementById("flow").hidden = false;
+      renderOptions();
+    };
+
+    renderOptions();
+  </script>
+</body>
+</html>
