@@ -270,6 +270,33 @@
     right.insertBefore(wrap, right.firstChild);
   }
 
+  function injectDayJump() {
+    var info = pathInfo();
+    if (!info.dayNum) return;
+    var dayNav = document.querySelector('.day-nav');
+    if (!dayNav || dayNav.querySelector('.day-jump')) return;
+
+    var select = document.createElement('select');
+    select.className = 'day-jump';
+    select.setAttribute('aria-label', 'Jump to day');
+    var prefix = info.lang === 'en' ? '/' : '/' + info.lang + '/';
+    var labelPrefix = info.lang === 'de' ? 'Tag ' : info.lang === 'it' ? 'Giorno ' : 'Day ';
+    for (var i = 1; i <= 365; i++) {
+      var opt = document.createElement('option');
+      opt.value = prefix + dayFile(i);
+      opt.textContent = labelPrefix + i;
+      if (i === info.dayNum) opt.selected = true;
+      select.appendChild(opt);
+    }
+    select.addEventListener('change', function () {
+      if (select.value) location.href = select.value;
+    });
+
+    var nextLink = dayNav.children[1];
+    if (nextLink) dayNav.insertBefore(select, nextLink);
+    else dayNav.appendChild(select);
+  }
+
   var right = ensureHeaderRight();
   var toggle = document.getElementById('themeToggle');
   if (toggle) {
@@ -288,6 +315,7 @@
   }
   if (right) buildLangControl(right);
   rebuildNav();
+  injectDayJump();
 
   var UI = {
     en: { home: 'Home', today: 'Today', sheets: 'Sheets', begin: 'Where to begin', books: 'Books', month: 'Month' },
