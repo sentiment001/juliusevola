@@ -596,3 +596,48 @@ a.lang-option:hover {
     padding: 0 0.7rem;
   }
 }
+
+/* Mobile Book Reading Canvas Fixes */
+@media (max-width: 767px) {
+  .book-container, 
+  main.book-content {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Prevent TOC Accordion from clipping reading body */
+  .mobile-toc-accordion {
+    width: 100%;
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--border, #e0e0e0);
+    border-radius: 6px;
+    background-color: var(--bg, #fcfcfc);
+  }
+
+  .mobile-toc-accordion summary {
+    padding: 0.75rem 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .mobile-toc-accordion .chapter-list {
+    max-height: 40vh;
+    overflow-y: auto;
+    padding: 0.5rem 1rem 1rem;
+    margin: 0;
+  }
+
+  /* Force distinct reading body placement */
+  .book-reading-body {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-top: 1rem;
+  }
+}
